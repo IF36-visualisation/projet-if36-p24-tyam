@@ -19,7 +19,41 @@ Le jeu de données est dispoible sur [Cette page Kaggle] (https://www.kaggle.com
 
 ## Données
 
-
+| Attribut       | Explication                                | Type        | Nombre d'observations |
+|----------------|--------------------------------------------|-------------|-----------------------|
+| seas_id        | Identifiant de la saison                   | Texte       | 31136                 |
+| season         | Saison de jeu                               | Texte       | 31136                 |
+| vpn_key        | Clé virtuelle privée                        | Texte       | 31136                 |
+| player_id      | Identifiant du joueur                      | Texte       | 31136                 |
+| text_format    | Format de texte                            | Texte       | 31136                 |
+| birth_year     | Année de naissance du joueur               | Texte       | 31136                 |
+| pos            | Position du joueur sur le terrain          | Texte       | 31136                 |
+| age            | Âge du joueur                              | Numérique   | 31136                 |
+| experience     | Expérience du joueur en années             | Texte       | 31136                 |
+| lg             | Ligue du joueur                            | Texte       | 31136                 |
+| tm             | Équipe du joueur                           | Texte       | 31136                 |
+| g              | Nombre de matchs joués                     | Numérique   | 31136                 |
+| mp             | Minutes jouées                             | Numérique   | 31136                 |
+| per            | Efficacité du joueur                       | Texte       | 31136                 |
+| ts_percent     | Pourcentage de tirs réussis                | Texte       | 31136                 |
+| x3p_ar         | Ratio de tentatives à 3 points             | Texte       | 31136                 |
+| f_tr           | Ratio de lancers francs                    | Numérique   | 31136                 |
+| orb_percent    | Pourcentage de rebonds offensifs           | Numérique   | 31136                 |
+| drb_percent    | Pourcentage de rebonds défensifs           | Numérique   | 31136                 |
+| trb_percent    | Pourcentage de rebonds totaux              | Numérique   | 31136                 |
+| ast_percent    | Pourcentage d'assists                      | Numérique   | 31136                 |
+| stl_percent    | Pourcentage d'interceptions                | Numérique   | 31136                 |
+| blk_percent    | Pourcentage de blocs                       | Texte       | 31136                 |
+| tov_percent    | Pourcentage de pertes de balle             | Numérique   | 31136                 |
+| usg_percent    | Pourcentage d'utilisation                  | Numérique   | 31136                 |
+| ows            | Victoires générées par le joueur           | Numérique   | 31136                 |
+| dws            | Défaites générées par le joueur            | Numérique   | 31136                 |
+| ws             | Victoires moins les défaites               | Numérique   | 31136                 |
+| ws_48          | Victoires moins les défaites par minute    | Numérique   | 31136                 |
+| obpm           | Moyenne des points marqués par possession  | Numérique   | 31136                 |
+| dbpm           | Moyenne des points encaissés par possession | Numérique | 31136                 |
+| bpm            | Moyenne des points nets par possession     | Numérique   | 31136                 |
+| vorp           | Valeur des points au-dessus du remplacement | Numérique | 31136                 |
 
 ## Plan d'analyse
 
