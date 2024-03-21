@@ -18,7 +18,7 @@ En effet, ce site contient toutes les informations sur les statistiques, les sco
 Le jeu de données est dispoible sur [Cette page Kaggle] (https://www.kaggle.com/datasets/sumitrodatta/nba-aba-baa-stats?select=Opponent+Stats+Per+Game.csv) et a été publié par [**Sumitro Datta**], un data management consultant chez __Pacific Lif Re__.
 
 ## Données
-### Advance.csv
+### * Advance.csv
 
 #### Nombre d'observations (31136)
 
@@ -58,7 +58,7 @@ Le jeu de données est dispoible sur [Cette page Kaggle] (https://www.kaggle.com
 | bpm            | Moyenne des points nets par possession     | Numérique   |
 | vorp           | Valeur des points au-dessus du remplacement | Numérique |
 
-### All Star selections.csv
+### * All Star selections.csv
 
 #### Nombre d'observations (524)
 
@@ -70,7 +70,7 @@ Le jeu de données est dispoible sur [Cette page Kaggle] (https://www.kaggle.com
 | season     | Saison de sélection          | Texte    |
 | replaced   | Remplacé ou non   | Booléen  |
 
-### End of Season Teams.csv
+### * End of Season Teams.csv
 
 #### Nombre d'observations (4824)
 
@@ -93,7 +93,7 @@ Le jeu de données est dispoible sur [Cette page Kaggle] (https://www.kaggle.com
 | seas_id     | Identifiant de la saison                  | Numérique |
 | player_id   | Identifiant du joueur                     | Numérique |
 
-### End of Season Teams.csv
+### * End of Season Teams.csv
 
 #### Nombre d'observations (30400)
 
@@ -111,7 +111,7 @@ Le jeu de données est dispoible sur [Cette page Kaggle] (https://www.kaggle.com
 | tm          | Équipe du joueur                          | Texte     |
 | age         | Âge du joueur                             | Numérique |
 
-### Opponent Stats Per 100 Poss.csv
+### * Opponent Stats Per 100 Poss.csv
 
 #### Nombre d'observations (X)
 
