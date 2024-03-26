@@ -147,5 +147,155 @@ Le jeu de données est dispoible sur [Cette page Kaggle] (https://www.kaggle.com
 | opp_pts_per_100_poss  | Points adverses par 100 possessions         | Numérique   |
 
 
+### * Team Abbrev.csv
+
+| Attribut       | Explication                  | Type    |
+|----------------|------------------------------|---------|
+| season         | Saison                       | Texte   |
+| lg             | Ligue                        | Texte   |
+| team           | Équipe                       | Texte   |
+| playoffs       | Participation aux playoffs   | Booléen |
+| abbreviation   | Abréviation de l'équipe      | Texte   |
+
+
+### * Team Stats per 100 Poss.csv
+
+| Attribut            | Explication                                 | Type      |
+|---------------------|---------------------------------------------|-----------|
+| season              | Saison                                      | Texte     |
+| lg                  | Ligue                                       | Texte     |
+| team                | Équipe                                      | Texte     |
+| abbreviation        | Abréviation de l'équipe                     | Texte     |
+| playoffs            | Participation aux playoffs                  | Booléen   |
+| g                   | Nombre de matchs joués                      | Numérique |
+| mp                  | Minutes jouées                              | Numérique |
+| fg_per_100_poss     | Paniers réussis                             | Numérique |
+| fga_per_100_poss    | Tentatives de paniers                       | Numérique |
+| fg_percent          | Pourcentage de réussite aux paniers         | Numérique |
+| x3p_per_100_poss    | Paniers à trois points réussis              | Numérique |
+| x3pa_per_100_poss   | Tentatives de paniers à trois points        | Numérique |
+| x3p_percent         | Pourcentage de réussite aux paniers à trois | Numérique |
+| x2p_per_100_poss    | Paniers à deux points réussis               | Numérique |
+| x2pa_per_100_poss   | Tentatives de paniers à deux points         | Numérique |
+| x2p_percent         | Pourcentage de réussite aux paniers à deux  | Numérique |
+| ft_per_100_poss     | Lancers francs réussis                      | Numérique |
+| fta_per_100_poss    | Tentatives de lancers francs                | Numérique |
+| ft_percent          | Pourcentage de réussite aux lancers francs  | Numérique |
+| orb_per_100_poss    | Rebonds offensifs                           | Numérique |
+| drb_per_100_poss    | Rebonds défensifs                           | Numérique |
+| trb_per_100_poss    | Total des rebonds                           | Numérique |
+| ast_per_100_poss    | Passes décisives                            | Numérique |
+| stl_per_100_poss    | Interceptions                               | Numérique |
+| blk_per_100_poss    | Contres                                     | Numérique |
+| tov_per_100_poss    | Balles perdues                              | Numérique |
+| pf_per_100_poss     | Fautes personnelles                         | Numérique |
+| pts_per_100_poss    | Points                                      | Numérique |
+
+
+### * Team Stats Per Game.csv
+
+| Attribut         | Explication                                 | Type      |
+|------------------|---------------------------------------------|-----------|
+| season           | Saison                                      | Texte     |
+| lg               | Ligue                                       | Texte     |
+| team             | Équipe                                      | Texte     |
+| abbreviation     | Abréviation de l'équipe                     | Texte     |
+| playoffs         | Participation aux playoffs                  | Booléen   |
+| g                | Nombre de matchs joués                      | Numérique |
+| mp_per_game      | Minutes par match                           | Numérique |
+| fg_per_game      | Paniers réussis par match                   | Numérique |
+| fga_per_game     | Tentatives de paniers par match             | Numérique |
+| fg_percent       | Pourcentage de réussite aux paniers         | Numérique |
+| x3p_per_game     | Paniers à trois points réussis par match    | Numérique |
+| x3pa_per_game    | Tentatives de paniers à trois points        | Numérique |
+| x3p_percent      | Pourcentage de réussite aux paniers à trois | Numérique |
+| x2p_per_game     | Paniers à deux points réussis par match     | Numérique |
+| x2pa_per_game    | Tentatives de paniers à deux points         | Numérique |
+| x2p_percent      | Pourcentage de réussite aux paniers à deux  | Numérique |
+| ft_per_game      | Lancers francs réussis par match            | Numérique |
+| fta_per_game     | Tentatives de lancers francs par match      | Numérique |
+| ft_percent       | Pourcentage de réussite aux lancers francs  | Numérique |
+| orb_per_game     | Rebonds offensifs par match                 | Numérique |
+| drb_per_game     | Rebonds défensifs par match                 | Numérique |
+| trb_per_game     | Total des rebonds par match                 | Numérique |
+| ast_per_game     | Passes décisives par match                  | Numérique |
+| stl_per_game     | Interceptions par match                     | Numérique |
+| blk_per_game     | Contres par match                           | Numérique |
+| tov_per_game     | Balles perdues par match                    | Numérique |
+| pf_per_game      | Fautes personnelles par match               | Numérique |
+| pts_per_game     | Points par match                            | Numérique |
+
+
+### * Team Summaries.csv
+
+| Attribut           | Explication                                                                                                                                                                                                                                                                                                                        | Type      |
+|--------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|
+| season             | Saison                                                                                                                                                                                                                                                                                                                             | Texte     |
+| lg                 | Ligue                                                                                                                                                                                                                                                                                                                              | Texte     |
+| team               | Équipe                                                                                                                                                                                                                                                                                                                             | Texte     |
+| abbreviation       | Abréviation de l'équipe                                                                                                                                                                                                                                                                                                            | Texte     |
+| playoffs           | Participation aux playoffs                                                                                                                                                                                                                                                                                                         | Booléen   |
+| age                | Âge moyen des joueurs de l'équipe                                                                                                                                                                                                                                                                                                  | Numérique |
+| w                  | Victoires                                                                                                                                                                                                                                                                                                                          | Numérique |
+| l                  | Défaites                                                                                                                                                                                                                                                                                                                           | Numérique |
+| pw                 | Victoires pondérées                                                                                                                                                                                                                                                                                                                | Numérique |
+| pl                 | Défaites pondérées                                                                                                                                                                                                                                                                                                                 | Numérique |
+| mov                | Marge de victoire moyenne                                                                                                                                                                                                                                                                                                          | Numérique |
+| sos                | Force de l'opposition (Permet d’évaluer la difficulté d’un calendrier en fonction du nombre de matchs disputés contre les mieux classés. Utile quand en NBA chaque équipe ne joue pas le même nombre de fois les unes contre les autres. La moyenne est fixée à zéro. Plus la note est haute et plus le calendrier est difficile.) | Numérique |
+| srs                | Score relatif de l'équipe                                                                                                                                                                                                                                                                                                          | Numérique |
+| o_rtg              | Cote offensive                                                                                                                                                                                                                                                                                                                     | Numérique |
+| d_rtg              | Cote défensive                                                                                                                                                                                                                                                                                                                     | Numérique |
+| n_rtg              | Cote nette                                                                                                                                                                                                                                                                                                                         | Numérique |
+| pace               | Estimation du nombre de possessions en 48 minutes                                                                                                                                                                                                                                                                                  | Numérique |
+| f_tr               | Fréquence de lancer franc                                                                                                                                                                                                                                                                                                          | Numérique |
+| x3p_ar             | Taux de tentatives à trois points                                                                                                                                                                                                                                                                                                  | Numérique |
+| ts_percent         | Pourcentage de vrai tir                                                                                                                                                                                                                                                                                                            | Numérique |
+| e_fg_percent       | Pourcentage de tir effectif                                                                                                                                                                                                                                                                                                        | Numérique |
+| tov_percent        | Pourcentage de perte de balle                                                                                                                                                                                                                                                                                                      | Numérique |
+| orb_percent        | Pourcentage de rebond offensif                                                                                                                                                                                                                                                                                                     | Numérique |
+| ft_fga             | Ratio lancers francs par tentative de tir                                                                                                                                                                                                                                                                                          | Numérique |
+| opp_e_fg_percent   | Pourcentage de tir effectif de l'adversaire                                                                                                                                                                                                                                                                                        | Numérique |
+| opp_tov_percent   | Pourcentage de perte de balle de l'adversaire                                                                                                                                                                                                                                                                                      | Numérique |
+| opp_drb_percent   | Pourcentage de rebond défensif de l'adversaire                                                                                                                                                                                                                                                                                     | Numérique |
+| opp_ft_fga         | Ratio lancers francs de l'adversaire                                                                                                                                                                                                                                                                                               | Numérique |
+| arena              | Arène où se déroulent les matchs                                                                                                                                                                                                                                                                                                   | Texte     |
+| attend             | Nombre total de spectateurs                                                                                                                                                                                                                                                                                                        | Numérique |
+| attend_g           | Nombre moyen de spectateurs par match                                                                                                                                                                                                                                                                                              | Numérique |
+
+
+### * Team Totals.csv
+
+| Attribut      | Explication                                    | Type      |
+|---------------|------------------------------------------------|-----------|
+| season        | Saison                                         | Texte     |
+| lg            | Ligue                                          | Texte     |
+| team          | Équipe                                         | Texte     |
+| abbreviation  | Abréviation de l'équipe                        | Texte     |
+| playoffs      | Participation aux playoffs                     | Booléen   |
+| g             | Nombre de matchs joués                         | Numérique |
+| mp            | Minutes jouées                                 | Numérique |
+| fg            | Paniers réussis                                | Numérique |
+| fga           | Tentatives de paniers                          | Numérique |
+| fg_percent    | Pourcentage de réussite aux paniers            | Numérique |
+| x3p           | Paniers à trois points réussis                 | Numérique |
+| x3pa          | Tentatives de paniers à trois points           | Numérique |
+| x3p_percent   | Pourcentage de réussite aux paniers à trois    | Numérique |
+| x2p           | Paniers à deux points réussis                  | Numérique |
+| x2pa          | Tentatives de paniers à deux points            | Numérique |
+| x2p_percent   | Pourcentage de réussite aux paniers à deux     | Numérique |
+| ft            | Lancers francs réussis                         | Numérique |
+| fta           | Tentatives de lancers francs                   | Numérique |
+| ft_percent    | Pourcentage de réussite aux lancers francs     | Numérique |
+| orb           | Rebonds offensifs                              | Numérique |
+| drb           | Rebonds défensifs                              | Numérique |
+| trb           | Total des rebonds                              | Numérique |
+| ast           | Passes décisives                               | Numérique |
+| stl           | Interceptions                                  | Numérique |
+| blk           | Contres                                        | Numérique |
+| tov           | Balles perdues                                 | Numérique |
+| pf            | Fautes personnelles                            | Numérique |
+| pts           | Points                                         | Numérique |
+
+
 ## Plan d'analyse
 
