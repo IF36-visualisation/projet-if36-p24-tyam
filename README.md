@@ -667,6 +667,7 @@ Pour faciliter l'exploration et l'utilisation de ce dataset, chaque joueur poss�
 Voici les questions que nous avons élaboré pour pouvoir étudier notre jeu de données : 
 
 __1- Est que le MVP est forcément qualifié au playoff ou gagnant de cette compétition ?__
+
 Description : 
 En effet, lorsqu'on se pose cette question, nous voudrons savoir si le MVP a un grand impact sur la qualification de son équipe au play-offs ou il est aussi important de comparer combien de fois le MVP n'a pas été qualifié en playoffs ou n'a pas remporté le championnat.
 Il est important de répondre à cette question afin de comprendre si l'aspect individuel ou collectif est le plus important à la victoire ainsi cela va nous montrer si la présence de joueur star va être synonyme de succès.
@@ -679,6 +680,7 @@ Pour ce qui concerne les visualisations, nous avons réfléchi aux visualisation
 *Un graphique en nuage de points avec une ligne de tendance pour visualiser la corrélation entre le fait d'être élu MVP et la qualification en playoffs, ou entre le fait d'être élu MVP et la victoire du championnat.
 
 __2- Quelle est la différence entre le basket d'aujourd'hui et celui d'autrefois ?__
+
 Description :
 Lorsque nous abordons la différence entre le basket d'aujourd'hui et celui d'autrefois, nous souhaitons savoir comment le style de jeu a évolué au fils des années est ce que les équipes sont plus offensives, est ce que les équipes marquent plus en trois points ...
 La réponse à cette question va nous mettre en lumière la manière dont ce sport a évolué au fils des années.  
