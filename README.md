@@ -15,7 +15,7 @@ En effet, ce site contient toutes les informations sur les statistiques, les sco
 Le jeu de données est disponible sur [Cette page Kaggle] (https://www.kaggle.com/datasets/sumitrodatta/nba-aba-baa-stats?select=Opponent+Stats+Per+Game.csv) et a été publié par [**Sumitro Datta**], un data management consultant chez __Pacific Lif Re__.
 
 ## Données
-Notre dataset est composé de 21 fichiers et de 499 colonnes montrant l'évolution de la NBA au fil de l'histoire. Comme nous l'avons mentionné auparavant nous avons deux types de fichiers : d'une part les fichiers cotés joueurs donnant une description du joueur et ses statistiques au sein de la saison et d'autre part nous avons les fichiers cotés équipes contenant les informations sur l'avancement de l'équipe. 
+Notre dataset est composé de 21 fichiers et de 499 colonnes montrant l'évolution de la NBA au fil de l'histoire. Comme nous l'avons mentionné auparavant nous avons deux types de fichiers : d'une part les fichiers cotés joueurs donnant une description du joueur et ses statistiques au sein de la saison et d'autre part nous avons les fichiers cotés équipes contenant les informations sur l'avancement de l'équipe. Il n'y a pas de catégories ou des sous-groupes au sein de notre dataset. 
 
 Pour faciliter l'exploration et l'utilisation de ce dataset, chaque joueur possède un identifiant unique par joueur afin de faciliter l'aggrégation des différents fichiers présents. 
 ### * Advance.csv
