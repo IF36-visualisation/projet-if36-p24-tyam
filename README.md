@@ -488,178 +488,179 @@ Pour faciliter l'exploration et l'utilisation de ce dataset, chaque joueur poss�
 
 #### Nombre d'observations(31815)
 
-| Attribut       | Explication                                    | Type      |
-|----------------|------------------------------------------------|-----------|
-| seas_id        | Identifiant de la saison                       | Numérique |
-| season         | Saison de la ligue                              | Texte     |
-| player_id      | Identifiant du joueur                          | Numérique |
-| player         | Nom du joueur                                  | Texte     |
-| birth_year     | Année de naissance du joueur                   | Numérique |
-| pos            | Position du joueur sur le terrain              | Texte     |
-| age            | Âge du joueur                                  | Numérique |
-| experience     | Nombre d'années d'expérience en ligue          | Numérique |
-| lg             | Ligue dans laquelle le joueur évolue           | Texte     |
-| tm             | Équipe du joueur                               | Texte     |
-| g              | Nombre de matchs joués                         | Numérique |
-| gs             | Nombre de matchs joués en tant que titulaire   | Numérique |
-| mp_per_game    | Minutes jouées par match                      | Numérique |
-| fg_per_game    | Paniers réussis par match                      | Numérique |
-| fga_per_game   | Tentatives de paniers par match                | Numérique |
-| fg_percent     | Pourcentage de réussite des paniers            | Numérique |
-| x3p_per_game   | Paniers à 3 points réussis par match           | Numérique |
-| x3pa_per_game  | Tentatives de paniers à 3 points par match     | Numérique |
-| x3p_percent    | Pourcentage de réussite des paniers à 3 points | Numérique |
-| x2p_per_game   | Paniers à 2 points réussis par match           | Numérique |
-| x2pa_per_game  | Tentatives de paniers à 2 points par match     | Numérique |
-| x2p_percent    | Pourcentage de réussite des paniers à 2 points | Numérique |
-| e_fg_percent   | Pourcentage de réussite des tirs effectifs     | Numérique |
-| ft_per_game    | Lancers francs réussis par match               | Numérique |
-| fta_per_game   | Tentatives de lancers francs par match         | Numérique |
-| ft_percent     | Pourcentage de réussite des lancers francs     | Numérique |
-| orb_per_game   | Rebonds offensifs par match                    | Numérique |
-| drb_per_game   | Rebonds défensifs par match                    | Numérique |
-| trb_per_game   | Total des rebonds par match                    | Numérique |
-| ast_per_game   | Passes décisives par match                     | Numérique |
-| stl_per_game   | Interceptions par match                        | Numérique |
-| blk_per_game   | Contres par match                              | Numérique |
-| tov_per_game   | Pertes de balles par match                     | Numérique |
-| pf_per_game    | Fautes personnelles par match                  | Numérique |
-| pts_per_game   | Points marqués par match                       | Numérique |
+| Attribut       | Explication                                    | Type      | Type de donnée | Format de la donnée |
+|----------------|------------------------------------------------|-----------|----------------|---------------------|
+| seas_id        | Identifiant de la saison                       | Numérique | Nominal        | Integer             |
+| season         | Saison de la ligue                              | Texte     | Nominal        | Texte               |
+| player_id      | Identifiant du joueur                          | Numérique | Nominal        | Integer             |
+| player         | Nom du joueur                                  | Texte     | Nominal        | Texte               |
+| birth_year     | Année de naissance du joueur                   | Numérique | Ordinale       | YYYY                |
+| pos            | Position du joueur sur le terrain              | Texte     | Nominal        | Texte               |
+| age            | Âge du joueur                                  | Numérique | Continu        | Integer             |
+| experience     | Nombre d'années d'expérience en ligue          | Numérique | Continu        | Integer             |
+| lg             | Ligue dans laquelle le joueur évolue           | Texte     | Nominal        | Texte               |
+| tm             | Équipe du joueur                               | Texte     | Nominal        | Texte               |
+| g              | Nombre de matchs joués                         | Numérique | Continu        | Integer             |
+| gs             | Nombre de matchs joués en tant que titulaire   | Numérique | Continu        | Integer             |
+| mp_per_game    | Minutes jouées par match                      | Numérique | Continu        | Integer             |
+| fg_per_game    | Paniers réussis par match                      | Numérique | Continu        | Integer             |
+| fga_per_game   | Tentatives de paniers par match                | Numérique | Continu        | Integer             |
+| fg_percent     | Pourcentage de réussite des paniers            | Numérique | Continu        | Pourcentage         |
+| x3p_per_game   | Paniers à 3 points réussis par match           | Numérique | Continu        | Integer             |
+| x3pa_per_game  | Tentatives de paniers à 3 points par match     | Numérique | Continu        | Integer             |
+| x3p_percent    | Pourcentage de réussite des paniers à 3 points | Numérique | Continu        | Pourcentage         |
+| x2p_per_game   | Paniers à 2 points réussis par match           | Numérique | Continu        | Integer             |
+| x2pa_per_game  | Tentatives de paniers à 2 points par match     | Numérique | Continu        | Integer             |
+| x2p_percent    | Pourcentage de réussite des paniers à 2 points | Numérique | Continu        | Pourcentage         |
+| e_fg_percent   | Pourcentage de réussite des tirs effectifs     | Numérique | Continu        | Pourcentage         |
+| ft_per_game    | Lancers francs réussis par match               | Numérique | Continu        | Integer             |
+| fta_per_game   | Tentatives de lancers francs par match         | Numérique | Continu        | Integer             |
+| ft_percent     | Pourcentage de réussite des lancers francs     | Numérique | Continu        | Pourcentage         |
+| orb_per_game   | Rebonds offensifs par match                    | Numérique | Continu        | Integer             |
+| drb_per_game   | Rebonds défensifs par match                    | Numérique | Continu        | Integer             |
+| trb_per_game   | Total des rebonds par match                    | Numérique | Continu        | Integer             |
+| ast_per_game   | Passes décisives par match                     | Numérique | Continu        | Integer             |
+| stl_per_game   | Interceptions par match                        | Numérique | Continu        | Integer             |
+| blk_per_game   | Contres par match                              | Numérique | Continu        | Integer             |
+| tov_per_game   | Pertes de balles par match                     | Numérique | Continu        | Integer             |
+| pf_per_game    | Fautes personnelles par match                  | Numérique | Continu        | Integer             |
+| pts_per_game   | Points marqués par match                       | Numérique | Continu        | Integer             |
+
 
 ### * Player Play By Play.csv
 
 #### Nombre d'observations(16730)
 
-| Attribut                             | Explication                                                   | Type        |
-|--------------------------------------|---------------------------------------------------------------|-------------|
-| seas_id                              | Identifiant de la saison                                      | Numérique   |
-| season                               | Saison de la ligue                                            | Texte       |
-| player_id                            | Identifiant du joueur                                         | Numérique   |
-| player                               | Nom du joueur                                                 | Texte       |
-| birth_year                           | Année de naissance du joueur                                  | Numérique   |
-| pos                                  | Position du joueur sur le terrain                             | Texte       |
-| age                                  | Âge du joueur                                                 | Numérique   |
-| experience                           | Nombre d'années d'expérience en ligue                         | Numérique   |
-| lg                                   | Ligue dans laquelle le joueur évolue                          | Texte       |
-| tm                                   | Équipe du joueur                                              | Texte       |
-| g                                    | Nombre de matchs joués                                        | Numérique   |
-| mp                                   | Minutes jouées par match                                      | Numérique   |
-| fg_percent                           | Pourcentage de réussite des tirs                               | Numérique   |
-| sg_percent                           | Pourcentage de réussite des tirs au poste de shooting guard   | Numérique   |
-| sf_percent                           | Pourcentage de réussite des tirs au poste de small forward    | Numérique   |
-| pf_percent                           | Pourcentage de réussite des tirs au poste de power forward    | Numérique   |
-| c_percent                            | Pourcentage de réussite des tirs au poste de center           | Numérique   |
-| on_court_plus_minus_per_100_poss    | Différentiel de points marqués par 100 possessions quand sur le terrain | Numérique |
-| net_plus_minus_per_100_poss         | Différentiel de points nets par 100 possessions               | Numérique   |
-| bad_pass_turnover                   | Nombre de pertes de balle dues à des mauvaises passes        | Numérique   |
-| lost_ball_turnover                  | Nombre de pertes de balle dues à des balles perdues          | Numérique   |
-| shooting_foul_committed             | Nombre de fautes de tir commises                              | Numérique   |
-| offensive_foul_committed            | Nombre de fautes offensives commises                          | Numérique   |
-| shooting_foul_drawn                 | Nombre de fautes de tir subies                                | Numérique   |
-| offensive_foul_drawn                | Nombre de fautes offensives subies                            | Numérique   |
-| points_generated_by_assists         | Points générés par des passes décisives                       | Numérique   |
-| and1                                | Nombre de tirs réussis malgré une faute et convertis en un panier supplémentaire | Numérique |
-| fga_blocked                         | Nombre de tentatives de tirs bloquées                         | Numérique   |
+| Attribut                             | Explication                                                   | Type        | Type de donnée | Format de la donnée |
+|--------------------------------------|---------------------------------------------------------------|-------------|----------------|---------------------|
+| seas_id                              | Identifiant de la saison                                      | Numérique   | Nominal        | Integer             |
+| season                               | Saison de la ligue                                            | Texte       | Nominal        | Texte               |
+| player_id                            | Identifiant du joueur                                         | Numérique   | Nominal        | Integer             |
+| player                               | Nom du joueur                                                 | Texte       | Nominal        | Texte               |
+| birth_year                           | Année de naissance du joueur                                  | Numérique   | Ordinal        | YYYY                |
+| pos                                  | Position du joueur sur le terrain                             | Texte       | Nominal        | Texte               |
+| age                                  | Âge du joueur                                                 | Numérique   | Continu        | Integer             |
+| experience                           | Nombre d'années d'expérience en ligue                         | Numérique   | Continu        | Integer             |
+| lg                                   | Ligue dans laquelle le joueur évolue                          | Texte       | Nominal        | Texte               |
+| tm                                   | Équipe du joueur                                              | Texte       | Nominal        | Texte               |
+| g                                    | Nombre de matchs joués                                        | Numérique   | Continu        | Integer             |
+| mp                                   | Minutes jouées par match                                      | Numérique   | Continu        | Integer             |
+| fg_percent                           | Pourcentage de réussite des tirs                               | Numérique   | Continu        | Pourcentage         |
+| sg_percent                           | Pourcentage de réussite des tirs au poste de shooting guard   | Numérique   | Continu        | Pourcentage         |
+| sf_percent                           | Pourcentage de réussite des tirs au poste de small forward    | Numérique   | Continu        | Pourcentage         |
+| pf_percent                           | Pourcentage de réussite des tirs au poste de power forward    | Numérique   | Continu        | Pourcentage         |
+| c_percent                            | Pourcentage de réussite des tirs au poste de center           | Numérique   | Continu        | Pourcentage         |
+| on_court_plus_minus_per_100_poss    | Différentiel de points marqués par 100 possessions quand sur le terrain | Numérique | Continu        | Integer             |
+| net_plus_minus_per_100_poss         | Différentiel de points nets par 100 possessions               | Numérique   | Continu        | Integer             |
+| bad_pass_turnover                   | Nombre de pertes de balle dues à des mauvaises passes        | Numérique   | Continu        | Integer             |
+| lost_ball_turnover                  | Nombre de pertes de balle dues à des balles perdues          | Numérique   | Continu        | Integer             |
+| shooting_foul_committed             | Nombre de fautes de tir commises                              | Numérique   | Continu        | Integer             |
+| offensive_foul_committed            | Nombre de fautes offensives commises                          | Numérique   | Continu        | Integer             |
+| shooting_foul_drawn                 | Nombre de fautes de tir subies                                | Numérique   | Continu        | Integer             |
+| offensive_foul_drawn                | Nombre de fautes offensives subies                            | Numérique   | Continu        | Integer             |
+| points_generated_by_assists         | Points générés par des passes décisives                       | Numérique   | Continu        | Integer             |
+| and1                                | Nombre de tirs réussis malgré une faute et convertis en un panier supplémentaire | Numérique | Continu        | Integer             |
+| fga_blocked                         | Nombre de tentatives de tirs bloquées                         | Numérique   | Continu        | Integer             |
+
 
 ### * Player Season Info.csv
 
 #### Nombre d'observations(31815)
 
-| Attribut     | Explication                             | Type      |
-|--------------|-----------------------------------------|-----------|
-| season       | Saison de la ligue                      | Texte     |
-| seas_id      | Identifiant de la saison                | Numérique |
-| player_id    | Identifiant du joueur                   | Numérique |
-| player       | Nom du joueur                           | Texte     |
-| birth_year   | Année de naissance du joueur            | Numérique |
-| pos          | Position du joueur sur le terrain       | Texte     |
-| age          | Âge du joueur                           | Numérique |
-| lg           | Ligue dans laquelle le joueur évolue    | Texte     |
-| tm           | Équipe du joueur                        | Texte     |
-| experience   | Nombre d'années d'expérience en ligue  | Numérique |
+| Attribut     | Explication                             | Type      | Type de donnée | Format de la donnée |
+|--------------|-----------------------------------------|-----------|----------------|---------------------|
+| season       | Saison de la ligue                      | Texte     | Nominal        | Texte               |
+| seas_id      | Identifiant de la saison                | Numérique | Nominal        | Integer             |
+| player_id    | Identifiant du joueur                   | Numérique | Nominal        | Integer             |
+| player       | Nom du joueur                           | Texte     | Nominal        | Texte               |
+| birth_year   | Année de naissance du joueur            | Numérique | Ordinal        | YYYY                |
+| pos          | Position du joueur sur le terrain       | Texte     | Nominal        | Texte               |
+| age          | Âge du joueur                           | Numérique | Continu        | Integer             |
+| lg           | Ligue dans laquelle le joueur évolue    | Texte     | Nominal        | Texte               |
+| tm           | Équipe du joueur                        | Texte     | Nominal        | Texte               |
+| experience   | Nombre d'années d'expérience en ligue  | Numérique | Continu        | Integer             |
+
 
 ### * Player Shooting.csv
 
 #### Nombre d'observations(16730)
 
-| Attribut                           | Explication                                                   | Type        |
-|------------------------------------|---------------------------------------------------------------|-------------|
-| seas_id                            | Identifiant de la saison                                      | Numérique   |
-| season                             | Saison de la ligue                                            | Texte       |
-| player_id                          | Identifiant du joueur                                         | Numérique   |
-| player                             | Nom du joueur                                                 | Texte       |
-| birth_year                         | Année de naissance du joueur                                  | Numérique   |
-| pos                                | Position du joueur sur le terrain                             | Texte       |
-| age                                | Âge du joueur                                                 | Numérique   |
-| experience                         | Nombre d'années d'expérience en ligue                         | Numérique   |
-| lg                                 | Ligue dans laquelle le joueur évolue                          | Texte       |
-| tm                                 | Équipe du joueur                                              | Texte       |
-| g                                  | Nombre de matchs joués                                        | Numérique   |
-| mp                                 | Minutes jouées par match                                      | Numérique   |
-| fg_percent                         | Pourcentage de réussite des tirs                               | Numérique   |
-| avg_dist_fga                       | Distance moyenne des tentatives de tirs                        | Numérique   |
-| percent_fga_from_x2p_range        | Pourcentage de tentatives de tirs provenant de 2 points        | Numérique   |
-| percent_fga_from_x0_3_range       | Pourcentage de tentatives de tirs provenant de 0-3 pieds      | Numérique   |
-| percent_fga_from_x3_10_range      | Pourcentage de tentatives de tirs provenant de 3-10 pieds     | Numérique   |
-| percent_fga_from_x10_16_range     | Pourcentage de tentatives de tirs provenant de 10-16 pieds    | Numérique   |
-| percent_fga_from_x16_3p_range     | Pourcentage de tentatives de tirs provenant de 16 pieds-3 points | Numérique |
-| percent_fga_from_x3p_range        | Pourcentage de tentatives de tirs à 3 points                  | Numérique   |
-| fg_percent_from_x2p_range         | Pourcentage de réussite des tirs provenant de 2 points        | Numérique   |
-| fg_percent_from_x0_3_range        | Pourcentage de réussite des tirs provenant de 0-3 pieds      | Numérique   |
-| fg_percent_from_x3_10_range       | Pourcentage de réussite des tirs provenant de 3-10 pieds     | Numérique   |
-| fg_percent_from_x10_16_range      | Pourcentage de réussite des tirs provenant de 10-16 pieds    | Numérique   |
-| fg_percent_from_x16_3p_range      | Pourcentage de réussite des tirs provenant de 16 pieds-3 points | Numérique |
-| fg_percent_from_x3p_range         | Pourcentage de réussite des tirs à 3 points                  | Numérique   |
-| percent_assisted_x2p_fg           | Pourcentage de paniers à 2 points assistés                   | Numérique   |
-| percent_assisted_x3p_fg           | Pourcentage de paniers à 3 points assistés                   | Numérique   |
-| percent_dunks_of_fga              | Pourcentage de dunks parmi les tentatives de tirs            | Numérique   |
-| num_of_dunks                      | Nombre de dunks                                               | Numérique   |
-| percent_corner_3s_of_3pa          | Pourcentage de tirs à 3 points venant des coins du terrain parmi les tentatives à 3 points | Numérique |
-| corner_3_point_percent            | Pourcentage de réussite des tirs à 3 points venant des coins du terrain | Numérique   |
-| num_heaves_attempted              | Nombre de tentatives de tirs de dernier recours               | Numérique   |
-| num_heaves_made                   | Nombre de tirs de dernier recours réussis                    | Numérique   |
+| Attribut                           | Explication                                                   | Type        | Type de donnée | Format de la donnée |
+|------------------------------------|---------------------------------------------------------------|-------------|----------------|---------------------|
+| seas_id                            | Identifiant de la saison                                      | Numérique   | Nominal        | Integer             |
+| season                             | Saison de la ligue                                            | Texte       | Nominal        | Texte               |
+| player_id                          | Identifiant du joueur                                         | Numérique   | Nominal        | Integer             |
+| player                             | Nom du joueur                                                 | Texte       | Nominal        | Texte               |
+| birth_year                         | Année de naissance du joueur                                  | Numérique   | Ordinal        | YYYY                |
+| pos                                | Position du joueur sur le terrain                             | Texte       | Nominal        | Texte               |
+| age                                | Âge du joueur                                                 | Numérique   | Continu        | Integer             |
+| experience                         | Nombre d'années d'expérience en ligue                         | Numérique   | Continu        | Integer             |
+| lg                                 | Ligue dans laquelle le joueur évolue                          | Texte       | Nominal        | Texte               |
+| tm                                 | Équipe du joueur                                              | Texte       | Nominal        | Texte               |
+| g                                  | Nombre de matchs joués                                        | Numérique   | Continu        | Integer             |
+| mp                                 | Minutes jouées par match                                      | Numérique   | Continu        | Integer             |
+| fg_percent                         | Pourcentage de réussite des tirs                               | Numérique   | Continu        | Pourcentage         |
+| avg_dist_fga                       | Distance moyenne des tentatives de tirs                        | Numérique   | Continu        | Integer             |
+| percent_fga_from_x2p_range        | Pourcentage de tentatives de tirs provenant de 2 points        | Numérique   | Continu        | Pourcentage         |
+| percent_fga_from_x0_3_range       | Pourcentage de tentatives de tirs provenant de 0-3 pieds      | Numérique   | Continu        | Pourcentage         |
+| percent_fga_from_x3_10_range      | Pourcentage de tentatives de tirs provenant de 3-10 pieds     | Numérique   | Continu        | Pourcentage         |
+| percent_fga_from_x10_16_range     | Pourcentage de tentatives de tirs provenant de 10-16 pieds    | Numérique   | Continu        | Pourcentage         |
+| percent_fga_from_x16_3p_range     | Pourcentage de tentatives de tirs provenant de 16 pieds-3 points | Numérique | Continu        | Pourcentage         |
+| percent_fga_from_x3p_range        | Pourcentage de tentatives de tirs à 3 points                  | Numérique   | Continu        | Pourcentage         |
+| fg_percent_from_x2p_range         | Pourcentage de réussite des tirs provenant de 2 points        | Numérique   | Continu        | Pourcentage         |
+| fg_percent_from_x0_3_range        | Pourcentage de réussite des tirs provenant de 0-3 pieds      | Numérique   | Continu        | Pourcentage         |
+| fg_percent_from_x3_10_range       | Pourcentage de réussite des tirs provenant de 3-10 pieds     | Numérique   | Continu        | Pourcentage         |
+| fg_percent_from_x10_16_range      | Pourcentage de réussite des tirs provenant de 10-16 pieds    | Numérique   | Continu        | Pourcentage         |
+| fg_percent_from_x16_3p_range      | Pourcentage de réussite des tirs provenant de 16 pieds-3 points | Numérique | Continu        | Pourcentage         |
+| fg_percent_from_x3p_range         | Pourcentage de réussite des tirs à 3 points                  | Numérique   | Continu        | Pourcentage         |
+| percent_assisted_x2p_fg           | Pourcentage de paniers à 2 points assistés                   | Numérique   | Continu        | Pourcentage         |
+| percent_assisted_x3p_fg           | Pourcentage de paniers à 3 points assistés                   | Numérique   | Continu        | Pourcentage         |
+| percent_dunks_of_fga              | Pourcentage de dunks parmi les tentatives de tirs            | Numérique   | Continu        | Pourcentage         |
+| num_of_dunks                      | Nombre de dunks                                               | Numérique   | Continu        | Integer             |
+| percent
 
 ### * Player Totals.csv
 
 #### Nombre d'observations(31815)
 
-| Attribut       | Explication                                    | Type      |
-|----------------|------------------------------------------------|-----------|
-| seas_id        | Identifiant de la saison                       | Numérique |
-| season         | Saison de la ligue                              | Texte     |
-| player_id      | Identifiant du joueur                          | Numérique |
-| player         | Nom du joueur                                  | Texte     |
-| birth_year     | Année de naissance du joueur                   | Numérique |
-| pos            | Position du joueur sur le terrain              | Texte     |
-| age            | Âge du joueur                                  | Numérique |
-| experience     | Nombre d'années d'expérience en ligue          | Numérique |
-| lg             | Ligue dans laquelle le joueur évolue           | Texte     |
-| tm             | Équipe du joueur                               | Texte     |
-| g              | Nombre de matchs joués                         | Numérique |
-| gs             | Nombre de matchs joués en tant que titulaire   | Numérique |
-| mp             | Minutes jouées                                 | Numérique |
-| fg             | Paniers réussis                                 | Numérique |
-| fga            | Tentatives de paniers                          | Numérique |
-| fg_percent     | Pourcentage de réussite des paniers            | Numérique |
-| x3p            | Paniers à 3 points réussis                     | Numérique |
-| x3pa           | Tentatives de paniers à 3 points               | Numérique |
-| x3p_percent   | Pourcentage de réussite des paniers à 3 points | Numérique |
-| x2p            | Paniers à 2 points réussis                     | Numérique |
-| x2pa           | Tentatives de paniers à 2 points               | Numérique |
-| x2p_percent   | Pourcentage de réussite des paniers à 2 points | Numérique |
-| e_fg_percent   | Pourcentage de réussite des tirs effectifs     | Numérique |
-| ft             | Lancers francs réussis                         | Numérique |
-| fta            | Tentatives de lancers francs                   | Numérique |
-| ft_percent     | Pourcentage de réussite des lancers francs     | Numérique |
-| orb            | Rebonds offensifs                               | Numérique |
-| drb            | Rebonds défensifs                               | Numérique |
-| trb            | Total des rebonds                               | Numérique |
-| ast            | Passes décisives                                | Numérique |
-| stl            | Interceptions                                   | Numérique |
-| blk            | Contres                                         | Numérique |
-| tov            | Pertes de balle                                 | Numérique |
-| pf             | Fautes personnelles                             | Numérique |
-| pts            | Points marqués                                  | Numérique |
+| Attribut       | Explication                                    | Type      | Type de donnée | Format de la donnée |
+|----------------|------------------------------------------------|-----------|----------------|---------------------|
+| seas_id        | Identifiant de la saison                       | Numérique | Nominal        | Integer             |
+| season         | Saison de la ligue                              | Texte     | Nominal        | Texte               |
+| player_id      | Identifiant du joueur                          | Numérique | Nominal        | Integer             |
+| player         | Nom du joueur                                  | Texte     | Nominal        | Texte               |
+| birth_year     | Année de naissance du joueur                   | Numérique | Ordinal        | YYYY                |
+| pos            | Position du joueur sur le terrain              | Texte     | Nominal        | Texte               |
+| age            | Âge du joueur                                  | Numérique | Continu        | Integer             |
+| experience     | Nombre d'années d'expérience en ligue          | Numérique | Continu        | Integer             |
+| lg             | Ligue dans laquelle le joueur évolue           | Texte     | Nominal        | Texte               |
+| tm             | Équipe du joueur                               | Texte     | Nominal        | Texte               |
+| g              | Nombre de matchs joués                         | Numérique | Continu        | Integer             |
+| gs             | Nombre de matchs joués en tant que titulaire   | Numérique | Continu        | Integer             |
+| mp             | Minutes jouées                                 | Numérique | Continu        | Integer             |
+| fg             | Paniers réussis                                | Numérique | Continu        | Integer             |
+| fga            | Tentatives de paniers                          | Numérique | Continu        | Integer             |
+| fg_percent     | Pourcentage de réussite des paniers            | Numérique | Continu        | Pourcentage         |
+| x3p            | Paniers à 3 points réussis                     | Numérique | Continu        | Integer             |
+| x3pa           | Tentatives de paniers à 3 points               | Numérique | Continu        | Integer             |
+| x3p_percent   | Pourcentage de réussite des paniers à 3 points | Numérique | Continu        | Pourcentage         |
+| x2p            | Paniers à 2 points réussis                     | Numérique | Continu        | Integer             |
+| x2pa           | Tentatives de paniers à 2 points               | Numérique | Continu        | Integer             |
+| x2p_percent   | Pourcentage de réussite des paniers à 2 points | Numérique | Continu        | Pourcentage         |
+| e_fg_percent   | Pourcentage de réussite des tirs effectifs     | Numérique | Continu        | Pourcentage         |
+| ft             | Lancers francs réussis                         | Numérique | Continu        | Integer             |
+| fta            | Tentatives de lancers francs                   | Numérique | Continu        | Integer             |
+| ft_percent     | Pourcentage de réussite des lancers francs     | Numérique | Continu        | Pourcentage         |
+| orb            | Rebonds offensifs                              | Numérique | Continu        | Integer             |
+| drb            | Rebonds défensifs                              | Numérique | Continu        | Integer             |
+| trb            | Total des rebonds                              | Numérique | Continu        | Integer             |
+| ast            | Passes décisives                               | Numérique | Continu        | Integer             |
+| stl            | Interceptions                                  | Numérique | Continu        | Integer             |
+| blk            | Contres                                        | Numérique | Continu        | Integer             |
+| tov            | Pertes de balle                                | Numérique | Continu        | Integer             |
+| pf             | Fautes personnelles                            | Numérique | Continu        | Integer             |
+| pts            | Points marqués                                 | Numérique | Continu        | Integer             |
+
 
 
 ## Plan d'analyse
@@ -687,3 +688,26 @@ La réponse à cette question va nous mettre en lumière la manière dont ce spo
 Pour obtenir des informations pertinentes, nous souhaitons comparer des variables telles que les statistiques de jeu (points marqués, pourcentage de tirs réussis, rebonds, passes décisives, etc.) mais aussi les caractéristiques des joueurs ainsi à travers cela nous pourrons aussi déceler le style de jeu des équipes. 
 Pour répondre à la question, nous allons utiliser différents fichiers de notre dataset comme le Per 36 Minutes, Player Season Info et beaucoup d'autres ...
 Une visualisation adaptée à cette analyse serait un graphique en barres ou un graphique linéaire montrant l'évolution des différentes variables au fil du temps, permettant ainsi une comparaison visuelle claire entre le basket d'autrefois et celui d'aujourd'hui.
+
+__5- A quel age les performances des joueurs commencent à décliner ?__
+
+__Description :__ Cette question cherche à déterminer à partir de quel âge les performances des joueurs de basketball professionels commencent à décliner. En effet, nous savons que l'âge peut avoir de nombreuses conséquences sur le coprs que ce soit mental ou physique avec par exemple une baisse de motivation après de nombreuses années à haut niveau ou de moins bons réflexes, moins de tonus musculaire... Nous allons examiner les données des saisons passées en NBA pour identifier les tendances de performance en fonction de l'âge des joueurs. Cela nous permettra de comprendre à quel moment les joueurs commencent généralement à montrer des signes de déclin physique ou de diminution de leurs performances. On pourra également 
+
+__Sources de données :__ Nous utiliserons principalement le fichier "Player Totals" qui fournit des informations sur les performances des joueurs au fil du temps, y compris leur âge. Nous pourrons également consulter d'autres fichiers tels que "Player Shooting" pour obtenir des statistiques détaillées sur les performances des joueurs au niveau des tirs particulièrement. Nous pourrons utiliser les fichiers "Player Play By Play" et "Player Per Game" pour avoir des données sur le temps de jeu du joueur, des statistiques de défense...
+
+__Visualisations possibles :__
+* Graphique en ligne ou en barres montrant les statistiques clés des joueurs (points marqués, pourcentage de tirs réussis, rebonds, etc.) en fonction de leur âge.
+* Courbe de régression ou graphique en nuage de points avec une ligne de tendance pour visualiser la corrélation entre l'âge des joueurs et leurs performances.
+* Comparaison visuelle des performances moyennes des joueurs à différents âges à l'aide de graphiques en barres empilées ou de graphiques linéaires.
+
+__6- Y a-t-il une corrélation entre les performances individuelles des joueurs clés et le succès de l'équipe ?__
+
+__Description :__ Nous allons essayer de déterminer s'il existe une relation entre les performances individuelles des joueurs clés d'une équipe de basket et le succès global de cette équipe. Nous allons examiner les données mises à notre disposition pour évaluer la corrélation entre les performances des joueurs clés (tels que les meilleurs marqueurs, les MVP...) et les résultats de l'équipe (qualification en playoffs, succès en playoffs...).
+
+__Sources de données :__ Les fichiers "Advance", "Per 100 Poss", "Player Awards Shares", "Player Career Info", "Team Summaries" seront principalement utilisés pour obtenir les performances individuelles des joueurs clés et les corréler avec les résultats de leur l'équipe.
+
+__Visualisations possibles :__
+
+* Graphique en nuage de points avec une ligne de tendance pour visualiser la corrélation entre les performances individuelles des joueurs clés et le succès de l'équipe.
+* Diagramme en barres ou en secteurs pour comparer les performances moyennes des joueurs clés des équipes à succès par rapport à celles des équipes moins performantes.
+* Carte thermique ou diagramme en boîte pour représenter la répartition des performances des joueurs clés en fonction des résultats de l'équipe (par exemple, qualification en playoffs ou non).
