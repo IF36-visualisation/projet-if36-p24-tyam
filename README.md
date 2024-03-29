@@ -669,24 +669,28 @@ Voici les questions que nous avons élaboré pour pouvoir étudier notre jeu de 
 
 __1- Est que le MVP est forcément qualifié au playoff ou gagnant de cette compétition ?__
 
-Description : 
-En effet, lorsqu'on se pose cette question, nous voudrons savoir si le MVP a un grand impact sur la qualification de son équipe au play-offs ou il est aussi important de comparer combien de fois le MVP n'a pas été qualifié en playoffs ou n'a pas remporté le championnat.
+__Description :__ En effet, lorsqu'on se pose cette question, nous voudrons savoir si le MVP a un grand impact sur la qualification de son équipe au play-offs ou il est aussi important de comparer combien de fois le MVP n'a pas été qualifié en playoffs ou n'a pas remporté le championnat.
 Il est important de répondre à cette question afin de comprendre si l'aspect individuel ou collectif est le plus important à la victoire ainsi cela va nous montrer si la présence de joueur star va être synonyme de succès.
 Nous pensons obtenir des informations montrant que l'aspect collectif du basket est plus important que l'aspect individuel donc il peut y avoir plusieurs saisons où le MVP n'est pas forcément gagnant des play-offs.
-Pour pouvoir répondre à cette question, nous allons utiliser les fichiers End Of Season Teams et le Player Career Info où il y a les variables suivantes : MVP, la qualification en playoffs pour chaque équipe et le statut de champion pour chaque équipe. 
+
+__Sources de données :__Pour pouvoir répondre à cette question, nous allons utiliser les fichiers End Of Season Teams et le Player Career Info où il y a les variables suivantes : MVP, la qualification en playoffs pour chaque équipe et le statut de champion pour chaque équipe. 
 En répondant à cette question, nous pouvons rencontrer les problèmes suivants : Les équipes peuvent changer de composition d'une saison à l'autre, rendant la comparaison moins directe. Des facteurs externes tels que les blessures, les transactions de joueurs, ou d'autres événements inattendus peuvent influencer les résultats. Il peut y avoir des saisons où le MVP est clairement défini, tandis que dans d'autres, il peut y avoir plusieurs prétendants sérieux.
-Pour ce qui concerne les visualisations, nous avons réfléchi aux visualisations suivantes : 
+
+ __Visualisations possibles :__
 *Un diagramme en barres ou un diagramme circulaire pour comparer la fréquence à laquelle le MVP est également le champion de la ligue.
 *Un diagramme en barres empilées ou un graphique en secteurs pour comparer la proportion de MVPs qualifiés en playoffs par rapport à ceux qui ne le sont pas.
 *Un graphique en nuage de points avec une ligne de tendance pour visualiser la corrélation entre le fait d'être élu MVP et la qualification en playoffs, ou entre le fait d'être élu MVP et la victoire du championnat.
 
 __2- Quelle est la différence entre le basket d'aujourd'hui et celui d'autrefois ?__
 
-Description :
-Lorsque nous abordons la différence entre le basket d'aujourd'hui et celui d'autrefois, nous souhaitons savoir comment le style de jeu a évolué au fils des années est ce que les équipes sont plus offensives, est ce que les équipes marquent plus en trois points ...
+__Description :__ Lorsque nous abordons la différence entre le basket d'aujourd'hui et celui d'autrefois, nous souhaitons savoir comment le style de jeu a évolué au fils des années est ce que les équipes sont plus offensives, est ce que les équipes marquent plus en trois points ...
 La réponse à cette question va nous mettre en lumière la manière dont ce sport a évolué au fils des années.  
-Pour obtenir des informations pertinentes, nous souhaitons comparer des variables telles que les statistiques de jeu (points marqués, pourcentage de tirs réussis, rebonds, passes décisives, etc.) mais aussi les caractéristiques des joueurs ainsi à travers cela nous pourrons aussi déceler le style de jeu des équipes. 
+
+__Sources de données :__ Pour obtenir des informations pertinentes, nous souhaitons comparer des variables telles que les statistiques de jeu (points marqués, pourcentage de tirs réussis, rebonds, passes décisives, etc.) mais aussi les caractéristiques des joueurs ainsi à travers cela nous pourrons aussi déceler le style de jeu des équipes. 
 Pour répondre à la question, nous allons utiliser différents fichiers de notre dataset comme le Per 36 Minutes, Player Season Info et beaucoup d'autres ...
+
+__Visualisations possibles :__
+
 Une visualisation adaptée à cette analyse serait un graphique en barres ou un graphique linéaire montrant l'évolution des différentes variables au fil du temps, permettant ainsi une comparaison visuelle claire entre le basket d'autrefois et celui d'aujourd'hui.
 
 __5- A quel age les performances des joueurs commencent à décliner ?__
@@ -696,6 +700,7 @@ __Description :__ Cette question cherche à déterminer à partir de quel âge l
 __Sources de données :__ Nous utiliserons principalement le fichier "Player Totals" qui fournit des informations sur les performances des joueurs au fil du temps, y compris leur âge. Nous pourrons également consulter d'autres fichiers tels que "Player Shooting" pour obtenir des statistiques détaillées sur les performances des joueurs au niveau des tirs particulièrement. Nous pourrons utiliser les fichiers "Player Play By Play" et "Player Per Game" pour avoir des données sur le temps de jeu du joueur, des statistiques de défense...
 
 __Visualisations possibles :__
+
 * Graphique en ligne ou en barres montrant les statistiques clés des joueurs (points marqués, pourcentage de tirs réussis, rebonds, etc.) en fonction de leur âge.
 * Courbe de régression ou graphique en nuage de points avec une ligne de tendance pour visualiser la corrélation entre l'âge des joueurs et leurs performances.
 * Comparaison visuelle des performances moyennes des joueurs à différents âges à l'aide de graphiques en barres empilées ou de graphiques linéaires.
