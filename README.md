@@ -242,8 +242,8 @@ Pour faciliter l'exploration et l'utilisation de ce dataset, chaque joueur poss�
 | fg_per_100_poss        | Paniers réussis par 100 possessions         | Numérique   |Float   | Continu             |
 | fga_per_100_poss       | Tentatives de paniers par 100 possessions    | Numérique   |Float   | Continu             |
 | fg_percent             | Pourcentage de réussite des paniers         | Numérique   |Percentage   | Continu             |
-| x3p_per_100_poss      | Paniers à 3 points réussis par 100 possessions | Numérique   Float   | Continu             |
-| x3pa_per_100_poss     | Tentatives de paniers à 3 points par 100 possessions | Numérique   Float   | Continu             |
+| x3p_per_100_poss      | Paniers à 3 points réussis par 100 possessions | Numérique  - Float   | Continu             |
+| x3pa_per_100_poss     | Tentatives de paniers à 3 points par 100 possessions | Numérique  | Float   | Continu             |
 | x3p_percent           | Pourcentage de réussite des paniers à 3 points | Numérique   | Percentage | Continu             |
 | x2p_per_100_poss      | Paniers à 2 points réussis par 100 possessions | Numérique  |Float   | Continu             |
 | x2pa_per_100_poss     | Tentatives de paniers à 2 points par 100 possessions | Numérique   |Float   | Continu             |
