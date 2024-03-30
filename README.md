@@ -693,6 +693,30 @@ __Visualisations possibles :__
 
 Une visualisation adaptée à cette analyse serait un graphique en barres ou un graphique linéaire montrant l'évolution des différentes variables au fil du temps, permettant ainsi une comparaison visuelle claire entre le basket d'autrefois et celui d'aujourd'hui.
 
+__3 : Existe-t-il une corrélation entre la moyenne d'âge d'une équipe et son classement dans la saison régulière ?__
+__Description:__ En se posant cette question, on s’interroge sur la corrélation qu’il pourrait y avoir entre la moyenne d'âge d’une équipe et ses performances, si les équipes plus jeunes et qui manquent d'expérience peuvent être compétitives dans la ligue, ou alors au contraire elles sont dépassés par les équipes expérimentées avec des vétérans dont la moyenne d'âge est par conséquent plus grande.Cette question s’avère particulièrement pertinente en raison de son impact potentiel sur les stratégies de gestion d'équipe notamment au niveau du recrutement des différents profils des joueurs, ou encore la dynamique et l’équilibre parfait entre jeunesse et expérience.
+
+__Source de données:__ Pour pouvoir répondre à cette question nous allons faire appel à plusieurs données présentes dans le tableau Team Summaries, dont premièrement la saison ( season)  et l’équipe concernée ( team). On aura aussi besoin de la donnée “age” qui représente la moyenne d'âge de chaque équipe. Pour représenter les performances de l’équipe, on pourra s'intéresser à la variable “playoffs” qui est un booléen qui montre si l’équipe s’est qualifiée en playoffs ou pas, ou alors “w” qui représente le nombre de victoires de chaque équipe, ou encore la force de l’opposition(sos).
+
+__Visualisations possibles:__
+
+* Un diagramme à barres avec l'âge des équipes en x et leur nombre de victoires en y ( ou leur participation en playoffs ou non avec un booléen 0 ou 1), et ce en représentant chaque équipe avec une barre, pour une saison en particulier.
+* Un scatterplot avec l'âge des équipes en x et leur nombre de victoires en y ( ou leur participation en playoffs ou non avec un booléen 0 ou 1), en ajoutant des lignes de tendances pour voir s’il y a une corrélation.
+
+
+__4. Les performances d’une équipe influencent-elles l’affluence des fans dans l’arène?__
+
+__Description:__ En se posant cette question, nous allons nous interroger sur la corrélation entre les performances d’une équipe, que ce soit le nombre de victoires, sa participation en playoffs etc, et l’affluence des supporters dans l’arène de l’équipe. Cela revient à se demander si les fans sont influencés par les résultats sportifs lorsqu'ils décident d'assister à un match en personne, ce qui peut avoir un impact sur la billetterie et stratégie marketing etc., ou alors au contraire si l'affluence dans l'arène a un impact sur les performances de l'équipe ce qui pourrait fournir des informations cruciales sur la dynamique entre le soutien des fans et les résultats sportifs.
+
+__Sources de données:__ Pour pouvoir répondre à cette question nous avons à disposition le tableau Team Summaries, qui va nous fournir comme données l’équipe (team) et la saison ( season). Pour représenter l’affluence nous avons comme données “arena”, le nom de l’arène de l’équipe, “attend” l’affluence totale au cours de la saison, et “attend_g” l’affluence moyenne par match lors de cette saison là. Pour mesurer les performances, on a “playoffs” qui est un booléen qui montre si l’équipe s’est qualifiée en playoffs ou pas, ou alors “w” qui représente le nombre de victoires de chaque équipe, ou encore la force de l’opposition(sos).
+
+__Visualisations possibles:__
+
+* Scatterplot: On peut modéliser l'affluence moyenne par match en fonction du nombre de victoires de chaque équipe. Chaque point représenterait une équipe, avec l'axe des x représentant le nombre de victoires et l'axe des y représentant l'affluence moyenne. On peut également colorer les points en fonction de la qualification en playoffs de chaque équipe.
+* Diagramme à barres: Chaque équipe serait représentée par une barre, avec l'affluence moyenne comme hauteur, on pourra colorer les barres en fonction de la qualification en playoffs.
+* Graphique en ligne: la saison en x et le nombre de victoires en y, chaque équipe représentant une ligne : Voir la différence entre saisons normales et saisons 2020 et 2021 avec l’épidémie du Covid donc pas ou peu d’affluences dans les arènes.
+
+
 __5- A quel age les performances des joueurs commencent à décliner ?__
 
 __Description :__ Cette question cherche à déterminer à partir de quel âge les performances des joueurs de basketball professionels commencent à décliner. En effet, nous savons que l'âge peut avoir de nombreuses conséquences sur le coprs que ce soit mental ou physique avec par exemple une baisse de motivation après de nombreuses années à haut niveau ou de moins bons réflexes, moins de tonus musculaire... Nous allons examiner les données des saisons passées en NBA pour identifier les tendances de performance en fonction de l'âge des joueurs. Cela nous permettra de comprendre à quel moment les joueurs commencent généralement à montrer des signes de déclin physique ou de diminution de leurs performances. On pourra également 
