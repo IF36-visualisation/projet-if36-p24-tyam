@@ -116,7 +116,7 @@ Pour faciliter l'exploration et l'utilisation de ce dataset, chaque joueur poss�
 | age         | Âge du joueur                             | Numérique | Integer    | Continu         |
 
 
-### * Opponent Stats Per 100 Poss.csv
+### * Opponent Stats Per Game.csv
 
 #### Nombre d'observations (X)
 
@@ -151,191 +151,191 @@ Pour faciliter l'exploration et l'utilisation de ce dataset, chaque joueur poss�
 | opp_pf_per_game        | Fautes personnelles adverses par match      | Numérique   | Integer    | Continu         |
 | opp_pts_per_game       | Points adverses par match                   | Numérique   | Integer    | Continu         |
 
-### * Opponent Stats Per Game.csv
-
-#### Nombre d'observations (X)
-
-| Attribut               | Explication                                 | Type        |
-|------------------------|---------------------------------------------|-------------|
-| season                 | Saison                                      | Texte       |
-| lg                     | Ligue                                       | Texte       |
-| team                   | Équipe                                      | Texte       |
-| abbreviation           | Abréviation de l'équipe                     | Texte       |
-| playoffs               | Participation aux playoffs                  | Booléen     |
-| g                      | Nombre de matchs joués                      | Numérique   |
-| mp_per_game            | Minutes jouées par match                            | Numérique   |
-| opp_fg                 | Total des paniers adverses réussis          | Numérique   |
-| opp_fga                | Total des Tentatives de paniers adverses    | Numérique   |
-| opp_fg_percent         | Pourcentage de réussite des paniers adverses | Numérique   |
-| opp_x3p                | Total des paniers à 3 points adverses réussis| Numérique   |
-| opp_x3pa_per_100_poss  | Total de paniers à 3 points adverses tentés  | Numérique   |
-| opp_x3p_percent        | Pourcentage de réussite des paniers à 3 points adverses | Numérique   |
-| opp_x2p                | Total des paniers à 2 points adverses réussis | Numérique   |
-| opp_x2pa               | Total des paniers à 2 points adverses tentés | Numérique   |
-| opp_x2p_percent        | Pourcentage de réussite des paniers à 2 points adverses | Numérique   |
-| opp_ft                 | Total des lancers francs adverses réussis  | Numérique   |
-| opp_fta                | Total des lancers francs adverses tentés | Numérique   |
-| opp_ft_percent         | Pourcentage de réussite des lancers francs adverses | Numérique   |
-| opp_orb                | Total des rebonds offensifs adverses | Numérique   |
-| opp_drb                | Total des rebonds défensifs adverses | Numérique   |
-| opp_trb                | Total des rebonds adverses | Numérique   |
-| opp_ast                | Total des passes décisives adverses | Numérique   |
-| opp_stl                | Total des interceptions adverses  | Numérique   |
-| opp_blk                | Total des contres adverses        | Numérique   |
-| opp_tov                | Total des pertes de balle adverses  | Numérique   |
-| opp_pf                 | Total des fautes personnelles adverses  | Numérique   |
-| opp_pts                | Total des points adverses        | Numérique   |
 ### * Opponent Totals.csv
 
 #### Nombre d'observations (X)
 
-| Attribut               | Explication                                 | Type        |
-|------------------------|---------------------------------------------|-------------|
-| season                 | Saison                                      | Texte       |
-| lg                     | Ligue                                       | Texte       |
-| team                   | Équipe                                      | Texte       |
-| abbreviation           | Abréviation de l'équipe                     | Texte       |
-| playoffs               | Participation aux playoffs                  | Booléen     |
-| g                      | Nombre de matchs joués                      | Numérique   |
-| mp                     | Minutes jouées                              | Numérique   |
-| opp_fg                 | Total des paniers adverses réussis          | Numérique   |
-| opp_fga                | Total des Tentatives de paniers adverses    | Numérique   |
-| opp_fg_percent         | Pourcentage de réussite des paniers adverses | Numérique   |
-| opp_x3p                | Total des paniers à 3 points adverses réussis| Numérique   |
-| opp_x3pa_per_100_poss  | Total de paniers à 3 points adverses tentés  | Numérique   |
-| opp_x3p_percent        | Pourcentage de réussite des paniers à 3 points adverses | Numérique   |
-| opp_x2p                | Total des paniers à 2 points adverses réussis | Numérique   |
-| opp_x2pa               | Total des paniers à 2 points adverses tentés | Numérique   |
-| opp_x2p_percent        | Pourcentage de réussite des paniers à 2 points adverses | Numérique   |
-| opp_ft                 | Total des lancers francs adverses réussis  | Numérique   |
-| opp_fta                | Total des lancers francs adverses tentés | Numérique   |
-| opp_ft_percent         | Pourcentage de réussite des lancers francs adverses | Numérique   |
-| opp_orb                | Total des rebonds offensifs adverses | Numérique   |
-| opp_drb                | Total des rebonds défensifs adverses | Numérique   |
-| opp_trb                | Total des rebonds adverses | Numérique   |
-| opp_ast                | Total des passes décisives adverses | Numérique   |
-| opp_stl                | Total des interceptions adverses  | Numérique   |
-| opp_blk                | Total des contres adverses        | Numérique   |
-| opp_tov                | Total des pertes de balle adverses  | Numérique   |
-| opp_pf                 | Total des fautes personnelles adverses  | Numérique   |
-| opp_pts                | Total des points adverses        | Numérique   |
+| Attribut               | Explication                                 | Type        | Format    | Type de données |
+|------------------------|---------------------------------------------|-------------|-----------|---------------|
+| season                 | Saison                                      | Numérique   | YYYY          |     Continu     |
+| lg                     | Ligue                                       | Texte       |  String         |     Nominal          |
+| team                   | Équipe                                      | Texte       |  String   |    Nominal           |
+| abbreviation           | Abréviation de l'équipe                     | Texte       |  String   |    Nominal           |
+| playoffs               | Participation aux playoffs                  | Booléen     | TRUE / FALSE |      Nominal         |
+| g                      | Nombre de matchs joués                      | Numérique   |  Integer         |   Continu            |
+| mp_per_game            | Minutes jouées par match                    | Numérique   |  Integer         |    Continu           |
+| opp_fg                 | Total des paniers adverses réussis          | Numérique   |  Integer         |    Continu           |
+| opp_fga                | Total des Tentatives de paniers adverses    | Numérique   |  Integer         |    Continu           |
+| opp_fg_percent         | Pourcentage de réussite des paniers adverses | Numérique  |   Percentage        |   Continu            |
+| opp_x3p                | Total des paniers à 3 points adverses réussis | Numérique  |  Integer         |      Continu         |
+| opp_x3pa               | Total de paniers à 3 points adverses tentés  | Numérique  | Integer          |       Continu        |
+| opp_x3p_percent        | Pourcentage de réussite des paniers à 3 points adverses | Numérique  |  Percentage         |    Continu           |
+| opp_x2p                | Total des paniers à 2 points adverses réussis | Numérique  |  Integer         |  Continu             |
+| opp_x2pa               | Total des paniers à 2 points adverses tentés | Numérique  |  Integer         |    Continu           |
+| opp_x2p_percent        | Pourcentage de réussite des paniers à 2 points adverses | Numérique  |  Percentage         |    Continu           |
+| opp_ft                 | Total des lancers francs adverses réussis  | Numérique  |   Integer        |      Continu         |
+| opp_fta                | Total des lancers francs adverses tentés | Numérique  |   Integer        |     Continu          |
+| opp_ft_percent         | Pourcentage de réussite des lancers francs adverses | Numérique  | Percentage          |      Continu         |
+| opp_orb                | Total des rebonds offensifs adverses | Numérique  |   Integer        |       Continu        |
+| opp_drb                | Total des rebonds défensifs adverses | Numérique  |   Integer        |       Continu        |
+| opp_trb                | Total des rebonds adverses | Numérique  |   Integer        |    Continu           |
+| opp_ast                | Total des passes décisives adverses | Numérique  |    Integer       |     Continu          |
+| opp_stl                | Total des interceptions adverses  | Numérique  |  Integer         |       Continu        |
+| opp_blk                | Total des contres adverses        | Numérique  |  Integer         |     Continu          |
+| opp_tov                | Total des pertes de balle adverses  | Numérique  |    Integer       |    Continu           |
+| opp_pf                 | Total des fautes personnelles adverses  | Numérique  | Integer          |    Continu           |
+| opp_pts                | Total des points adverses        | Numérique  |    Integer       |  Continu             |
+### * Opponent Stats per 100 poss.csv
+
+#### Nombre d'observations (X)
+
+| Attribut               | Explication                                 | Type        |Format    |Type de données      |
+|------------------------|---------------------------------------------|-------------|----------|---------------------|
+| season                 | Saison                                      | Numérique   | YYYY     | Continu             |
+| lg                     | Ligue                                       | Texte       |String    | Nominal             |
+| team                   | Équipe                                      | Texte       |String    | Nominal             |
+| abbreviation           | Abréviation de l'équipe                     | Texte       |String    | Nominal             |
+| playoffs               | Participation aux playoffs                  | Booléen     |TRUE / FALSE |      Nominal     |
+| g                      | Nombre de matchs joués                      | Numérique   | Integer         |   Continu            |
+| mp                     | Minutes jouées                              | Numérique   | Integer         |   Continu            |
+| opp_fg_per_100_poss                 |Paniers adverses réussis  par 100 possessions        | Numérique   | Float         |   Continu            |
+| opp_fga_per_100_poss                 |Tentatives de paniers adverses par 100 possessions   | Numérique   |Float         |   Continu     |
+| opp_fg_percent         | Pourcentage de réussite des paniers adverses | Numérique   |Percentage          |  Continu       |
+| opp_x3p_per_100_poss                 | Paniers à 3 points adverses réussis par 100 possessions| Numérique   |Float         |   Continu     |
+| opp_x3pa_per_100_poss  | Paniers à 3 points adverses tentés par 100 possessions  | Numérique   |Float         |   Continu     |
+| opp_x3p_percent        | Pourcentage de réussite des paniers à 3 points adverses | Numérique   |Percentage          |  Continu       |
+| opp_x2p_per_100_poss                 | Paniers à 2 points adverses réussis par 100 possessions | Numérique   |Float         |   Continu     |
+| opp_x2pa_per_100_poss                | Paniers à 2 points adverses tentés par 100 possessions| Numérique   |Float         |   Continu     |
+| opp_x2p_percent        | Pourcentage de réussite des paniers à 2 points adverses | Numérique   |Percentage          |  Continu       |
+| opp_ft_per_100_poss                  | Lancers francs adverses réussis par 100 possessions  | Numérique   |Float         |   Continu     |
+| opp_fta_per_100_poss                 |Lancers francs adverses tentés par 100 possessions | Numérique   |Float         |   Continu     |
+| opp_ft_percent         | Pourcentage de réussite des lancers francs adverses | Numérique   |Percentage          |  Continu       |
+| opp_orb_per_100_poss                 | Rebonds offensifs adverses par 100 possessions | Numérique   |Float         |   Continu     |
+| opp_drb_per_100_poss                 | Rebonds défensifs adverses par 100 possessions| Numérique   |Float         |   Continu     |
+| opp_trb_per_100_poss                 | Total des rebonds adverses par 100 possessions | Numérique   |Float         |   Continu     |
+| opp_ast_per_100_poss                 | Passes décisives adverses par 100 possessions | Numérique   |Float         |   Continu     |
+| opp_stl_per_100_poss                 | Interceptions adverses par 100 possessions | Numérique   |Float         |   Continu     |
+| opp_blk_per_100_poss                 | Contres adverses par 100 possessions       | Numérique   |Float         |   Continu     |
+| opp_tov_per_100_poss                 | Pertes de balle adverses par 100 possessions   | Numérique   |Float         |   Continu     |
+| opp_pf_per_100_poss                  | Fautes personnelles adverses par 100 possessions  | Numérique   |Float         |   Continu     |
+| opp_pts_per_100_poss                 | Points adverses par 100 possessions        | Numérique   |Float         |   Continu     |
 
 ### * Per 100 Poss.csv
 
-#### Nombre d'observations (X)
+#### Nombre d'observations (31136)
 
-| Attribut               | Explication                                 | Type        |
-|------------------------|---------------------------------------------|-------------|
-| seas_id                | Identifiant de la saison                    | Numérique   |
-| season                 | Saison                                      | Numérique   |
-| player_id              | Identifiant du joueur                       | Numérique   |
-| player                 | Joueur                                      | Texte       |
-| birth_year             | Année de naissance du joueur                | Numérique   |
-| pos                    | Poste du joueur                             | Texte       |
-| age                    | Âge du joueur                               | Numérique   |
-| experience             | Nombre d'années dans la ligue               | Numérique   |
-| lg                     | Ligue                                       | Texte       |
-| tm                     | Équipe                                      | Texte       |
-| g                      | Nombre de matchs joués                      | Numérique   |
-| gs                     | Nombre de matchs joués en tant que titulaire| Numérique   |
-| mp                     | Minutes jouées                              | Numérique   |
-| fg_per_100_poss        | Paniers réussis par 100 possessions         | Numérique   |
-| fga_per_100_poss       | Tentatives de paniers par 100 possessions    | Numérique   |
-| fg_percent             | Pourcentage de réussite des paniers         | Numérique   |
-| x3p_per_100_poss      | Paniers à 3 points réussis par 100 possessions | Numérique   |
-| x3pa_per_100_poss     | Tentatives de paniers à 3 points par 100 possessions | Numérique   |
-| x3p_percent           | Pourcentage de réussite des paniers à 3 points | Numérique   |
-| x2p_per_100_poss      | Paniers à 2 points réussis par 100 possessions | Numérique   |
-| x2pa_per_100_poss     | Tentatives de paniers à 2 points par 100 possessions | Numérique   |
-| x2p_percent           | Pourcentage de réussite des paniers à 2 points | Numérique   |
-| ft_per_100_poss       | Lancers francs réussis par 100 possessions  | Numérique   |
-| fta_per_100_poss      | Tentatives de lancers francs par 100 possessions | Numérique   |
-| ft_percent            | Pourcentage de réussite des lancers francs  | Numérique   |
-| orb_per_100_poss      | Rebonds offensifs par 100 possessions       | Numérique   |
-| drb_per_100_poss      | Rebonds défensifs par 100 possessions       | Numérique   |
-| trb_per_100_poss      | Rebonds totaux par 100 possessions          | Numérique   |
-| ast_per_100_poss      | Passes décisives par 100 possessions        | Numérique   |
-| stl_per_100_poss      | Interceptions par 100 possessions           | Numérique   |
-| blk_per_100_poss      | Contres par 100 possessions                 | Numérique   |
-| tov_per_100_poss      | Pertes de balle par 100 possessions         | Numérique   |
-| pf_per_100_poss       | Fautes personnelles par 100 possessions     | Numérique   |
-| pts_per_100_poss      | Points par 100 possessions                  | Numérique   |
-| o_rtg                 | Offensive rating                            | Numérique   |
-| d_rtg                 | Defensive rating                            | Numérique   |
+| Attribut               | Explication                                 | Type        |Format    |Type de données      |
+|------------------------|---------------------------------------------|-------------|----------|---------------------|
+| seas_id                | Identifiant de la saison                    | Numérique   |Integer   | Continu             |
+| season                 | Saison                                      | Numérique   |YYYY      | Continu             |
+| player_id              | Identifiant du joueur                       | Numérique   |Integer   | Continu             |
+| player                 | Joueur                                      | Texte       |String    | Nominal             |
+| birth_year             | Année de naissance du joueur                | Numérique   |YYYY      | Continu             |
+| pos                    | Poste du joueur                             | Texte       |String    | Nominal             |
+| age                    | Âge du joueur                               | Numérique   |AA        | Continu             |
+| experience             | Nombre d'années dans la ligue               | Numérique   |Integer   | Continu             |
+| lg                     | Ligue                                       | Texte       |String    | Nominal             |
+| tm                     | Équipe                                      | Texte       |String    | Nominal             |
+| g                      | Nombre de matchs joués                      | Numérique   |Integer   | Continu             |
+| gs                     | Nombre de matchs joués en tant que titulaire| Numérique   |Integer   | Continu             |
+| mp                     | Minutes jouées                              | Numérique   |Integer   | Continu             |
+| fg_per_100_poss        | Paniers réussis par 100 possessions         | Numérique   |Float   | Continu             |
+| fga_per_100_poss       | Tentatives de paniers par 100 possessions    | Numérique   |Float   | Continu             |
+| fg_percent             | Pourcentage de réussite des paniers         | Numérique   |Percentage   | Continu             |
+| x3p_per_100_poss      | Paniers à 3 points réussis par 100 possessions | Numérique   Float   | Continu             |
+| x3pa_per_100_poss     | Tentatives de paniers à 3 points par 100 possessions | Numérique   Float   | Continu             |
+| x3p_percent           | Pourcentage de réussite des paniers à 3 points | Numérique   | Percentage | Continu             |
+| x2p_per_100_poss      | Paniers à 2 points réussis par 100 possessions | Numérique  |Float   | Continu             |
+| x2pa_per_100_poss     | Tentatives de paniers à 2 points par 100 possessions | Numérique   |Float   | Continu             |
+| x2p_percent           | Pourcentage de réussite des paniers à 2 points | Numérique   |Percentage   | Continu             |
+| ft_per_100_poss       | Lancers francs réussis par 100 possessions  | Numérique   |Float   | Continu             |
+| fta_per_100_poss      | Tentatives de lancers francs par 100 possessions | Numérique   |Float   | Continu             |
+| ft_percent            | Pourcentage de réussite des lancers francs  | Numérique   |Percentage   | Continu             |
+| orb_per_100_poss      | Rebonds offensifs par 100 possessions       | Numérique   |Float   | Continu             |
+| drb_per_100_poss      | Rebonds défensifs par 100 possessions       | Numérique   |Float   | Continu             |
+| trb_per_100_poss      | Rebonds totaux par 100 possessions          | Numérique   |Float   | Continu             |
+| ast_per_100_poss      | Passes décisives par 100 possessions        | Numérique   |Float   | Continu             |
+| stl_per_100_poss      | Interceptions par 100 possessions           | Numérique   |Float   | Continu             |
+| blk_per_100_poss      | Contres par 100 possessions                 | Numérique   |Float   | Continu             |
+| tov_per_100_poss      | Pertes de balle par 100 possessions         | Numérique   |Float   | Continu             |
+| pf_per_100_poss       | Fautes personnelles par 100 possessions     | Numérique   |Float   | Continu             |
+| pts_per_100_poss      | Points par 100 possessions                  | Numérique   |Float   | Continu             |
+| o_rtg                 | Offensive rating                            | Numérique   |Integer   | Continu             |
+| d_rtg                 | Defensive rating                            | Numérique   |Integer   | Continu             |
 
 ### * Per 36 Minutes.csv
 
-#### Nombre d'observations (X)
+#### Nombre d'observations (31 136)
 
-| Attribut               | Explication                                 | Type        |
-|------------------------|---------------------------------------------|-------------|
-| seas_id                | Identifiant de la saison                    | Numérique   |
-| season                 | Saison                                      | Numérique   |
-| player_id              | Identifiant du joueur                       | Numérique   |
-| player                 | Joueur                                      | Texte       |
-| birth_year             | Année de naissance du joueur                | Numérique   |
-| pos                    | Poste du joueur                             | Texte       |
-| age                    | Âge du joueur                               | Numérique   |
-| experience             | Nombre d'années dans la ligue               | Numérique   |
-| lg                     | Ligue                                       | Texte       |
-| tm                     | Équipe                                      | Texte       |
-| g                      | Nombre de matchs joués                      | Numérique   |
-| gs                     | Nombre de matchs joués en tant que titulaire| Numérique   |
-| mp                     | Minutes jouées                              | Numérique   |
-| fg_per_36_min          | Paniers réussis par 36 minutes              | Numérique   |
-| fga_per_36_min         | Tentatives de paniers par 36 minutes        | Numérique   |
-| fg_percent             | Pourcentage de réussite des paniers         | Numérique   |
-| x3p_per_36_min         | Paniers à 3 points réussis par 36 minutes   | Numérique   |
-| x3pa_per_36_min        | Tentatives de paniers à 3 points par 36 minutes | Numérique   |
-| x3p_percent           | Pourcentage de réussite des paniers à 3 points | Numérique   |
-| x2p_per_36_min         | Paniers à 2 points réussis par 36 minutes   | Numérique   |
-| x2pa_per_36_min        | Tentatives de paniers à 2 points par 36 minutes | Numérique   |
-| x2p_percent           | Pourcentage de réussite des paniers à 2 points | Numérique   |
-| ft_per_36_min         | Lancers francs réussis par 36 minutes      | Numérique   |
-| fta_per_36_min        | Tentatives de lancers francs par 36 minutes | Numérique   |
-| ft_percent            | Pourcentage de réussite des lancers francs  | Numérique   |
-| orb_per_36_min       | Rebonds offensifs par 36 minutes           | Numérique   |
-| drb_per_36_min       | Rebonds défensifs par 36 minutes           | Numérique   |
-| trb_per_36_min      | Rebonds totaux par 36 minutes              | Numérique   |
-| ast_per_36_min      | Passes décisives par 36 minutes            | Numérique   |
-| stl_per_36_min      | Interceptions par 36 minutes               | Numérique   |
-| blk_per_36_min      | Contres par 36 minutes                     | Numérique   |
-| tov_per_36_min      | Pertes de balle par 36 minutes             | Numérique   |
-| pf_per_36_min      | Fautes personnelles par 36 minutes         | Numérique   |
-| pts_per_36_min      | Points par 36 minutes                      | Numérique   |
+| Attribut               | Explication                                 | Type        |Format    |Type de données      |
+|------------------------|---------------------------------------------|-------------|----------|---------------------|
+| seas_id                | Identifiant de la saison                    | Numérique   |Integer   | Continu             |
+| season                 | Saison                                      | Numérique   |YYYY      | Continu             |
+| player_id              | Identifiant du joueur                       | Numérique   |Integer   | Continu             |
+| player                 | Joueur                                      | Texte       |String    | Nominal             |
+| birth_year             | Année de naissance du joueur                | Numérique   |YYYY      | Continu             |
+| pos                    | Poste du joueur                             | Texte       |String    | Nominal             |
+| age                    | Âge du joueur                               | Numérique   |AA        | Continu             |
+| experience             | Nombre d'années dans la ligue               | Numérique   |Integer   | Continu             |
+| lg                     | Ligue                                       | Texte       |String    | Nominal             |
+| tm                     | Équipe                                      | Texte       |String    | Nominal             |
+| g                      | Nombre de matchs joués                      | Numérique   |Integer   | Continu             |
+| gs                     | Nombre de matchs joués en tant que titulaire| Numérique   |Integer   | Continu             |
+| mp                     | Minutes jouées                              | Numérique   |Integer   | Continu             |
+| fg_per_36_min          | Paniers réussis par 36 minutes              | Numérique   |Float   | Continu             |
+| fga_per_36_min         | Tentatives de paniers par 36 minutes        | Numérique   |Float   | Continu             |
+| fg_percent             | Pourcentage de réussite des paniers         | Numérique   |Percentage   | Continu             |
+| x3p_per_36_min         | Paniers à 3 points réussis par 36 minutes   | Numérique   |Float   | Continu             |
+| x3pa_per_36_min        | Tentatives de paniers à 3 points par 36 minutes | Numérique   |Float   | Continu             |
+| x3p_percent           | Pourcentage de réussite des paniers à 3 points | Numérique   |Percentage   | Continu             |
+| x2p_per_36_min         | Paniers à 2 points réussis par 36 minutes   | Numérique   |Float   | Continu             |
+| x2pa_per_36_min        | Tentatives de paniers à 2 points par 36 minutes | Numérique   |Float   | Continu             |
+| x2p_percent           | Pourcentage de réussite des paniers à 2 points | Numérique   |Percentage   | Continu             |
+| ft_per_36_min         | Lancers francs réussis par 36 minutes      | Numérique   |Float   | Continu             |
+| fta_per_36_min        | Tentatives de lancers francs par 36 minutes | Numérique   |Float   | Continu             |
+| ft_percent            | Pourcentage de réussite des lancers francs  | Numérique   |Percentage   | Continu             |
+| orb_per_36_min       | Rebonds offensifs par 36 minutes           | Numérique   |Float   | Continu             |
+| drb_per_36_min       | Rebonds défensifs par 36 minutes           | Numérique   |Float   | Continu             |
+| trb_per_36_min      | Rebonds totaux par 36 minutes              | Numérique   |Float   | Continu             |
+| ast_per_36_min      | Passes décisives par 36 minutes            | Numérique   |Float   | Continu             |
+| stl_per_36_min      | Interceptions par 36 minutes               | Numérique   |Float   | Continu             |
+| blk_per_36_min      | Contres par 36 minutes                     | Numérique   |Float   | Continu             |
+| tov_per_36_min      | Pertes de balle par 36 minutes             | Numérique   |Float   | Continu             |
+| pf_per_36_min      | Fautes personnelles par 36 minutes         | Numérique   |Float   | Continu             |
+| pts_per_36_min      | Points par 36 minutes                      | Numérique   |Float   | Continu             |
 
 ### * Player Awards Shares.csv
 
 #### Nombre d'observations (X)
 
-| Attribut   | Explication                            | Type       |
-|------------|----------------------------------------|------------|
-| season     | Saison                                 | Numérique  |
-| award      | Prix                                   | Texte      |
-| player     | Joueur                                 | Texte      |
-| age        | Âge du joueur                          | Numérique  |
-| tm         | Équipe                                 | Texte      |
-| first      | Premier dans le vote du prix en question| Booléen    |
-| pts_won    | Points gagnés dans le vote du prix question| Numérique  |
-| pts_max    | Maximum de points possible à gagner    | Numérique  |
-| share      | Pourcentage des votes                  | Numérique  |
-| winner     | Vainqueur                              | Booléen    |
-| seas_id    | Identifiant de la saison               | Numérique  |
-| player_id  | Identifiant du joueur                  | Numérique  |
+| Attribut   | Explication                            | Type       |Format    |Type de données      |
+|------------|----------------------------------------|------------|----------|---------------------|
+| season     | Saison                                 | Numérique  |YYYY      | Continu             |
+| award      | Prix                                   | Texte      |String    | Nominal             |
+| player     | Joueur                                 | Texte      |String    | Nominal             |
+| age        | Âge du joueur                          | Numérique  |AA        | Continu             |
+| tm         | Équipe                                 | Texte      |String    | Nominal             |
+| first      | Nombre de votes pour la première place |Numérique  |Integer      | Continu             |
+| pts_won    | Points gagnés dans le vote du prix question| Numérique  |Integer      | Continu             |
+| pts_max    | Maximum de points possible à gagner    | Numérique  |Integer      | Continu             |
+| share      | Pourcentage des votes                  | Numérique  |Percentage      | Continu             |
+| winner     | Vainqueur                              | Booléen    |TRUE / FALSE |      Nominal     |
+| seas_id    | Identifiant de la saison               | Numérique  |Integer      | Continu             |
+| player_id  | Identifiant du joueur                  | Numérique  |Integer      | Continu             |
 
 ### * Player Career Info.csv
 
 #### Nombre d'observations (X)
 
-| Attribut      | Explication                            | Type       |
-|---------------|----------------------------------------|------------|
-| player_id     | Identifiant du joueur                  | Numérique  |
-| player        | Joueur                                 | Texte      |
-| birth_year    | Année de naissance du joueur           | Numérique  |
-| hof           | Intégration du Hall Of Fame            | Booléen    |
-| num_seasons   | Nombre de saisons passées dans la ligue| Numérique  |
-| first_seas    | Année de la première saison            | Numérique  |
-| last_seas     | Année de la dernière saison            | Numérique  |
+| Attribut      | Explication                            | Type       |Format    |Type de données      |
+|---------------|----------------------------------------|------------|----------|---------------------|
+| player_id     | Identifiant du joueur                  | Numérique  |Integer      | Continu             |
+| player        | Joueur                                 | Texte      |String    | Nominal             |
+| birth_year    | Année de naissance du joueur           | Numérique  |YYYY      | Continu             |
+| hof           | Intégration du Hall Of Fame            | Booléen    |TRUE / FALSE |      Nominal     |
+| num_seasons   | Nombre de saisons passées dans la ligue| Numérique  |Integer      | Continu             |
+| first_seas    | Année de la première saison            | Numérique  |Integer      | Continu             |
+| last_seas     | Année de la dernière saison            | Numérique  |Integer      | Continu             |
 ### * Team Abbrev.csv
 
 | Attribut       | Explication                  | Type    |
