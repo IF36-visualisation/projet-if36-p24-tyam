@@ -187,7 +187,7 @@ Pour faciliter l'exploration et l'utilisation de ce dataset, chaque joueur poss�
 | opp_pts                | Total des points adverses        | Numérique  |    Integer       |  Continu             |
 ### * Opponent Stats per 100 poss.csv
 
-#### Nombre d'observations (X)
+#### Nombre d'observations (31136)
 
 | Attribut               | Explication                                 | Type        |Format    |Type de données      |
 |------------------------|---------------------------------------------|-------------|----------|---------------------|
