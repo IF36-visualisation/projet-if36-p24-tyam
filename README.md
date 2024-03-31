@@ -4,7 +4,14 @@ author: "IF36 - TYAM (Sidqui Youssef, Mohamed Chouai, Antoine Mazeau, Thomas Cha
 date: "UTT - Semestre P24"
 ---
 
-![Image Accueil](./images/img_1.png)
+# Proposition - NBA Stats (1947-present)
+
+![Image Accueil](./images/img_accueil.png)
+
+
+## Table des matières
+> [I. Données](#section-1) <br>
+> [II. Plan d'analyse](#section-2) <br>
 
 # Introduction
 La National Basketball Association (NBA) est la principale ligue de basket-ball au monde, crée le 6 juin 1946 sous le nom de BAA(Basketball Association of America), la ligue est renomée en NBA en 1949 après sa fusion avec la NBL (National Basketball League). Connaissant un franc succès et un engouement sans précédent, la NBA enchaine plus de 77 éditions. Le championnat comprend 29 franchises américaines et une canadienne, réparties en deux conférences (Est et Ouest).Après une saison régulière débutant en octobre et comprenant 82 matchs, les 8 meilleures équipes de chaque conférence s'affrontent en séries éliminatoires (playoffs).Les finales voient s'opposer la meilleure équipe de chaque conférence Est contre celle de la conférence Ouest. L'équipe qui parvient à remporter 4 match en premier est championne de NBA.
@@ -16,6 +23,7 @@ En effet, ce site contient toutes les informations sur les statistiques, les sco
 
 Le jeu de données est disponible sur [Cette page Kaggle](https://www.kaggle.com/datasets/sumitrodatta/nba-aba-baa-stats?select=Opponent+Stats+Per+Game.csv) et a été publié par [**Sumitro Datta**], un data management consultant chez __Pacific Lif Re__.
 
+<a id="section-1"></a>
 # I. Données
 Notre dataset est composé de 21 fichiers et de 499 colonnes montrant l'évolution de la NBA au fil de l'histoire. Comme nous l'avons mentionné auparavant nous avons deux types de fichiers : d'une part les fichiers cotés joueurs donnant une description du joueur et ses statistiques au sein de la saison et d'autre part nous avons les fichiers cotés équipes contenant les informations sur l'avancement de l'équipe. Il n'y a pas de catégories ou des sous-groupes au sein de notre dataset. 
 
@@ -25,42 +33,42 @@ Pour faciliter l'exploration et l'utilisation de ce dataset, chaque joueur poss�
 <summary><b><font size="+1">Advance.csv</font></b></summary>
 Nombre d'observations : 31136
 
-| Attribut               | Explication                                       | Type      | Format    | Type de données  |
-|------------------------|---------------------------------------------------|-----------|-----------|------------------|
-| seas_id                | Identifiant de saison                             | Texte     | String    | Nominal          |
-| season                 | Saison                                            | Texte     | String    | Nominal          |
-| player_id              | Identifiant du joueur                             | Texte     | String    | Nominal          |
-| player                 | Joueur                                            | Texte     | String    | Nominal          |
-| birth_year             | Année de naissance                                | Numérique | YYYY      | Ordinale         |
-| pos                    | Position                                          | Texte     | String    | Nominal          |
-| age                    | Âge                                               | Numérique | Integer   | Continu          |
-| experience             | Expérience                                        | Numérique | Integer   | Discret          |
-| lg                     | Ligue                                             | Texte     | String    | Nominal          |
-| tm                     | Équipe                                            | Texte     | String    | Nominal          |
-| g                      | Nombre de matchs joués                            | Numérique | Integer   | Discret          |
-| mp                     | Minutes jouées                                    | Numérique | Integer   | Continu          |
-| per                    | Efficacité du joueur                              | Numérique | Integer   | Continu          |
-| ts_percent             | Pourcentage de tirs réels                         | Numérique | Pourcentage | Continu        |
-| x3p_ar                 | Ratio de tentatives de 3 points par tir           | Numérique | Pourcentage | Continu        |
-| f_tr                   | Ratio de lancers francs par tir                   | Numérique | Pourcentage | Continu        |
-| orb_percent            | Pourcentage de rebonds offensifs                  | Numérique | Pourcentage | Continu        |
-| drb_percent            | Pourcentage de rebonds défensifs                  | Numérique | Pourcentage | Continu        |
-| trb_percent            | Pourcentage de rebonds totaux                     | Numérique | Pourcentage | Continu        |
-| ast_percent            | Pourcentage de passes décisives                   | Numérique | Pourcentage | Continu        |
-| stl_percent            | Pourcentage d'interceptions                       | Numérique | Pourcentage | Continu        |
-| blk_percent            | Pourcentage de contres                            | Numérique | Pourcentage | Continu        |
-| tov_percent            | Pourcentage de pertes de balle                    | Numérique | Pourcentage | Continu        |
-| usg_percent            | Pourcentage d'utilisation                         | Numérique | Pourcentage | Continu        |
-| ows                    | Victoires offensives                              | Numérique | Integer   | Continu          |
-| dws                    | Victoires défensives                              | Numérique | Integer   | Continu          |
-| ws                     | Victoires totales                                  | Numérique | Integer   | Continu          |
-| ws_48                  | Victoires par 48 minutes                          | Numérique | Integer   | Continu          |
-| obpm                   | Points marqués offensifs par 100 possessions      | Numérique | Integer   | Continu          |
-| dbpm                   | Points marqués défensifs par 100 possessions      | Numérique | Integer   | Continu          |
-| bpm                    | Points marqués par 100 possessions                | Numérique | Integer   | Continu          |
-| vorp                   | Valeur de remplacement au-dessus du seuil         | Numérique | Integer   | Continu          |
-| Label                  | Étiquette                                         | Texte     | String    | Nominal          |
-| Count                  | Compte                                            | Texte     | Integer   | Discret          |
+| Attribut    | Explication                                  | Type      | Format      | Type de données |
+|-------------|----------------------------------------------|-----------|-------------|-----------------|
+| seas_id     | Identifiant de saison                        | Texte     | String      | Nominal         |
+| season      | Saison                                       | Texte     | String      | Nominal         |
+| player_id   | Identifiant du joueur                        | Texte     | String      | Nominal         |
+| player      | Joueur                                       | Texte     | String      | Nominal         |
+| birth_year  | Année de naissance                           | Numérique | YYYY        | Ordinale        |
+| pos         | Position                                     | Texte     | String      | Nominal         |
+| age         | Âge                                          | Numérique | Integer     | Continu         |
+| experience  | Expérience                                   | Numérique | Integer     | Discret         |
+| lg          | Ligue                                        | Texte     | String      | Nominal         |
+| tm          | Équipe                                       | Texte     | String      | Nominal         |
+| g           | Nombre de matchs joués                       | Numérique | Integer     | Discret         |
+| mp          | Minutes jouées                               | Numérique | Integer     | Continu         |
+| per         | Efficacité du joueur                         | Numérique | Integer     | Continu         |
+| ts_percent  | Pourcentage de tirs réels                    | Numérique | Pourcentage | Continu         |
+| x3p_ar      | Ratio de tentatives de 3 points par tir      | Numérique | Pourcentage | Continu         |
+| f_tr        | Ratio de lancers francs par tir              | Numérique | Pourcentage | Continu         |
+| orb_percent | Pourcentage de rebonds offensifs             | Numérique | Pourcentage | Continu         |
+| drb_percent | Pourcentage de rebonds défensifs             | Numérique | Pourcentage | Continu         |
+| trb_percent | Pourcentage de rebonds totaux                | Numérique | Pourcentage | Continu         |
+| ast_percent | Pourcentage de passes décisives              | Numérique | Pourcentage | Continu         |
+| stl_percent | Pourcentage d'interceptions                  | Numérique | Pourcentage | Continu         |
+| blk_percent | Pourcentage de contres                       | Numérique | Pourcentage | Continu         |
+| tov_percent | Pourcentage de pertes de balle               | Numérique | Pourcentage | Continu         |
+| usg_percent | Pourcentage d'utilisation                    | Numérique | Pourcentage | Continu         |
+| ows         | Victoires offensives                         | Numérique | Integer     | Continu         |
+| dws         | Victoires défensives                         | Numérique | Integer     | Continu         |
+| ws          | Victoires totales                            | Numérique | Integer     | Continu         |
+| ws_48       | Victoires par 48 minutes                     | Numérique | Integer     | Continu         |
+| obpm        | Points marqués offensifs par 100 possessions | Numérique | Integer     | Continu         |
+| dbpm        | Points marqués défensifs par 100 possessions | Numérique | Integer     | Continu         |
+| bpm         | Points marqués par 100 possessions           | Numérique | Integer     | Continu         |
+| vorp        | Valeur de remplacement au-dessus du seuil    | Numérique | Integer     | Continu         |
+| Label       | Étiquette                                    | Texte     | String      | Nominal         |
+| Count       | Compte                                       | Texte     | Integer     | Discret         |
 </details>
 
 
@@ -82,24 +90,24 @@ Nombre d'observations : 524
 <summary><b><font size="+1">End of Season Teams (Voting).csv</font></b></summary>
 Nombre d'observations : 4824
 
-| Attribut    | Explication                               | Type      | Format     | Type de données |
-|-------------|-------------------------------------------|-----------|------------|-----------------|
-| season      | Saison de l'attribution du prix           | Texte     | YYYY       | Ordinal         |
-| lg          | Ligue concernée par l'attribution         | Texte     | String     | Nominal         |
-| type        | Type de récompense                        | Texte     | String     | Nominal         |
-| number_tm   | Nombre d'équipes sélectionnées            | Numérique | Integer    | Discret         |
-| position    | Position dans l'équipe sélectionnée       | Texte     | String     | Nominal         |
-| player      | Nom du joueur                             | Texte     | String     | Nominal         |
-| age         | Âge du joueur                             | Numérique | Integer    | Continu         |
-| tm          | Équipe du joueur                          | Texte     | String     | Nominal         |
-| pts_won     | Points remportés                          | Numérique | Integer    | Continu         |
-| pts_max     | Points maximum                            | Numérique | Integer    | Continu         |
-| share       | Part de points remportés                  | Numérique | Pourcentage| Continu         |
-| x1st_tm     | Nombre de premières sélections            | Numérique | Integer    | Discret         |
-| x2nd_tm     | Nombre de deuxièmes sélections            | Numérique | Integer    | Discret         |
-| x3rd_tm     | Nombre de troisièmes sélections           | Numérique | Integer    | Discret         |
-| seas_id     | Identifiant de la saison                  | Numérique | YYYY       | Ordinal         |
-| player_id   | Identifiant du joueur                     | Numérique | N/A        | Nominal         |
+| Attribut  | Explication                         | Type      | Format      | Type de données |
+|-----------|-------------------------------------|-----------|-------------|-----------------|
+| season    | Saison de l'attribution du prix     | Texte     | YYYY        | Ordinal         |
+| lg        | Ligue concernée par l'attribution   | Texte     | String      | Nominal         |
+| type      | Type de récompense                  | Texte     | String      | Nominal         |
+| number_tm | Nombre d'équipes sélectionnées      | Numérique | Integer     | Discret         |
+| position  | Position dans l'équipe sélectionnée | Texte     | String      | Nominal         |
+| player    | Nom du joueur                       | Texte     | String      | Nominal         |
+| age       | Âge du joueur                       | Numérique | Integer     | Continu         |
+| tm        | Équipe du joueur                    | Texte     | String      | Nominal         |
+| pts_won   | Points remportés                    | Numérique | Integer     | Continu         |
+| pts_max   | Points maximum                      | Numérique | Integer     | Continu         |
+| share     | Part de points remportés            | Numérique | Pourcentage | Continu         |
+| x1st_tm   | Nombre de premières sélections      | Numérique | Integer     | Discret         |
+| x2nd_tm   | Nombre de deuxièmes sélections      | Numérique | Integer     | Discret         |
+| x3rd_tm   | Nombre de troisièmes sélections     | Numérique | Integer     | Discret         |
+| seas_id   | Identifiant de la saison            | Numérique | YYYY        | Ordinal         |
+| player_id | Identifiant du joueur               | Numérique | N/A         | Nominal         |
 </details>
 
 <details>
@@ -128,72 +136,72 @@ Nombre d'observations : 4824
 <summary><b><font size="+1">Opponent Stats Per Game.csv</font></b></summary>
 Nombre d'observations : 31136
 
-| Attribut               | Explication                                 | Type        | Format     | Type de données |
-|------------------------|---------------------------------------------|-------------|------------|-----------------|
-| season                 | Saison                                      | Texte       | YYYY       | Ordinal         |
-| lg                     | Ligue                                       | Texte       | String     | Nominal         |
-| team                   | Équipe                                      | Texte       | String     | Nominal         |
-| abbreviation           | Abréviation de l'équipe                     | Texte       | String     | Nominal         |
-| playoffs               | Participation aux playoffs                  | Booléen     | N/A        | Nominal         |
-| g                      | Nombre de matchs joués                      | Numérique   | Integer    | Continu         |
-| mp_per_game            | Minutes jouées par match                    | Numérique   | Integer    | Continu         |
-| opp_fg_per_game        | Paniers adverses réussis par match          | Numérique   | Integer    | Continu         |
-| opp_fga_per_game       | Tentatives de paniers adverses par match    | Numérique   | Integer    | Continu         |
-| opp_fg_percent         | Pourcentage de réussite des paniers adverses | Numérique   | Percentage | Continu         |
-| opp_x3p_per_game       | Paniers à 3 points adverses réussis par match | Numérique | Integer    | Continu         |
-| opp_x3pa_per_game      | Tentatives de paniers à 3 points adverses par match | Numérique | Integer    | Continu         |
-| opp_x3p_percent        | Pourcentage de réussite des paniers à 3 points adverses | Numérique | Percentage | Continu         |
-| opp_x2p_per_game       | Paniers à 2 points adverses réussis par match | Numérique | Integer    | Continu         |
-| opp_x2pa_per_game      | Tentatives de paniers à 2 points adverses par match | Numérique | Integer    | Continu         |
-| opp_x2p_percent        | Pourcentage de réussite des paniers à 2 points adverses | Numérique | Percentage | Continu         |
-| opp_ft_per_game        | Lancers francs adverses réussis par match   | Numérique   | Integer    | Continu         |
-| opp_fta_per_game       | Tentatives de lancers francs adverses par match | Numérique | Integer    | Continu         |
-| opp_ft_percent         | Pourcentage de réussite des lancers francs adverses | Numérique | Percentage | Continu         |
-| opp_orb_per_game       | Rebonds offensifs adverses par match        | Numérique   | Integer    | Continu         |
-| opp_drb_per_game       | Rebonds défensifs adverses par match        | Numérique   | Integer    | Continu         |
-| opp_trb_per_game       | Rebonds totaux adverses par match           | Numérique   | Integer    | Continu         |
-| opp_ast_per_game       | Passes décisives adverses par match         | Numérique   | Integer    | Continu         |
-| opp_stl_per_game       | Interceptions adverses par match            | Numérique   | Integer    | Continu         |
-| opp_blk_per_game       | Contres adverses par match                  | Numérique   | Integer    | Continu         |
-| opp_tov_per_game       | Pertes de balle adverses par match          | Numérique   | Integer    | Continu         |
-| opp_pf_per_game        | Fautes personnelles adverses par match      | Numérique   | Integer    | Continu         |
-| opp_pts_per_game       | Points adverses par match                   | Numérique   | Integer    | Continu         |
+| Attribut          | Explication                                             | Type      | Format     | Type de données |
+|-------------------|---------------------------------------------------------|-----------|------------|-----------------|
+| season            | Saison                                                  | Texte     | YYYY       | Ordinal         |
+| lg                | Ligue                                                   | Texte     | String     | Nominal         |
+| team              | Équipe                                                  | Texte     | String     | Nominal         |
+| abbreviation      | Abréviation de l'équipe                                 | Texte     | String     | Nominal         |
+| playoffs          | Participation aux playoffs                              | Booléen   | N/A        | Nominal         |
+| g                 | Nombre de matchs joués                                  | Numérique | Integer    | Continu         |
+| mp_per_game       | Minutes jouées par match                                | Numérique | Integer    | Continu         |
+| opp_fg_per_game   | Paniers adverses réussis par match                      | Numérique | Integer    | Continu         |
+| opp_fga_per_game  | Tentatives de paniers adverses par match                | Numérique | Integer    | Continu         |
+| opp_fg_percent    | Pourcentage de réussite des paniers adverses            | Numérique | Percentage | Continu         |
+| opp_x3p_per_game  | Paniers à 3 points adverses réussis par match           | Numérique | Integer    | Continu         |
+| opp_x3pa_per_game | Tentatives de paniers à 3 points adverses par match     | Numérique | Integer    | Continu         |
+| opp_x3p_percent   | Pourcentage de réussite des paniers à 3 points adverses | Numérique | Percentage | Continu         |
+| opp_x2p_per_game  | Paniers à 2 points adverses réussis par match           | Numérique | Integer    | Continu         |
+| opp_x2pa_per_game | Tentatives de paniers à 2 points adverses par match     | Numérique | Integer    | Continu         |
+| opp_x2p_percent   | Pourcentage de réussite des paniers à 2 points adverses | Numérique | Percentage | Continu         |
+| opp_ft_per_game   | Lancers francs adverses réussis par match               | Numérique | Integer    | Continu         |
+| opp_fta_per_game  | Tentatives de lancers francs adverses par match         | Numérique | Integer    | Continu         |
+| opp_ft_percent    | Pourcentage de réussite des lancers francs adverses     | Numérique | Percentage | Continu         |
+| opp_orb_per_game  | Rebonds offensifs adverses par match                    | Numérique | Integer    | Continu         |
+| opp_drb_per_game  | Rebonds défensifs adverses par match                    | Numérique | Integer    | Continu         |
+| opp_trb_per_game  | Rebonds totaux adverses par match                       | Numérique | Integer    | Continu         |
+| opp_ast_per_game  | Passes décisives adverses par match                     | Numérique | Integer    | Continu         |
+| opp_stl_per_game  | Interceptions adverses par match                        | Numérique | Integer    | Continu         |
+| opp_blk_per_game  | Contres adverses par match                              | Numérique | Integer    | Continu         |
+| opp_tov_per_game  | Pertes de balle adverses par match                      | Numérique | Integer    | Continu         |
+| opp_pf_per_game   | Fautes personnelles adverses par match                  | Numérique | Integer    | Continu         |
+| opp_pts_per_game  | Points adverses par match                               | Numérique | Integer    | Continu         |
 </details>
 
 <details>
 <summary><b><font size="+1">Opponent Totals.csv</font></b></summary>
 Nombre d'observations : 31136
 
-| Attribut               | Explication                                 | Type        | Format    | Type de données |
-|------------------------|---------------------------------------------|-------------|-----------|---------------|
-| season                 | Saison                                      | Numérique   | YYYY          |     Continu     |
-| lg                     | Ligue                                       | Texte       |  String         |     Nominal          |
-| team                   | Équipe                                      | Texte       |  String   |    Nominal           |
-| abbreviation           | Abréviation de l'équipe                     | Texte       |  String   |    Nominal           |
-| playoffs               | Participation aux playoffs                  | Booléen     | TRUE / FALSE |      Nominal         |
-| g                      | Nombre de matchs joués                      | Numérique   |  Integer         |   Continu            |
-| mp_per_game            | Minutes jouées par match                    | Numérique   |  Integer         |    Continu           |
-| opp_fg                 | Total des paniers adverses réussis          | Numérique   |  Integer         |    Continu           |
-| opp_fga                | Total des Tentatives de paniers adverses    | Numérique   |  Integer         |    Continu           |
-| opp_fg_percent         | Pourcentage de réussite des paniers adverses | Numérique  |   Percentage        |   Continu            |
-| opp_x3p                | Total des paniers à 3 points adverses réussis | Numérique  |  Integer         |      Continu         |
-| opp_x3pa               | Total de paniers à 3 points adverses tentés  | Numérique  | Integer          |       Continu        |
-| opp_x3p_percent        | Pourcentage de réussite des paniers à 3 points adverses | Numérique  |  Percentage         |    Continu           |
-| opp_x2p                | Total des paniers à 2 points adverses réussis | Numérique  |  Integer         |  Continu             |
-| opp_x2pa               | Total des paniers à 2 points adverses tentés | Numérique  |  Integer         |    Continu           |
-| opp_x2p_percent        | Pourcentage de réussite des paniers à 2 points adverses | Numérique  |  Percentage         |    Continu           |
-| opp_ft                 | Total des lancers francs adverses réussis  | Numérique  |   Integer        |      Continu         |
-| opp_fta                | Total des lancers francs adverses tentés | Numérique  |   Integer        |     Continu          |
-| opp_ft_percent         | Pourcentage de réussite des lancers francs adverses | Numérique  | Percentage          |      Continu         |
-| opp_orb                | Total des rebonds offensifs adverses | Numérique  |   Integer        |       Continu        |
-| opp_drb                | Total des rebonds défensifs adverses | Numérique  |   Integer        |       Continu        |
-| opp_trb                | Total des rebonds adverses | Numérique  |   Integer        |    Continu           |
-| opp_ast                | Total des passes décisives adverses | Numérique  |    Integer       |     Continu          |
-| opp_stl                | Total des interceptions adverses  | Numérique  |  Integer         |       Continu        |
-| opp_blk                | Total des contres adverses        | Numérique  |  Integer         |     Continu          |
-| opp_tov                | Total des pertes de balle adverses  | Numérique  |    Integer       |    Continu           |
-| opp_pf                 | Total des fautes personnelles adverses  | Numérique  | Integer          |    Continu           |
-| opp_pts                | Total des points adverses        | Numérique  |    Integer       |  Continu             |
+| Attribut        | Explication                                             | Type      | Format       | Type de données |
+|-----------------|---------------------------------------------------------|-----------|--------------|-----------------|
+| season          | Saison                                                  | Numérique | YYYY         | Continu         |
+| lg              | Ligue                                                   | Texte     | String       | Nominal         |
+| team            | Équipe                                                  | Texte     | String       | Nominal         |
+| abbreviation    | Abréviation de l'équipe                                 | Texte     | String       | Nominal         |
+| playoffs        | Participation aux playoffs                              | Booléen   | TRUE / FALSE | Nominal         |
+| g               | Nombre de matchs joués                                  | Numérique | Integer      | Continu         |
+| mp_per_game     | Minutes jouées par match                                | Numérique | Integer      | Continu         |
+| opp_fg          | Total des paniers adverses réussis                      | Numérique | Integer      | Continu         |
+| opp_fga         | Total des Tentatives de paniers adverses                | Numérique | Integer      | Continu         |
+| opp_fg_percent  | Pourcentage de réussite des paniers adverses            | Numérique | Percentage   | Continu         |
+| opp_x3p         | Total des paniers à 3 points adverses réussis           | Numérique | Integer      | Continu         |
+| opp_x3pa        | Total de paniers à 3 points adverses tentés             | Numérique | Integer      | Continu         |
+| opp_x3p_percent | Pourcentage de réussite des paniers à 3 points adverses | Numérique | Percentage   | Continu         |
+| opp_x2p         | Total des paniers à 2 points adverses réussis           | Numérique | Integer      | Continu         |
+| opp_x2pa        | Total des paniers à 2 points adverses tentés            | Numérique | Integer      | Continu         |
+| opp_x2p_percent | Pourcentage de réussite des paniers à 2 points adverses | Numérique | Percentage   | Continu         |
+| opp_ft          | Total des lancers francs adverses réussis               | Numérique | Integer      | Continu         |
+| opp_fta         | Total des lancers francs adverses tentés                | Numérique | Integer      | Continu         |
+| opp_ft_percent  | Pourcentage de réussite des lancers francs adverses     | Numérique | Percentage   | Continu         |
+| opp_orb         | Total des rebonds offensifs adverses                    | Numérique | Integer      | Continu         |
+| opp_drb         | Total des rebonds défensifs adverses                    | Numérique | Integer      | Continu         |
+| opp_trb         | Total des rebonds adverses                              | Numérique | Integer      | Continu         |
+| opp_ast         | Total des passes décisives adverses                     | Numérique | Integer      | Continu         |
+| opp_stl         | Total des interceptions adverses                        | Numérique | Integer      | Continu         |
+| opp_blk         | Total des contres adverses                              | Numérique | Integer      | Continu         |
+| opp_tov         | Total des pertes de balle adverses                      | Numérique | Integer      | Continu         |
+| opp_pf          | Total des fautes personnelles adverses                  | Numérique | Integer      | Continu         |
+| opp_pts         | Total des points adverses                               | Numérique | Integer      | Continu         |
 </details>
 
 <details>
@@ -694,14 +702,14 @@ Nombre d'observations : 31815
 | pts          | Points marqués                                 | Numérique | Continu        | Integer             |
 </details>
 
-
+<a id="section-2"></a>
 # II. Plan d'analyse
 
 Voici les questions que nous avons élaboré pour pouvoir étudier notre jeu de données : 
 
 ### 1. Est que le MVP est forcément qualifié au playoff ou gagnant de cette compétition ?
 
-``Description : `` En effet, lorsqu'on se pose cette question, nous voudrons savoir si le MVP a un grand impact sur la qualification de son équipe au play-offs ou il est aussi important de comparer combien de fois le MVP n'a pas été qualifié en playoffs ou n'a pas remporté le championnat.
+``Description :`` En effet, lorsqu'on se pose cette question, nous voudrons savoir si le MVP a un grand impact sur la qualification de son équipe au play-offs ou il est aussi important de comparer combien de fois le MVP n'a pas été qualifié en playoffs ou n'a pas remporté le championnat.
 Il est important de répondre à cette question afin de comprendre si l'aspect individuel ou collectif est le plus important à la victoire ainsi cela va nous montrer si la présence de joueur star va être synonyme de succès.
 Nous pensons obtenir des informations montrant que l'aspect collectif du basket est plus important que l'aspect individuel donc il peut y avoir plusieurs saisons où le MVP n'est pas forcément gagnant des play-offs.
 
@@ -715,7 +723,7 @@ En répondant à cette question, nous pouvons rencontrer les problèmes suivants
 
 ### 2. Quelle est la différence entre le basket d'aujourd'hui et celui d'autrefois ?
 
-``Description : `` Lorsque nous abordons la différence entre le basket d'aujourd'hui et celui d'autrefois, nous souhaitons savoir comment le style de jeu a évolué au fils des années est ce que les équipes sont plus offensives, est ce que les équipes marquent plus en trois points ...
+``Description :`` Lorsque nous abordons la différence entre le basket d'aujourd'hui et celui d'autrefois, nous souhaitons savoir comment le style de jeu a évolué au fils des années est ce que les équipes sont plus offensives, est ce que les équipes marquent plus en trois points ...
 La réponse à cette question va nous mettre en lumière la manière dont ce sport a évolué au fils des années.  
 
 ``Sources des données :`` Pour obtenir des informations pertinentes, nous souhaitons comparer des variables telles que les statistiques de jeu (points marqués, pourcentage de tirs réussis, rebonds, passes décisives, etc.) mais aussi les caractéristiques des joueurs ainsi à travers cela nous pourrons aussi déceler le style de jeu des équipes. 
@@ -726,7 +734,7 @@ Pour répondre à la question, nous allons utiliser différents fichiers de notr
 Une visualisation adaptée à cette analyse serait un graphique en barres ou un graphique linéaire montrant l'évolution des différentes variables au fil du temps, permettant ainsi une comparaison visuelle claire entre le basket d'autrefois et celui d'aujourd'hui.
 
 ### 3. Existe-t-il une corrélation entre la moyenne d'âge d'une équipe et son classement dans la saison régulière ?
-``Description : `` En se posant cette question, on s’interroge sur la corrélation qu’il pourrait y avoir entre la moyenne d'âge d’une équipe et ses performances, si les équipes plus jeunes et qui manquent d'expérience peuvent être compétitives dans la ligue, ou alors au contraire elles sont dépassés par les équipes expérimentées avec des vétérans dont la moyenne d'âge est par conséquent plus grande.Cette question s’avère particulièrement pertinente en raison de son impact potentiel sur les stratégies de gestion d'équipe notamment au niveau du recrutement des différents profils des joueurs, ou encore la dynamique et l’équilibre parfait entre jeunesse et expérience.
+``Description :`` En se posant cette question, on s’interroge sur la corrélation qu’il pourrait y avoir entre la moyenne d'âge d’une équipe et ses performances, si les équipes plus jeunes et qui manquent d'expérience peuvent être compétitives dans la ligue, ou alors au contraire elles sont dépassés par les équipes expérimentées avec des vétérans dont la moyenne d'âge est par conséquent plus grande.Cette question s’avère particulièrement pertinente en raison de son impact potentiel sur les stratégies de gestion d'équipe notamment au niveau du recrutement des différents profils des joueurs, ou encore la dynamique et l’équilibre parfait entre jeunesse et expérience.
 
 ``Sources des données :`` Pour pouvoir répondre à cette question nous allons faire appel à plusieurs données présentes dans le tableau Team Summaries, dont premièrement la saison ( season)  et l’équipe concernée ( team). On aura aussi besoin de la donnée “age” qui représente la moyenne d'âge de chaque équipe. Pour représenter les performances de l’équipe, on pourra s'intéresser à la variable “playoffs” qui est un booléen qui montre si l’équipe s’est qualifiée en playoffs ou pas, ou alors “w” qui représente le nombre de victoires de chaque équipe, ou encore la force de l’opposition(sos).
 
@@ -738,7 +746,7 @@ Une visualisation adaptée à cette analyse serait un graphique en barres ou un 
 
 ### 4. Les performances d’une équipe influencent-elles l’affluence des fans dans l’arène?
 
-``Description : `` En se posant cette question, nous allons nous interroger sur la corrélation entre les performances d’une équipe, que ce soit le nombre de victoires, sa participation en playoffs etc, et l’affluence des supporters dans l’arène de l’équipe. Cela revient à se demander si les fans sont influencés par les résultats sportifs lorsqu'ils décident d'assister à un match en personne, ce qui peut avoir un impact sur la billetterie et stratégie marketing etc., ou alors au contraire si l'affluence dans l'arène a un impact sur les performances de l'équipe ce qui pourrait fournir des informations cruciales sur la dynamique entre le soutien des fans et les résultats sportifs.
+``Description :`` En se posant cette question, nous allons nous interroger sur la corrélation entre les performances d’une équipe, que ce soit le nombre de victoires, sa participation en playoffs etc, et l’affluence des supporters dans l’arène de l’équipe. Cela revient à se demander si les fans sont influencés par les résultats sportifs lorsqu'ils décident d'assister à un match en personne, ce qui peut avoir un impact sur la billetterie et stratégie marketing etc., ou alors au contraire si l'affluence dans l'arène a un impact sur les performances de l'équipe ce qui pourrait fournir des informations cruciales sur la dynamique entre le soutien des fans et les résultats sportifs.
 
 ``Sources des données :`` Pour pouvoir répondre à cette question nous avons à disposition le tableau Team Summaries, qui va nous fournir comme données l’équipe (team) et la saison ( season). Pour représenter l’affluence nous avons comme données “arena”, le nom de l’arène de l’équipe, “attend” l’affluence totale au cours de la saison, et “attend_g” l’affluence moyenne par match lors de cette saison là. Pour mesurer les performances, on a “playoffs” qui est un booléen qui montre si l’équipe s’est qualifiée en playoffs ou pas, ou alors “w” qui représente le nombre de victoires de chaque équipe, ou encore la force de l’opposition(sos).
 
@@ -751,7 +759,7 @@ Une visualisation adaptée à cette analyse serait un graphique en barres ou un 
 
 ### 5. A quel age les performances des joueurs commencent à décliner ?
 
-``Description : `` Cette question cherche à déterminer à partir de quel âge les performances des joueurs de basketball professionels commencent à décliner. En effet, nous savons que l'âge peut avoir de nombreuses conséquences sur le coprs que ce soit mental ou physique avec par exemple une baisse de motivation après de nombreuses années à haut niveau ou de moins bons réflexes, moins de tonus musculaire... Nous allons examiner les données des saisons passées en NBA pour identifier les tendances de performance en fonction de l'âge des joueurs. Cela nous permettra de comprendre à quel moment les joueurs commencent généralement à montrer des signes de déclin physique ou de diminution de leurs performances. On pourra également 
+``Description :`` Cette question cherche à déterminer à partir de quel âge les performances des joueurs de basketball professionels commencent à décliner. En effet, nous savons que l'âge peut avoir de nombreuses conséquences sur le coprs que ce soit mental ou physique avec par exemple une baisse de motivation après de nombreuses années à haut niveau ou de moins bons réflexes, moins de tonus musculaire... Nous allons examiner les données des saisons passées en NBA pour identifier les tendances de performance en fonction de l'âge des joueurs. Cela nous permettra de comprendre à quel moment les joueurs commencent généralement à montrer des signes de déclin physique ou de diminution de leurs performances. On pourra également 
 
 ``Sources des données :`` Nous utiliserons principalement le fichier "Player Totals" qui fournit des informations sur les performances des joueurs au fil du temps, y compris leur âge. Nous pourrons également consulter d'autres fichiers tels que "Player Shooting" pour obtenir des statistiques détaillées sur les performances des joueurs au niveau des tirs particulièrement. Nous pourrons utiliser les fichiers "Player Play By Play" et "Player Per Game" pour avoir des données sur le temps de jeu du joueur, des statistiques de défense...
 
@@ -763,7 +771,7 @@ Une visualisation adaptée à cette analyse serait un graphique en barres ou un 
 
 ### 6. Y a-t-il une corrélation entre les performances individuelles des joueurs clés et le succès de l'équipe ?
 
-``Description : `` Nous allons essayer de déterminer s'il existe une relation entre les performances individuelles des joueurs clés d'une équipe de basket et le succès global de cette équipe. Nous allons examiner les données mises à notre disposition pour évaluer la corrélation entre les performances des joueurs clés (tels que les meilleurs marqueurs, les MVP...) et les résultats de l'équipe (qualification en playoffs, succès en playoffs...).
+``Description :`` Nous allons essayer de déterminer s'il existe une relation entre les performances individuelles des joueurs clés d'une équipe de basket et le succès global de cette équipe. Nous allons examiner les données mises à notre disposition pour évaluer la corrélation entre les performances des joueurs clés (tels que les meilleurs marqueurs, les MVP...) et les résultats de l'équipe (qualification en playoffs, succès en playoffs...).
 
 ``Sources des données :`` Les fichiers "Advance", "Per 100 Poss", "Player Awards Shares", "Player Career Info", "Team Summaries" seront principalement utilisés pour obtenir les performances individuelles des joueurs clés et les corréler avec les résultats de leur l'équipe.
 
@@ -775,7 +783,7 @@ Une visualisation adaptée à cette analyse serait un graphique en barres ou un 
 
 ### 7. Est ce que les fautes ont un impact sur les performances de l’équipe ?
 
-``Description : `` En se posant cette question, nous cherchons à savoir s’il y a une corrélation entre les performances d’une équipe et le nombre de fautes qu’elle réalise. Cela permettra de voir si les fautes font baisser le moral des joueurs de l’équipe et se répercute sur les performances du groupe négativement, ou si, au contraire les fautes motivé les joueurs et ont donc un effet bénéfique sur les performances de l’équipe. 
+``Description :`` En se posant cette question, nous cherchons à savoir s’il y a une corrélation entre les performances d’une équipe et le nombre de fautes qu’elle réalise. Cela permettra de voir si les fautes font baisser le moral des joueurs de l’équipe et se répercute sur les performances du groupe négativement, ou si, au contraire les fautes motivé les joueurs et ont donc un effet bénéfique sur les performances de l’équipe. 
 
 ``Sources des données :`` Pour récupérer les données sur les fautes, il y a plusieurs options possibles. Tout d’abord, nous pouvons éliminer les fichiers répertoriant les données des adversaires ( fichier “...opp…” ) car nous nous intéressons aux fautes des joueurs de l'équipe. Pour cela, il faut donc se baser sur les fichiers “Per 100 Poss.csv”, “Per 36 Minutes.csv”, “Team Stats per 100 Poss.csv”, “Team Stats Per Game.csv” et “Team Totals.csv”. Quant aux performances de l’équipe, nous pourrons donc étudier le nombre de victoires ou encore le nombre de points.
 
@@ -786,7 +794,7 @@ Une visualisation adaptée à cette analyse serait un graphique en barres ou un 
 
 ### 8. Est-ce que la NBA se tourne de plus en plus vers le spectacle ?
 
-``Description : `` Cette dernière question va nous permettre de découvrir si le style de jeu de la NBA se tourne plus vers du spectacle qu’avant. En effet, nous cherchons à savoir si, par match, le nombre de points évolue et si la nature de ces derniers est différents du passé.
+``Description :`` Cette dernière question va nous permettre de découvrir si le style de jeu de la NBA se tourne plus vers du spectacle qu’avant. En effet, nous cherchons à savoir si, par match, le nombre de points évolue et si la nature de ces derniers est différents du passé.
 
 ``Sources des données :`` Pour étudier cette question, nous allons avoir besoin de différentes données. Pour chacune de ces données, l’objectif va être de récupérer des valeurs les plus vieilles possible et de les comparer à des valeurs les plus récentes possible. Pour cela, nous pourrons comparer le nombre de points par match (fichier “Team Totals.csv”, attribut pts) ou encore le nombre de tentatives de tir à trois points (attribut x3p disponible dans plusieurs fichiers comme “Team Totals.csv” ou “Advance.csv”).
 
