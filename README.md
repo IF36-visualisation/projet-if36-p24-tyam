@@ -118,7 +118,7 @@ Pour faciliter l'exploration et l'utilisation de ce dataset, chaque joueur poss�
 
 ### * Opponent Stats Per Game.csv
 
-#### Nombre d'observations (X)
+#### Nombre d'observations (31136)
 
 | Attribut               | Explication                                 | Type        | Format     | Type de données |
 |------------------------|---------------------------------------------|-------------|------------|-----------------|
@@ -153,7 +153,7 @@ Pour faciliter l'exploration et l'utilisation de ce dataset, chaque joueur poss�
 
 ### * Opponent Totals.csv
 
-#### Nombre d'observations (X)
+#### Nombre d'observations (31136)
 
 | Attribut               | Explication                                 | Type        | Format    | Type de données |
 |------------------------|---------------------------------------------|-------------|-----------|---------------|
@@ -673,7 +673,7 @@ __Description :__ En effet, lorsqu'on se pose cette question, nous voudrons savo
 Il est important de répondre à cette question afin de comprendre si l'aspect individuel ou collectif est le plus important à la victoire ainsi cela va nous montrer si la présence de joueur star va être synonyme de succès.
 Nous pensons obtenir des informations montrant que l'aspect collectif du basket est plus important que l'aspect individuel donc il peut y avoir plusieurs saisons où le MVP n'est pas forcément gagnant des play-offs.
 
-__Sources de données :__Pour pouvoir répondre à cette question, nous allons utiliser les fichiers End Of Season Teams et le Player Career Info où il y a les variables suivantes : MVP, la qualification en playoffs pour chaque équipe et le statut de champion pour chaque équipe. 
+__Sources de données :__ Pour pouvoir répondre à cette question, nous allons utiliser les fichiers End Of Season Teams et le Player Career Info où il y a les variables suivantes : MVP, la qualification en playoffs pour chaque équipe et le statut de champion pour chaque équipe. 
 En répondant à cette question, nous pouvons rencontrer les problèmes suivants : Les équipes peuvent changer de composition d'une saison à l'autre, rendant la comparaison moins directe. Des facteurs externes tels que les blessures, les transactions de joueurs, ou d'autres événements inattendus peuvent influencer les résultats. Il peut y avoir des saisons où le MVP est clairement défini, tandis que dans d'autres, il peut y avoir plusieurs prétendants sérieux.
 
  __Visualisations possibles :__
