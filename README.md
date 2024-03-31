@@ -4,6 +4,8 @@ author: "IF36 - TYAM (Sidqui Youssef, Mohamed Chouai, Antoine Mazeau, Thomas Cha
 date: "UTT - Semestre P24"
 ---
 
+![Image Accueil](./images/img.png)
+
 # Introduction
 La National Basketball Association (NBA) est la principale ligue de basket-ball au monde, crée le 6 juin 1946 sous le nom de BAA(Basketball Association of America), la ligue est renomée en NBA en 1949 après sa fusion avec la NBL (National Basketball League). Connaissant un franc succès et un engouement sans précédent, la NBA enchaine plus de 77 éditions. Le championnat comprend 29 franchises américaines et une canadienne, réparties en deux conférences (Est et Ouest).Après une saison régulière débutant en octobre et comprenant 82 matchs, les 8 meilleures équipes de chaque conférence s'affrontent en séries éliminatoires (playoffs).Les finales voient s'opposer la meilleure équipe de chaque conférence Est contre celle de la conférence Ouest. L'équipe qui parvient à remporter 4 match en premier est championne de NBA.
 
@@ -14,13 +16,14 @@ En effet, ce site contient toutes les informations sur les statistiques, les sco
 
 Le jeu de données est disponible sur [Cette page Kaggle] (https://www.kaggle.com/datasets/sumitrodatta/nba-aba-baa-stats?select=Opponent+Stats+Per+Game.csv) et a été publié par [**Sumitro Datta**], un data management consultant chez __Pacific Lif Re__.
 
-## Données
+# Données
 Notre dataset est composé de 21 fichiers et de 499 colonnes montrant l'évolution de la NBA au fil de l'histoire. Comme nous l'avons mentionné auparavant nous avons deux types de fichiers : d'une part les fichiers cotés joueurs donnant une description du joueur et ses statistiques au sein de la saison et d'autre part nous avons les fichiers cotés équipes contenant les informations sur l'avancement de l'équipe. Il n'y a pas de catégories ou des sous-groupes au sein de notre dataset. 
 
-Pour faciliter l'exploration et l'utilisation de ce dataset, chaque joueur possède un identifiant unique par joueur afin de faciliter l'aggrégation des différents fichiers présents. 
-### * Advance.csv
+Pour faciliter l'exploration et l'utilisation de ce dataset, chaque joueur possède un identifiant unique par joueur afin de faciliter l'aggrégation des différents fichiers présents.
 
-#### Nombre d'observations (31136)
+<details>
+<summary><b><font size="+1">Advance.csv</font></b></summary>
+Nombre d'observations : 31136
 
 | Attribut               | Explication                                       | Type      | Format    | Type de données  |
 |------------------------|---------------------------------------------------|-----------|-----------|------------------|
@@ -58,12 +61,13 @@ Pour faciliter l'exploration et l'utilisation de ce dataset, chaque joueur poss�
 | vorp                   | Valeur de remplacement au-dessus du seuil         | Numérique | Integer   | Continu          |
 | Label                  | Étiquette                                         | Texte     | String    | Nominal          |
 | Count                  | Compte                                            | Texte     | Integer   | Discret          |
+</details>
 
 
+<details>
+<summary><b><font size="+1">All Star selections.csv</font></b></summary>
 
-### * All Star selections.csv
-
-#### Nombre d'observations (524)
+Nombre d'observations : 524
 
 | Attribut   | Explication                  | Type     | Format    | Type de données  |
 |------------|------------------------------|----------|-----------|------------------|
@@ -72,10 +76,11 @@ Pour faciliter l'exploration et l'utilisation de ce dataset, chaque joueur poss�
 | lg         | Ligue du joueur              | Texte    | String    | Nominal          |
 | season     | Saison de sélection          | Texte    | String    | Nominal          |
 | replaced   | Remplacé ou non              | Booléen  | N/A       | Nominal          |
+</details>
 
-### * End of Season Teams.csv
-
-#### Nombre d'observations (4824)
+<details>
+<summary><b><font size="+1">End of Season Teams (Voting).csv</font></b></summary>
+Nombre d'observations : 4824
 
 | Attribut    | Explication                               | Type      | Format     | Type de données |
 |-------------|-------------------------------------------|-----------|------------|-----------------|
@@ -95,7 +100,10 @@ Pour faciliter l'exploration et l'utilisation de ce dataset, chaque joueur poss�
 | x3rd_tm     | Nombre de troisièmes sélections           | Numérique | Integer    | Discret         |
 | seas_id     | Identifiant de la saison                  | Numérique | YYYY       | Ordinal         |
 | player_id   | Identifiant du joueur                     | Numérique | N/A        | Nominal         |
+</details>
 
+<details>
+<summary><b><font size="+1">End of Season Teams.csv</font></b></summary>
 
 ### * End of Season Teams.csv
 
@@ -114,11 +122,11 @@ Pour faciliter l'exploration et l'utilisation de ce dataset, chaque joueur poss�
 | birth_year  | Année de naissance du joueur              | Texte     | YYYY       | Ordinal         |
 | tm          | Équipe du joueur                          | Texte     | String     | Nominal         |
 | age         | Âge du joueur                             | Numérique | Integer    | Continu         |
+</details>
 
-
-### * Opponent Stats Per Game.csv
-
-#### Nombre d'observations (31136)
+<details>
+<summary><b><font size="+1">Opponent Stats Per Game.csv</font></b></summary>
+Nombre d'observations : 31136
 
 | Attribut               | Explication                                 | Type        | Format     | Type de données |
 |------------------------|---------------------------------------------|-------------|------------|-----------------|
@@ -150,10 +158,11 @@ Pour faciliter l'exploration et l'utilisation de ce dataset, chaque joueur poss�
 | opp_tov_per_game       | Pertes de balle adverses par match          | Numérique   | Integer    | Continu         |
 | opp_pf_per_game        | Fautes personnelles adverses par match      | Numérique   | Integer    | Continu         |
 | opp_pts_per_game       | Points adverses par match                   | Numérique   | Integer    | Continu         |
+</details>
 
-### * Opponent Totals.csv
-
-#### Nombre d'observations (31136)
+<details>
+<summary><b><font size="+1">Opponent Totals.csv</font></b></summary>
+Nombre d'observations : 31136
 
 | Attribut               | Explication                                 | Type        | Format    | Type de données |
 |------------------------|---------------------------------------------|-------------|-----------|---------------|
@@ -185,9 +194,11 @@ Pour faciliter l'exploration et l'utilisation de ce dataset, chaque joueur poss�
 | opp_tov                | Total des pertes de balle adverses  | Numérique  |    Integer       |    Continu           |
 | opp_pf                 | Total des fautes personnelles adverses  | Numérique  | Integer          |    Continu           |
 | opp_pts                | Total des points adverses        | Numérique  |    Integer       |  Continu             |
-### * Opponent Stats per 100 poss.csv
+</details>
 
-#### Nombre d'observations (31136)
+<details>
+<summary><b><font size="+1">Opponent Stats per 100 poss.csv</font></b></summary>
+Nombre d'observations : 31136
 
 | Attribut               | Explication                                 | Type        |Format    |Type de données      |
 |------------------------|---------------------------------------------|-------------|----------|---------------------|
@@ -219,10 +230,11 @@ Pour faciliter l'exploration et l'utilisation de ce dataset, chaque joueur poss�
 | opp_tov_per_100_poss                 | Pertes de balle adverses par 100 possessions   | Numérique   |Float         |   Continu     |
 | opp_pf_per_100_poss                  | Fautes personnelles adverses par 100 possessions  | Numérique   |Float         |   Continu     |
 | opp_pts_per_100_poss                 | Points adverses par 100 possessions        | Numérique   |Float         |   Continu     |
+</details>
 
-### * Per 100 Poss.csv
-
-#### Nombre d'observations (31136)
+<details>
+<summary><b><font size="+1">Per 100 Poss.csv</font></b></summary>
+Nombre d'observations : 31136
 
 | Attribut               | Explication                                 | Type        |Format    |Type de données      |
 |------------------------|---------------------------------------------|-------------|----------|---------------------|
@@ -262,10 +274,12 @@ Pour faciliter l'exploration et l'utilisation de ce dataset, chaque joueur poss�
 | pts_per_100_poss      | Points par 100 possessions                  | Numérique   |Float   | Continu             |
 | o_rtg                 | Offensive rating                            | Numérique   |Integer   | Continu             |
 | d_rtg                 | Defensive rating                            | Numérique   |Integer   | Continu             |
+</details>
 
-### * Per 36 Minutes.csv
+<details>
+<summary><b><font size="+1">Per 36 Minutes.csv</font></b></summary>
 
-#### Nombre d'observations (31 136)
+Nombre d'observations : 31 136
 
 | Attribut               | Explication                                 | Type        |Format    |Type de données      |
 |------------------------|---------------------------------------------|-------------|----------|---------------------|
@@ -303,10 +317,12 @@ Pour faciliter l'exploration et l'utilisation de ce dataset, chaque joueur poss�
 | tov_per_36_min      | Pertes de balle par 36 minutes             | Numérique   |Float   | Continu             |
 | pf_per_36_min      | Fautes personnelles par 36 minutes         | Numérique   |Float   | Continu             |
 | pts_per_36_min      | Points par 36 minutes                      | Numérique   |Float   | Continu             |
+</details>
 
-### * Player Awards Shares.csv
 
-#### Nombre d'observations (X)
+<details>
+<summary><b><font size="+1">Player Awards Shares.csv</font></b></summary>
+Nombre d'observations : ?
 
 | Attribut   | Explication                            | Type       |Format    |Type de données      |
 |------------|----------------------------------------|------------|----------|---------------------|
@@ -322,10 +338,11 @@ Pour faciliter l'exploration et l'utilisation de ce dataset, chaque joueur poss�
 | winner     | Vainqueur                              | Booléen    |TRUE / FALSE |      Nominal     |
 | seas_id    | Identifiant de la saison               | Numérique  |Integer      | Continu             |
 | player_id  | Identifiant du joueur                  | Numérique  |Integer      | Continu             |
+</details>
 
-### * Player Career Info.csv
-
-#### Nombre d'observations (X)
+<details>
+<summary><b><font size="+1">Player Career Info.csv</font></b></summary>
+Nombre d'observations : ?
 
 | Attribut    | Explication                             | Type      | Format       | Type de données |
 |-------------|-----------------------------------------|-----------|--------------|-----------------|
@@ -336,9 +353,10 @@ Pour faciliter l'exploration et l'utilisation de ce dataset, chaque joueur poss�
 | num_seasons | Nombre de saisons passées dans la ligue | Numérique | Integer      | Continu         |
 | first_seas  | Année de la première saison             | Numérique | Integer      | Continu         |
 | last_seas   | Année de la dernière saison             | Numérique | Integer      | Continu         |
+</details>
 
-### * Team Abbrev.csv
-
+<details>
+<summary><b><font size="+1">Team Abbrev.csv</font></b></summary>
 Nombre d'observations : 1841
 
 | Attribut       | Explication                  | Type    | Format                   | Type de données |
@@ -348,10 +366,10 @@ Nombre d'observations : 1841
 | team           | Équipe                       | Texte   | String                   | Nominal         |
 | playoffs       | Participation aux playoffs   | Booléen | True ou False            | Nominal         |
 | abbreviation   | Abréviation de l'équipe      | Texte   | 3 caractères (majuscule) | Nominal         |
+</details>
 
-
-### * Team Stats per 100 Poss.csv
-
+<details>
+<summary><b><font size="+1">Team Stats per 100 Poss.csv</font></b></summary>
 Nombre d'observations : 1402
 
 | Attribut          | Explication                                 | Type      | Format                   | Type de données |
@@ -384,9 +402,10 @@ Nombre d'observations : 1402
 | tov_per_100_poss  | Balles perdues                              | Numérique | Float                    | Continu         |
 | pf_per_100_poss   | Fautes personnelles                         | Numérique | Float                    | Continu         |
 | pts_per_100_poss  | Points                                      | Numérique | Float                    | Continu         |
+</details>
 
-
-### * Team Stats Per Game.csv
+<details>
+<summary><b><font size="+1">Team Stats Per Game.csv</font></b></summary>
 
 Nombre d'observations : 1845
 
@@ -420,10 +439,10 @@ Nombre d'observations : 1845
 | tov_per_game  | Balles perdues par match                    | Numérique | Float                    | Continu         |
 | pf_per_game   | Fautes personnelles par match               | Numérique | Float                    | Continu         |
 | pts_per_game  | Points par match                            | Numérique | Float                    | Continu         |
+</details>
 
-
-### * Team Summaries.csv
-
+<details>
+<summary><b><font size="+1">Team Summaries.csv</font></b></summary>
 Nombre d'observations : 1845
 
 | Attribut         | Explication                                                                                                                                                                                                                                                                                                                        | Type      | Format                   | Type de données |
@@ -459,10 +478,10 @@ Nombre d'observations : 1845
 | arena            | Arène où se déroulent les matchs                                                                                                                                                                                                                                                                                                   | Texte     | String                   | Nominal         |
 | attend           | Nombre total de spectateurs                                                                                                                                                                                                                                                                                                        | Numérique | Integer                  | Continu         |
 | attend_g         | Nombre moyen de spectateurs par match                                                                                                                                                                                                                                                                                              | Numérique | Integer                  | Continu         |
+</details>
 
-
-### * Team Totals.csv
-
+<details>
+<summary><b><font size="+1">Team Totals.csv</font></b></summary>
 Nombre d'observations : 1845
 
 | Attribut     | Explication                                 | Type      | Format                   | Type de données |
@@ -495,10 +514,11 @@ Nombre d'observations : 1845
 | tov          | Balles perdues                              | Numérique | Integer                  | Continu         |
 | pf           | Fautes personnelles                         | Numérique | Integer                  | Continu         |
 | pts          | Points                                      | Numérique | Integer                  | Continu         |
+</details>
 
-### * Player Per Game.csv
-
-#### Nombre d'observations(31815)
+<details>
+<summary><b><font size="+1">Player Per Game.csv</font></b></summary>
+Nombre d'observations: 31815
 
 | Attribut       | Explication                                    | Type      | Type de donnée | Format de la donnée |
 |----------------|------------------------------------------------|-----------|----------------|---------------------|
@@ -537,11 +557,11 @@ Nombre d'observations : 1845
 | tov_per_game   | Pertes de balles par match                     | Numérique | Continu        | Integer             |
 | pf_per_game    | Fautes personnelles par match                  | Numérique | Continu        | Integer             |
 | pts_per_game   | Points marqués par match                       | Numérique | Continu        | Integer             |
+</details>
 
-
-### * Player Play By Play.csv
-
-#### Nombre d'observations(16730)
+<details>
+<summary><b><font size="+1">Player Play By Play.csv</font></b></summary>
+Nombre d'observations : 16730
 
 | Attribut                             | Explication                                                   | Type        | Type de donnée | Format de la donnée |
 |--------------------------------------|---------------------------------------------------------------|-------------|----------------|---------------------|
@@ -573,11 +593,11 @@ Nombre d'observations : 1845
 | points_generated_by_assists         | Points générés par des passes décisives                       | Numérique   | Continu        | Integer             |
 | and1                                | Nombre de tirs réussis malgré une faute et convertis en un panier supplémentaire | Numérique | Continu        | Integer             |
 | fga_blocked                         | Nombre de tentatives de tirs bloquées                         | Numérique   | Continu        | Integer             |
+</details>
 
-
-### * Player Season Info.csv
-
-#### Nombre d'observations(31815)
+<details>
+<summary><b><font size="+1">Player Season Info.csv</font></b></summary>
+Nombre d'observations : 31815
 
 | Attribut     | Explication                             | Type      | Type de donnée | Format de la donnée |
 |--------------|-----------------------------------------|-----------|----------------|---------------------|
@@ -591,11 +611,11 @@ Nombre d'observations : 1845
 | lg           | Ligue dans laquelle le joueur évolue    | Texte     | Nominal        | Texte               |
 | tm           | Équipe du joueur                        | Texte     | Nominal        | Texte               |
 | experience   | Nombre d'années d'expérience en ligue  | Numérique | Continu        | Integer             |
+</details>
 
-
-### * Player Shooting.csv
-
-#### Nombre d'observations(16730)
+<details>
+<summary><b><font size="+1">Player Shooting.csv</font></b></summary>
+Nombre d'observations : 16730
 
 | Attribut                      | Explication                                                      | Type      | Type de donnée | Format de la donnée |
 |-------------------------------|------------------------------------------------------------------|-----------|----------------|---------------------|
@@ -629,10 +649,11 @@ Nombre d'observations : 1845
 | percent_assisted_x3p_fg       | Pourcentage de paniers à 3 points assistés                       | Numérique | Continu        | Pourcentage         |
 | percent_dunks_of_fga          | Pourcentage de dunks parmi les tentatives de tirs                | Numérique | Continu        | Pourcentage         |
 | num_of_dunks                  | Nombre de dunks                                                  | Numérique | Continu        | Integer             |
+</details>
 
-### * Player Totals.csv
-
-#### Nombre d'observations(31815)
+<details>
+<summary><b><font size="+1">Player Totals.csv</font></b></summary>
+Nombre d'observations : 31815
 
 | Attribut     | Explication                                    | Type      | Type de donnée | Format de la donnée |
 |--------------|------------------------------------------------|-----------|----------------|---------------------|
@@ -671,7 +692,7 @@ Nombre d'observations : 1845
 | tov          | Pertes de balle                                | Numérique | Continu        | Integer             |
 | pf           | Fautes personnelles                            | Numérique | Continu        | Integer             |
 | pts          | Points marqués                                 | Numérique | Continu        | Integer             |
-
+</details>
 
 
 ## Plan d'analyse
