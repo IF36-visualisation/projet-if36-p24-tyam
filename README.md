@@ -112,10 +112,7 @@ Nombre d'observations : 4824
 
 <details>
 <summary><b><font size="+1">End of Season Teams.csv</font></b></summary>
-
-### * End of Season Teams.csv
-
-#### Nombre d'observations (30400)
+Nombre d'observations : 30400
 
 | Attribut    | Explication                               | Type      | Format     | Type de données |
 |-------------|-------------------------------------------|-----------|------------|-----------------|
