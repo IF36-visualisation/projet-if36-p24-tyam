@@ -1,0 +1,113 @@
+---
+title: "Projet"
+author: "Youssef"
+date: "2024-05-01"
+output:
+  html_document: default
+  pdf_document: default 
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(plotly)
+```
+
+```{r introduction, echo=FALSE, message=FALSE, warning=FALSE}
+"Dans cette partie nous allons nous intéresser à la question suivante : est ce que les performances d'uné équipe influencent-elles l'affluence des fans dans l'arène ? Pour répondre à cette question nous avons utilisé le fichier Team Summaries qui renferment plusieurs informations importantes pour répondre à cette question notamment le nombre de victoires, la qualification aux playoffs et sans oublier le nombre de spectacteurs. Au cours de l'exploration de ce jeu de données nous avons remarqué quelques données erronés dans certaines années qui ont été ainsi mis de coté pour ne pas fausser les résultats. Nous avons aussi remarqué que les données sont assez complètes et ne contiennent pas de valeurs manquantes. Nous avons donc décidé de nous focaliser sur l'année 2024 pour répondre à notre question. Nous allons donc analyser les données pour l'année 2024 et voir si les performances des équipes influencent l'affluence des fans dans les stades. Nous allons donc commencer par une analyse descriptive des données pour l'année 2024."
+
+```
+
+
+```{r graphe1, echo=FALSE, message=FALSE, warning=FALSE}
+# Charger les données
+projet <- read.csv("Team Summaries.csv")
+
+# Filtrer les données pour l'année 2024 uniquement
+projet_2024 <- subset(projet, season == 2024)
+
+# Définition des couleurs
+rouge_foncé <- "#FF0000"  # Rouge foncé
+bleu_turquoise <- "#00CED1"  # Bleu turquoise
+
+# Diagramme à barres interactif pour l'année 2024 avec des noms d'équipes inclinés de 45 degrés et des valeurs visibles au survol
+p <- ggplot(projet_2024, aes(x = reorder(team, attend_g), y = attend_g, fill = playoffs)) +
+  geom_bar(stat = "identity", width = 0.5) +
+  coord_flip() +
+  scale_fill_manual(values = c(rouge_foncé, bleu_turquoise), name = "Playoffs") +
+  theme(axis.text.y = element_text(angle = 0, hjust = 0.5, vjust = 0.5, size = 6),
+        axis.title.x = element_text(size = 8, face = "bold"),
+        axis.title.y = element_text(size = 8, face = "bold"),
+        plot.title = element_text(size = 10, hjust = 0.5, face = "bold"),
+        legend.key = element_rect(fill = "white"),
+        legend.background = element_rect(fill = "lightgrey", color = "black", size = 0.5)) +
+  labs(x = "Équipe", y = "Affluence moyenne") +
+  ggtitle("Affluence moyenne par équipe pour l'année 2024", subtitle = "Équipes triées par affluence moyenne")
+
+# Convertir le graphique ggplot en un graphique interactif avec plotly
+p <- ggplotly(p, tooltip = c("x", "y", "fill"))
+
+# Afficher le graphique interactif
+p
+
+"Concernant notre jeu de données sur la NBA, nous nous sommes focalisés sur l'affluence des spectateurs dans les stades. En effet lors de l'année de 2024, nous avons identifié certains éléments concernant cela. 
+Dans un premier temps, nous remarquons que les équipes ayant atteind les play-offs au cours de la compétition connaissant une affluence moyenne de spectateurs assez conséquente, vu que l'équipe ayant atteind les play-offs avec le moins de spectateur (Oklahoma City Thunder) connait près de 17500 spectateurs moyens par match ainsi nous pouvons déceler que les bonnes performances sportives des équipes est un facteur impactant sur le nombre de spectateurs notamment la qualification à travers la qualification aux play-offs. 
+
+D'une part, nous pouvons aussi ajouter qu'il y a des équipes qui ne sont pas qualifiés au play-offs comme les Chicago Bulls, Philadelplia 76ers, Miami Heat ou encore les New York Knicks qui sont des équipes qui ont une très forte affluence moyenne avoisinant les 20000 spectateurs par match malgré des résultats plus mitigés cela peut s'expliquer de plusieurs manières : 
+-Des équipes mythiques qui ont eu un grand palmarès et une grande histoire dans la NBA
+-Des équipes qui ont un style de jeu particulier, plaisant à regarder qui peuvent intéresser le grand public
+-Des équipes qui ont des joueurs stars 
+-Des grandes villes possèdant de grands stades de basket pouvant ainsi accueillir plus de spectateurs 
+-Des équipes qui possèdent une bonne communication pour attirer le public à travers l'invitation de personnalités publiques lors des matchs 
+Tous ces critères peuvent ainsi expliquer cette forte affluence des fans et touristes dans les stades malgré les performances sportives.
+D'autre part, il y a des équipes qui ne sont ni qualifié au play-offs ni assez populaires comme les Charlottes Hornets, les Indianna Pacers et les Washington Wizards qui ont une affluence avoisinant les 16000 spectateurs par match cela peut s'expliquer les mauvaises performance sportives et le manque d'attractivité lié au club d'une manière générale.
+En conclusion, nous pouvons dire que les écarts maximum d'affluence moyenne de spectateurs est de maximum 5000 spectateurs par match et que les facteurs jouant sur l'affluence moyenne sont les performances sportives (playoffs) et l'attractivité du club (histoire,
+joueurs, style de jeu, communication, ville, stade, etc)."
+
+```
+
+```{r graphe, echo=FALSE, message=FALSE, warning=FALSE}
+# Charger les données
+projet <- read.csv("Team Summaries.csv")
+
+# Créer un diagramme de dispersion interactif avec plotly
+p <- ggplot(projet, aes(x = w, y = attend_g, color = playoffs, text = paste("Équipe : ", team, "<br> Victoires : ", w, "<br> Année : ", season))) +
+  geom_point() +
+  scale_color_manual(values = c("TRUE" = "#00CED1", "FALSE" = "#FF0000"), name = "Playoffs") +
+  labs(x = "Nombre de victoires", y = "Affluence moyenne par match") +  
+  ggtitle("Affluence moyenne par match en fonction du nombre de victoires") +
+  theme_minimal() +  # Pour un meilleur rendu esthétique avec plotly
+  theme(
+    plot.title = element_text(size = 10, hjust = 0.5, face = "bold"),  # Titre du graphique
+    axis.title.x = element_text(size = 8, face = "bold"),  # Titre de l'axe des x
+    axis.title.y = element_text(size = 8, face = "bold")  # Titre de l'axe des y
+  )
+
+# Convertir le graphique ggplot en un graphique interactif avec plotly
+p <- ggplotly(p, tooltip = "text")
+
+# Spécifier les propriétés de mise en page pour encadrer le graphique
+p <- layout(p, 
+            margin = list(l = 50, r = 50, b = 50, t = 50),  # Ajouter une marge autour du graphique
+            plot_bgcolor = "white",  # Définir la couleur de fond du graphique
+            paper_bgcolor = "lightgray",  # Définir la couleur de fond du papier
+            xaxis = list(linecolor = "black", linewidth = 1),  # Définir la couleur et l'épaisseur de la ligne de l'axe des x
+            yaxis = list(linecolor = "black", linewidth = 1),  # Définir la couleur et l'épaisseur de la ligne de l'axe des y
+            legend = list(bgcolor = "white",  # Couleur de fond de la légende
+                          bordercolor = "black",  # Couleur de la bordure de la légende
+                          borderwidth = 1)  # Épaisseur de la bordure de la légende
+)
+
+# Afficher le graphique interactif
+p
+
+"Dans ce graphique montrant l'affluence moyenne par match en fonction du nombre de victoires nous pouvons remarquer de nombreux éléments importants. En effet, nous remarquons que les équipes qui enchainent plsu de victoire en une saison ont tendance à attirer plus de spectateurs dans les stades. Par ailleurs, nous pouvons voir que les équipes ayant plus de 50 victoires en une saison ont une affluence moyenne de plus de 20000 spectateurs par match. Cela peut s'expliquer par le fait que les équipes qui gagnent plus de matchs sont plus attractives pour les fans et les spectateurs qui ont envie de voir des matchs de qualité et des équipes performantes.De plus, nous observons que les équipes ayant moins de 30 victoires en une saison ont une affluence moyenne de moins de 15000 spectateurs par match. Cela peut s'expliquer par le fait que les équipes qui perdent plus de matchs sont moins attractives pour les fans et les spectateurs qui ont envie de voir des matchs de qualité et des équipes performantes. En conclusion, nous pouvons dire que les performances sportives des équipes influencent l'affluence des fans dans les stades. Plus une équipe gagne de matchs, plus elle attire de spectateurs dans les stades. En outre, nous remarquons que l'année 2020 et 2021, nous remarquons une baisse générale de l'affluence des fans dans les stades. Cela peut s'expliquer par la pandémie de COVID-19 qui a eu un impact négatif sur l'affluence des fans dans les stades. En effet, de nombreux matchs ont été annulés ou reportés en raison de la pandémie, ce qui a entraîné une baisse de l'affluence des fans dans les stades.Nous pouvons aussi ajouter que les équipes populaires quelque soit leurs palmarès attirent plus de spectateurs dans les stades. En effet, les équipes mythiques comme les Los Angeles Lakers, les Boston Celtics ou les Chicago Bulls attirent plus de spectateurs dans les stades en raison de leur histoire, de leur palmarès et de leur popularité. En revanche, les équipes moins populaires comme les Charlotte Hornets, les Indiana Pacers ou les Washington Wizards attirent moins de spectateurs dans les stades en raison de leur manque de popularité et de leur manque de succès sportif. En conclusion, nous pouvons dire que les performances sportives des équipes influencent l'affluence des fans dans les stades. "
+
+```
+
+
+```{r conclusion, echo=FALSE}
+"Pour conclure la réponse à la question posée, nous pouvons dire que les performances des équipes influencent l'affluence des fans dans les stades. En effet, les équipes qui gagnent plus de matchs attirent plus de spectateurs dans les stades. De plus, les équipes qui se qualifient pour les playoffs ont une affluence moyenne plus élevée que les équipes qui ne se qualifient pas. En outre, les équipes populaires attirent plus de spectateurs dans les stades que les équipes moins populaires. En conclusion, nous pouvons dire que les performances sportives des équipes, la qualification aux playoffs et la popularité du club sont des facteurs importants qui influencent l'affluence des fans dans les stades."
+```
