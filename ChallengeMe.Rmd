@@ -1089,3 +1089,127 @@ p
 Dans ce graphique montrant l'affluence moyenne par match en fonction du nombre de victoires nous pouvons remarquer de nombreux éléments importants. En effet, nous remarquons que les équipes qui enchainent plus de victoire en une saison ont tendance à attirer plus de spectateurs dans les stades. Par ailleurs, nous pouvons voir que les équipes ayant plus de 50 victoires en une saison ont une affluence moyenne de plus de 20000 spectateurs par match. Cela peut s'expliquer par le fait que les équipes qui gagnent plus de matchs sont plus attractives pour les fans et les spectateurs qui ont envie de voir des matchs de qualité et des équipes performantes.De plus, nous observons que les équipes ayant moins de 30 victoires en une saison ont une affluence moyenne de moins de 15000 spectateurs par match. Cela peut s'expliquer par le fait que les équipes qui perdent plus de matchs sont moins attractives pour les fans et les spectateurs qui ont envie de voir des matchs de qualité et des équipes performantes. En conclusion, nous pouvons dire que les performances sportives des équipes influencent l'affluence des fans dans les stades. Plus une équipe gagne de matchs, plus elle attire de spectateurs dans les stades. En outre, nous remarquons que l'année 2020 et 2021, nous remarquons une baisse générale de l'affluence des fans dans les stades. Cela peut s'expliquer par la pandémie de COVID-19 qui a eu un impact négatif sur l'affluence des fans dans les stades. En effet, de nombreux matchs ont été annulés ou reportés en raison de la pandémie, ce qui a entraîné une baisse de l'affluence des fans dans les stades.Nous pouvons aussi ajouter que les équipes populaires quelque soit leurs palmarès attirent plus de spectateurs dans les stades. En effet, les équipes mythiques comme les Los Angeles Lakers, les Boston Celtics ou les Chicago Bulls attirent plus de spectateurs dans les stades en raison de leur histoire, de leur palmarès et de leur popularité. En revanche, les équipes moins populaires comme les Charlotte Hornets, les Indiana Pacers ou les Washington Wizards attirent moins de spectateurs dans les stades en raison de leur manque de popularité et de leur manque de succès sportif. En conclusion, nous pouvons dire que les performances sportives des équipes influencent l'affluence des fans dans les stades
 
 Pour conclure la réponse à la question posée, nous pouvons dire que les performances des équipes influencent l'affluence des fans dans les stades. En effet, les équipes qui gagnent plus de matchs attirent plus de spectateurs dans les stades. De plus, les équipes qui se qualifient pour les playoffs ont une affluence moyenne plus élevée que les équipes qui ne se qualifient pas. En outre, les équipes populaires attirent plus de spectateurs dans les stades que les équipes moins populaires. En conclusion, nous pouvons dire que les performances sportives des équipes, la qualification aux playoffs et la popularité du club sont des facteurs importants qui influencent l'affluence des fans dans les stades.
+
+
+### 5. A quel age les performances des joueurs commencent à décliner ?
+
+#Dans cette partie, nous allons nous intéresser à la question suivante : A quel age les performances des joueurs commencent à décliner ? Nous allons pour cela utiliser le fichier "Player Totals" qui regroupe les informations sur les différents joueurs en fonction de la saison. On va choisir de ne pas utiliser les données avant 1980 car pour la plupart elles sont en partis erronées ou manquantes. On va ensuite chercher à comparer les attaquants car c'est eux qui marquent le plus de points et la plupart des statistiques disponibles concernent les points, le pourcentage de réussite au tir...
+#Chargerles données :
+projet <- read.csv("Player Totals.csv")
+
+# Filtrer les données pour les années après 1980
+projet_1 <- subset(projet, season > 1980)
+
+# Sélectionner les colonnes utiles pour l'étude :
+projet_2 <- select(projet_1, player, player_id, pos, age, fg_percent, ft_percent, pts)
+
+# Filtrer les données pour les attaquant uniquement
+projet_3 <- subset(projet_2, pos == "SG")  
+
+# Calculer la moyenne des pourcentages de réussite pour chaque âge
+mean_age <- projet_3 %>%
+  group_by(age) %>%
+  summarize(moyenne_fg_percent = mean(fg_percent, na.rm = TRUE))
+
+# Diagramme à barres interactif
+p <- ggplot(mean_age, aes(x = age, y = moyenne_fg_percent)) +
+  geom_bar(stat = "identity", fill = "darkblue") +
+  labs(x = "Âge", y = "Pourcentage de réussite au tir", title = "Pourcentage de réussite au tir en fonction de l'âge", subtitle = "Données sur les joueurs NBA après 1980") +
+  theme(axis.text.y = element_text(angle = 0, hjust = 0.5, vjust = 0.5, size = 6),
+        axis.title.x = element_text(size = 8, face = "bold"),
+        axis.title.y = element_text(size = 8, face = "bold"),
+        plot.title = element_text(size = 10, hjust = 0.5, face = "bold"),
+        legend.key = element_rect(fill = "white"),
+        legend.background = element_rect(fill = "lightgrey", color = "black", size = 0.5))
+
+# Convertir le graphique ggplot en un graphique interactif avec plotly
+p <- ggplotly(p, tooltip = c("x", "y", "fill"))
+
+# Afficher le graphique interactif
+p
+
+#Concernant notre jeu de données, nous remarquons à l'aide du barchart que le pourcentage de réussite des joueurs n'est pas directement lié avec leur âge puisque on remarque qu'il est le même pratiquement pour tous les âges. Il varie seulement de 0.39 pour le plus bas à 36 ans à 0.434 à 29 ans. On remarque cependant une très forte hausse à 40 ans, on va donc essayer de comprendre pourquoi car ce résultat semble très innatendu et peu probable.
+
+#recherche du pourcentage pour 40 ans :
+# Filtrer les données pour les attaquant uniquement
+projet_4 <- subset(projet_3, age == 40)
+
+
+#On remarque que il y a que 4 données, sachant que pour un joueur il a mit seulement 2 point sur une seule tentative donc son pourcentage de réussite de 100% fausse forcément le résultat. Voici donc l'explication du graphe précédent.
+
+#Dans le prochain graphique, on va essayer de mettre en relation divers facteurs de performances comme le nombres de points totaux par saison et le nombre de minutes jouées par saison. J'ai choisi de ne pas mettre plus de facteurs de performances comme le nombres de matchs joués, les blocks défensifs... pour éviter la surcharge. Comme pour le graphe précédent, nous utiliserons que les données pour les années après 1980. Pour essayer d'avoir des résultats différents et surtout étudier le plus largement possible, j'ai choisi d'inclure tous les postes dans mon étude.
+
+# Filtrer les données pour les années après 1980
+graphe2_1 <- subset(projet, season > 1980)
+
+# Sélectionner les colonnes utiles pour l'étude :
+graphe2_2 <- select(projet_1, player, player_id, pos, age, mp, pts, blk)
+
+# Calculer la moyenne des minutes jouées pour chaque âge
+mean_minute <- graphe2_2 %>%
+  group_by(age) %>%
+  summarize(moyenne_minute = mean(mp, na.rm = TRUE))
+
+# Diagramme de points avec régression linéaire
+p2 <- ggplot(mean_minute, aes(x = age)) +
+  geom_point(aes(y = moyenne_minute), color = "blue") +
+  labs(x = "Âge", y = "Minutes jouées en une saison", title = "Corrélation entre l'âge et les performances des joueurs") +
+  theme_minimal()
+
+# Convertir le graphique ggplot en un graphique interactif avec plotly
+p2 <- ggplotly(p2, tooltip = c("x", "y", "fill"))
+
+# Afficher le graphique interactif
+p2
+
+# Calculer la moyenne des points totaux pour chaque âge par saison
+mean_point <- graphe2_2 %>%
+  group_by(age) %>%
+  summarize(moyenne_point = mean(pts, na.rm = TRUE))
+
+# Diagramme de points avec régression linéaire
+p3 <- ggplot(mean_point, aes(x = age)) +
+  geom_point(aes(y = moyenne_point), color = "red") +
+  labs(x = "Âge", y = "Points totaux marqués en une saison", title = "Corrélation entre l'âge et les performances des joueurs") +
+  theme_minimal()
+
+# Convertir le graphique ggplot en un graphique interactif avec plotly
+p3 <- ggplotly(p3, tooltip = c("x", "y", "fill"))
+
+# Afficher le graphique interactif
+p3
+
+#On tente de superposer les 2 courbes voir si il y a une corrélation :
+combined_plot <- subplot(p2, p3, nrows = 2)
+
+# Afficher le graphique combiné
+combined_plot
+
+#On remarque grâce à ce dernier graphe que les courbes sont pratiquement similaires. On pouvait effectivement s'attendre à ce résultat car plus on joue de matchs et plus on a l'occasion de mettre des points. Même si en NBA, la plupart des équipes préférent faire rentrer leur joueur expérimenté que peu de temps mais qu'il fasse une grosse différence sur le parquet. Cette hypothèse est envisageable mais n'est pas vérifié au niveau des points en tout cas. On va pour finir, essayer de voir s'il existe une corrélation entre l'âge et les blocks (performance défensive).
+
+# Calculer la moyenne des blocks pour chaque âge
+mean_block <- graphe2_2 %>%
+  group_by(age) %>%
+  summarize(moyenne_block = mean(blk, na.rm = TRUE))
+
+# Diagramme de points avec régression linéaire
+p4 <- ggplot(mean_block, aes(x = age)) +
+  geom_point(aes(y = moyenne_block), color = "black") +
+  labs(x = "Âge", y = "Blocks défensifs en une saison", title = "Corrélation entre l'âge et les performances des joueurs") +
+  theme_minimal()
+
+# Convertir le graphique ggplot en un graphique interactif avec plotly
+p4 <- ggplotly(p4, tooltip = c("x", "y", "fill"))
+
+# Afficher le graphique interactif
+p4
+
+#On combine les 3 graphs :
+combined_plot <- subplot(p2, p3, p4, nrows = 2)
+
+# Afficher le graphique combiné
+combined_plot
+
+#Sur ces derniers graphs, on voit tout d'abord que pour le nombres de points et pour le nombre de minute jouées par saison il y a un pic à 29 ans avec avant une montée progressive et ensuite une descente progressive et linéaire. Concernant les blocks donc une performance défensive, le pic est moins marqué mais on retrouve un pic autour de 29 ans également. Cependant on distingue une légère montée avant ce pic pour l'atteindre et ensuite une légère descente mais qui reste bien moins significative que pour les 2 graphiques précédent concernant le nombre de point par saison et les minutes jouées.
+
+#Conclusion, 
