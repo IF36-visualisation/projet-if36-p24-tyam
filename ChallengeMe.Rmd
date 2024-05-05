@@ -891,7 +891,7 @@ eachSeasonWinner <- TeamSummaries %>%
 
 ```
 
-En ce posant cette question, nous avons pour but de déterminer si le MVP (le meilleur joueur de la saison) permet à son équipe de participer à tous les coups aux playoffs et d'ensuite gagner la compétition. Pour répondre à cette question, nous allons utiliser les fichiers *Player Award Shares* afin de récupérer le MVP de chaque année et le fichier *Player Totals* pour récupérer son équipe. Nous utiliserons aussi le fichier *Team Summaries* pour savoir qu'elle est l'équipe gagnante de chaque saison (l'équipe gagnante est celle qui a gagné le plus de match). Ainsi, on pourrait imaginer que l'équipe possédant le meilleur joueur de la saison est forcément qualifiée pour aller en playoff et qu'elle a de grandes chances de gagner la compétition.
+En ce posant cette question, nous avons pour but de déterminer si le MVP (le meilleur joueur de la saison) permet à son équipe de participer à tous les coups aux playoffs et d'ensuite gagner la compétition. Pour répondre à cette question, nous allons utiliser les fichiers  ***Player Award Shares *** afin de récupérer le MVP de chaque année et le fichier  ***Player Totals *** pour récupérer son équipe. Nous utiliserons aussi le fichier  ***Team Summaries*** pour savoir qu'elle est l'équipe gagnante de chaque saison (l'équipe gagnante est celle qui a gagné le plus de match). Ainsi, on pourrait imaginer que l'équipe possédant le meilleur joueur de la saison est forcément qualifiée pour aller en playoff et qu'elle a de grandes chances de gagner la compétition.
 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
@@ -919,6 +919,8 @@ ggplot(df2, aes(x="", y=season, fill=playoffs)) +
   theme_void()+
   scale_fill_discrete(name = "", labels = c("Ne contient pas le MVP", "Contient le MVP")) 
 ```
+
+Pour récolter les données permettant de répondre à cette question, nous avons commencé par récupérer les MVP de chaque saison dans le fichier ***Player Award Shares***. Ensuite, nous avons trouvé, pour chaque saison, qu'elle était l'équipe qui contenait le MVP dans le fichier ***Player Totals***. Une fois cela fait, nous avons pu récupérer les équipes vainqueures de la compétition chaque saison. Il nous a ensuite suffi de comparer à chaque saison si l'équipe gagne la compétition est l'équipe qui contient le MVP.
 
 En analysant ces diagrammes, nous pouvons donc constater une très forte corrélation entre le fait qu'une équipe qui contient le joueur avec le plus de valeur arrive en playoff. Depuis 1956, pratiquement toutes les équipes contenant ce joueur arrivent à se qualifier. Ensuite, nous pouvons constater que depuis 1956, environ deux tiers des équipes contenant le MVP arrive à gagner la compétition et remporter le titre de champion de la NBA. Les résultats de ces deux diagrammes circulaires peuvent s'expliquer par plusieurs faits. Le meilleur joueur de la saison apporte déjà beaucoup d'un point de vue sportif en marquant beaucoup de panier, réalisant beaucoup de contre-attaque et en ayant des forts pourcentages de réussite au tir, mais, ce dernier apporte aussi beaucoup d'un point de vue sportif en motivant ses coéquipiers tout au long de la saison.
 
