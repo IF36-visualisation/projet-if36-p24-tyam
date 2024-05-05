@@ -934,10 +934,9 @@ Cette interrogation vise à comprendre s'il existe un lien entre l'âge moyen de
 Pour y répondre, nous allons utiliser le fichier Team Summaries et nous intéressés à plusieurs données dont premièrement la saison ( season) et l’équipe concernée ( team). On aura aussi besoin de la donnée “age” qui représente la moyenne d'âge de chaque équipe. Pour représenter les performances de l’équipe, on pourra s'intéresser à la variable “playoffs” qui est un booléen qui montre si l’équipe s’est qualifiée en playoffs ou pas, ou alors “w” qui représente le nombre de victoires de chaque équipe, ou encore la force de l’opposition(sos).
 
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 # Charger les données
 projet <- read.csv("Team Summaries.csv")
-head(projet)
 
 # Filtrer les données pour l'année 2023 uniquement
 projet_2023 <- subset(projet, season == 2023)
@@ -962,7 +961,7 @@ p <- p + geom_text_repel(aes(label = ifelse(abbreviation == "League Average", ""
 p <- ggplotly(p)
 
 # Afficher le graphique interactif
-print(p)
+p
 
 ```
 Dans ce graphique, nous avons décidé de représenter le nombre de victoires des équipes NBA en fonction de leur moyenne d'age et ce durant la saison 2023 que nous avons pris comme exemple. Nous avons eu besoin des colonnes age, w,team et abbreviation pour pouvoir réaliser ce graphique. Nous avons aussi rendu le graphique intéractif à l'aide de plotly en affichant les informations sur les équipes lorsqu'on passe le curseur dessus.
@@ -974,7 +973,6 @@ En s'intéréessant aux autres parties du graphe, on remarque quelques exception
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 # Charger les données
 projet <- read.csv("Team Summaries.csv")
-head(projet)
 
 # Filtrer les données pour l'année 2023 uniquement
 projet_2010 <- subset(projet, season == 2010)
@@ -999,7 +997,7 @@ p2 <- p2 + geom_text_repel(aes(label = ifelse(abbreviation == "League Average", 
 p2 <- ggplotly(p2)
 
 # Afficher le graphique
-print(p2)
+p2
 
 ```
 
@@ -1008,7 +1006,7 @@ On remarque tout d'abord comme pour la saison 2023, une tendance générale où 
 En portant notre interet à la partie haute gauche du graphe, on remarque que les équipes les plus agés sont bien performantes, mais en comaparaisant avec 2023, on remarque que les 3 équipes les plus performantes ne sont pas forcément parmi les plus agées, mais sont à la moyenne. En général,on remarque qu'il n'y a pas de schéma clair de répartition des équipes en fonction de leur âge moyen et de leur performance.
 En effet,avec l'observation des équipes qui ont participé aux playoffs (points verts) on remarque une répartition assez équilibrée entre les équipes jeunes et les équipes plus âgées, ce qui indique que l'âge moyen n'est pas le seul déterminant du succès en playoffs. Comme par exemple cette année là, l'équipe la plus vieille Dallas Mavericks, et la plus jeune, OKC Thundes sont toutes les deux en Playoffs
 
-Pour finir, on peut conclure que la moyenne d'age 
+Pour finir, on peut  conclure que globalement, les équipes plus âgées semblent avoir un avantage compétitif, suggérant que l'expérience et la maturité des joueurs jouent un rôle crucial dans le succès sur le parquet, désavantageant donc la jeunesse. Mais on a remarqué plusieurs "exceptions" à cette règle que soit à cause de talents individuels ou de blessures, certaines équipes jeunes performent et certaines équipes agées ne performent pas. Ainsi, bien que l'âge moyen des équipes puisse offrir des indications sur leur potentiel de performance, d'autres variables interviennent également, et chaque saison apporte son lot d'imprédictibilités, ce qui est l'essence même du sport à haut niveau.
 
 ### 4. Les performances d’une équipe influencent-elles l’affluence des fans dans l’arène?
 
