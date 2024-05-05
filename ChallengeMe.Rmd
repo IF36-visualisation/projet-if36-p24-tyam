@@ -928,6 +928,102 @@ Ainsi, grâce à ces diagrammes, nous pouvons donc répondre à la question par 
 
 ### 3. Existe-t-il une corrélation entre la moyenne d'âge d'une équipe et son classement dans la saison régulière ?
 
+```{r setup, include=FALSE}
+#Librairies
+knitr::opts_chunk$set(echo = TRUE)
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(plotly)
+library(ggrepel)
+```
+
+```{r introduction, echo=FALSE, message=FALSE, warning=FALSE}
+"Dans cette partie nous allons nous intéresser à la question suivante : Existe-t-il une corrélation entre la moyenne d'âge d'une équipe et son classement dans la saison régulière ?
+Cette interrogation vise à comprendre s'il existe un lien entre l'âge moyen des membres d'une équipe et ses performances dans la ligue. Nous nous demandons si les équipes plus jeunes, manquant potentiellement d'expérience, peuvent rivaliser avec succès dans la ligue, ou si au contraire, elles sont surpassées par des équipes plus expérimentées, comptant davantage de vétérans et donc affichant une moyenne d'âge plus élevée. 
+Pour y répondre, nous allons utiliser le fichier Team Summaries et nous intéressés à plusieurs données dont premièrement la saison ( season) et l’équipe concernée ( team). On aura aussi besoin de la donnée “age” qui représente la moyenne d'âge de chaque équipe. Pour représenter les performances de l’équipe, on pourra s'intéresser à la variable “playoffs” qui est un booléen qui montre si l’équipe s’est qualifiée en playoffs ou pas, ou alors “w” qui représente le nombre de victoires de chaque équipe, ou encore la force de l’opposition(sos)."
+```
+
+```{r graphe1, echo=FALSE, message=FALSE, warning=FALSE}
+# Charger les données
+projet <- read.csv(file.choose(),header=T)
+head(projet)
+
+# Filtrer les données pour l'année 2023 uniquement
+projet_2023 <- subset(projet, season == 2023)
+
+# Sélectionner les variables pertinentes pour cette question là
+donneesp1 <- projet_2023[, c("age", "w","team","abbreviation")]
+View(donneesp1)
+
+# Créer le scatterplot avec ggplot2
+p <- ggplot(donneesp1, aes(x = age, y = w, label = team)) +
+  geom_point(color = "black") +
+  xlab("Âge moyen de l'équipe") +
+  ylab("Nombre de victoires") +
+  ggtitle("Relation entre l'âge moyen de l'équipe et le nombre de victoires") +
+  geom_smooth(method = "lm", se = FALSE, color = "red") + # Ajouter une ligne de tendance
+  theme_minimal()
+
+# Ajouter une étiquette pour chaque point lorsqu'on clique dessus
+p <- p + geom_text_repel(aes(label = ifelse(abbreviation == "League Average", "", abbreviation)), point.padding = 0.5, show.legend = FALSE)
+
+# Convertir le graphique ggplot en un graphique interactif avec plotly
+p <- ggplotly(p)
+
+# Afficher le graphique interactif
+print(p)
+
+"Dans ce graphique, nous avons décidé de représenter le nombre de victoires des équipes NBA en fonction de leur moyenne d'age et ce durant la saison 2023 que nous avons pris comme exemple. Nous avons eu besoin des colonnes age, w,team et abbreviation pour pouvoir réaliser ce graphique. Nous avons aussi rendu le graphique intéractif à l'aide de plotly en affichant les informations sur les équipes lorsqu'on passe le curseur dessus.
+Premièrement,le graphique montre une tendance générale où les équipes avec un âge moyen plus élevé ont tendance à avoir un plus grand nombre de victoires, on remarque tout de meme une assez grande dispertion des données, et nous allons essayer d'expliquer celà.
+Prenons par exemple les trois équipes ayant gagné le plus de matchs lors de la saison réguliere 2023, il s'agit des Milwaukee Bucks( moyenne d'age 29.8), les Boston Celtics ( moyenne d'age 27.4) et Philadelphia 76ers ( moyenne d'age 28,2), on remarque directement que ces 3 équipes sont assez agés et sont toutes dans le top 10 des équipes les plus agées de la ligue. On remarque donc plus ou moins la présence d'une dizaine d'équipes dans la partie haute droite du graphe qui représente donc les équipes performantes et relativement agées ce qui montre que l'age et l'experience est un facteur essentiel de performance en NBA.
+D'autre part, en prenant les trois équipes ayant gagné le moins de matchs lors de la saison 2023, il s'agit des Detroit Pistons(moyenne d'age 24.1),les San Antonio Spurs(moyenne d'age 23.9) et les Houston Rockets(moyenne d'age 22.1), on remarque de meme que ces trois équipes sont très jeunes et font partie du top 5 des équipes les plus jeunes de la ligue. On remarque alors la présence d'une dizaine d'équipes dans la partie basse gauche du graphe, qui se distinguent par laur manque de performances, d'ou le nombre de victoires faible qui coincide aussi avec leur jeunesse et leur manque d'expérience. On en déduit que le manque d'éxpérience et de vétérans dans une équipe, ainsi que la présence de jeunes joueurs en développement sont des facteurs qui expliquent le manque de performances des équipes en NBA.
+En s'intéréessant aux autres parties du graphe, on remarque quelques exceptions, comme des équipes jeunes mais performantes dans la partie haute gauche du tableau, comme les Memphis Grizzlies ou les Cleveland Cavaliers, qui se distinguent donc par des talents individuels hors normes et des joueurs qui se développent rapidement ( Ja Morant, Evan Mobley), ce qui les rend compétitives pouvant rivaliser avec les meilleures équipes. Ou alors des équipes agées mais qui ne performent pas présentes dans la partie basse droite du graphe, comme les Dallas Mavericks ou les Chicago Bulls, qui se distinguent soit par des individualités et des talents vieillissants donc qui baissent de performances, ou alors qui souffrent de problèmes de blessures durant cette saison en particulier.
+
+```
+
+```{r graphe2, echo=FALSE, message=FALSE, warning=FALSE}
+# Charger les données
+projet <- read.csv(file.choose(),header=T)
+head(projet)
+
+# Filtrer les données pour l'année 2023 uniquement
+projet_2010 <- subset(projet, season == 2010)
+
+# Sélectionner les variables pertinentes pour cette question là
+donneesp2 <- projet_2010[, c("age", "w","team","abbreviation","playoffs")]
+View(donneesp2)
+
+p2 <- ggplot(donneesp2, aes(x = age, y = w, color = playoffs,label = team)) +
+  geom_point() +
+  scale_color_manual(values = c("red", "green"), labels = c("Non", "Oui")) +
+  xlab("Âge moyen de l'équipe") +
+  ylab("Nombre de victoires") +
+  ggtitle("Relation entre l'âge moyen de l'équipe et le nombre de victoires selon la participation aux playoffs") +
+  geom_smooth(method = "lm", se = FALSE, color = "red") + # Ajouter une ligne de tendance
+  theme_minimal()
+
+# Ajouter une étiquette pour chaque point lorsqu'on clique dessus
+p2 <- p2 + geom_text_repel(aes(label = ifelse(abbreviation == "League Average", "", abbreviation)), point.padding = 0.5, show.legend = FALSE)
+
+# Convertir le graphique ggplot en un graphique interactif avec plotly
+p2 <- ggplotly(p2)
+
+# Afficher le graphique
+print(p2)
+
+"Le graphique ci-dessus illustre la relation entre l'âge moyen des équipes et leur nombre de victoires pour la saison 2010 de la ligue. Chaque point représente une équipe, colorée en rouge si elle n'a pas participé aux playoffs et en vert si elle a participé. Lorsque vous survolez un point, le nom de l'équipe s'affiche.
+On remarque tout d'abord comme pour la saison 2023, une tendance générale où les équipes avec un âge moyen plus élevé ont tendance à avoir un plus grand nombre de victoires, on remarque tout de meme une assez grande dispertion des données, plus importante que lors de la saison 2023.
+En portant notre interet à la partie haute gauche du graphe, on remarque que les équipes les plus agés sont bien performantes, mais en comaparaisant avec 2023, on remarque que les 3 équipes les plus performantes ne sont pas forcément parmi les plus agées, mais sont à la moyenne. En général,on remarque qu'il n'y a pas de schéma clair de répartition des équipes en fonction de leur âge moyen et de leur performance.
+En effet,avec l'observation des équipes qui ont participé aux playoffs (points verts) on remarque une répartition assez équilibrée entre les équipes jeunes et les équipes plus âgées, ce qui indique que l'âge moyen n'est pas le seul déterminant du succès en playoffs. Comme par exemple cette année là, l'équipe la plus vieille Dallas Mavericks, et la plus jeune, OKC Thundes sont toutes les deux en Playoffs
+"
+
+```
+
+```{r conclusion, echo=FALSE, message=FALSE, warning=FALSE}
+"Pour finir, on peut conclure que la moyenne d'age "
+```
+
 ### 4. Les performances d’une équipe influencent-elles l’affluence des fans dans l’arène?
 
 Dans cette partie nous allons nous intéresser à la question suivante : est ce que les performances d'uné équipe influencent-elles l'affluence des fans dans l'arène ? Pour répondre à cette question nous avons utilisé le fichier Team Summaries qui renferment plusieurs informations importantes pour répondre à cette question notamment le nombre de victoires, la qualification aux playoffs et sans oublier le nombre de spectacteurs. Au cours de l'exploration de ce jeu de données nous avons remarqué quelques données erronés dans certaines années qui ont été ainsi mis de coté pour ne pas fausser les résultats. Nous avons aussi remarqué que les données sont assez complètes et ne contiennent pas de valeurs manquantes. Nous avons donc décidé de nous focaliser sur l'année 2024 pour répondre à notre question pour le premier graphe tandis que pour le second celui ci contient les résultats de tout l'histoire de la NBA. 
