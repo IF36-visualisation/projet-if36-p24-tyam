@@ -927,6 +927,257 @@ En analysant ces diagrammes, nous pouvons donc constater une très forte corrél
 
 Ainsi, grâce à ces diagrammes, nous pouvons donc répondre à la question par **"Non, le MVP n'est pas forcément qualifié au playoff et non, il ne gagne pas forcément la compétition"**. Cependant, une équipe possédant ce joueur voit drastiquement augmenter ces chances de gagner le titre de champion et posséder un tel joueur apporte un énorme avantage à l'équipe.
 
+### 2.Quelle est la différence entre le basket d'aujourd'hui et celui d'autrefois ?
+
+Dans cette partie, nous allons nous intéresser à la question suivante : Quelle est la différence entre le basket d'aujourd'hui et celui d'autrefois ? Pour répondre à cette question nous avons utilisé le fichier Team Summaries qui renferment plusieurs informations importantes pour répondre à cette question notamment les stats de jeu comme le nombres de tirs, de rebonds de trois points... Au cours de l'exploration de ce jeu de données, nous avons remarqué quelques données erronés dans certaines années notamment avant 1965 qui ont ainsi été mise de coté pour ne pas fausser les résultats. Nous avons aussi remarqué que les données sont assez complètes et détaillées et ne contiennet pas de valeurs manquantes. Nous avons décidé de nous focaliser de 1965 à 2024 pour répondre à notre question afin d'avoir un large spectre de comparaison pour voir l'évolution au courant de toute l'histoire de la NBA.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(plotly)
+library(RColorBrewer)
+
+# Charger les données
+team_summaries <- read.csv("Team Summaries.csv")
+
+# Fonction pour regrouper les années par tranches de 5 ans, en commençant à partir de 1965
+group_years <- function(year) {
+  start_year <- 1965 + ((year - 1965) %/% 5) * 5
+  end_year <- start_year + 4
+  return(paste0(start_year, "-", end_year))
+}
+
+# Ajouter une colonne pour les périodes de 5 ans
+team_summaries <- team_summaries %>%
+  mutate(period = ifelse(season >= 1965, group_years(season), NA))
+
+# Filtrer les données pour les périodes d'intérêt
+team_summaries_filtered <- team_summaries %>%
+  filter(season >= 1965)
+
+# Calculer les statistiques moyennes par période
+team_stats_by_period <- team_summaries_filtered %>%
+  group_by(period) %>%
+  summarise(
+    mean_points = mean(w + l, na.rm = TRUE),
+    mean_three_point_percent = mean(x3p_ar, na.rm = TRUE),
+    mean_rebounds = mean(orb_percent + opp_drb_percent, na.rm = TRUE)
+  )
+
+# Utiliser une palette de couleurs distinctes
+distinct_colors <- colorRampPalette(brewer.pal(12, "Set3"))(nrow(team_stats_by_period))
+
+# Diagramme en barres pour les points marqués
+p1 <- ggplot(team_stats_by_period, aes(x = period, y = mean_points, fill = period)) +
+  geom_bar(stat = "identity", width = 0.7, color = "black", size = 0.2) +
+  scale_fill_manual(values = distinct_colors, name = "Période") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 8, color = "black"),
+        axis.text.y = element_text(size = 8, color = "black"),
+        axis.title = element_text(size = 10, color = "black"),
+        legend.title = element_text(size = 9, face = "bold"),
+        legend.text = element_text(size = 8),
+        plot.title = element_text(size = 12, hjust = 0.5, face = "bold")) +
+  labs(title = "Comparaison des points marqués moyens (1965-2024)",
+       x = "Période",
+       y = "Points marqués moyens")
+
+# Convertir en graphique interactif avec plotly
+p1_interactif <- ggplotly(p1, tooltip = c("x", "y"))
+
+# Encadrer la légende et changer le titre de la légende
+p1_interactif <- p1_interactif %>% 
+  layout(legend = list(
+    bgcolor = "white",
+    bordercolor = "black",
+    borderwidth = 1,
+    title = list(text = "Période")
+  ))
+
+# Afficher le graphique interactif
+p1_interactif
+
+
+```
+Concernant notre jeu de données sur la NBA, nous avons décidé de nous focaliser sur les points marqués par match, le pourcentage de réussite des tirs à trois points et le nombre de rebonds par match. Nous avons donc décidé de regrouper les années par tranches de 5 ans, en commençant à partir de 1965. Nous avons ensuite calculé les statistiques moyennes pour chaque période de 5 ans. Enfin, nous avons utilisé une palette de couleurs distinctes pour visualiser les données de manière plus attrayante. 
+
+Dans un premier temps, nous remarquons que le nombre de points marqués par match a augmenté de manière significative au fil des années, passant d'une moyenne d'environ 100 points par match dans les années 1965-1970 à plus de 110 points par match dans les années 2015-2020. Cette augmentation peut être due à plusieurs facteurs, tels que l'évolution des règles du jeu, l'amélioration des techniques de jeu et l'augmentation de la qualité des joueurs.
+
+Dans un second temps, nous pouvons aussi ajouter pour le nombre de points marqués qu'il y a des années où il y a vraiment eu un grand nombres de points marqués comme dans les années 1985-1990 et 2015-2020 où ce sont des annés marqués par l'arrivée de joueurs stars comme Michael Jordan ou encore Stephen Curry qui ont marqué l'histoire de la NBA.
+
+A contratio, il y a des années où le nombre de points marqués est plus bas comme dans les années 1970-1975 et 1990-1995 où le jeu était plus défensif et les équipes marquaient moins de points.
+
+En conclusion, nous pouvons dire que le basket d'aujourd'hui est plus offensif que celui d'autrefois, avec une augmentation significative du nombre de points marqués par match au fil des années à cause de l'évolution des règles du jeu, l'amélioration des techniques de jeu et l'augmentation de la qualité des joueurs.
+
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(plotly)
+library(RColorBrewer)
+
+# Charger les données
+team_summaries <- read.csv("Team Summaries.csv")
+
+# Fonction pour regrouper les années par tranches de 5 ans, en commençant à partir de 1965
+group_years <- function(year) {
+  start_year <- 1965 + ((year - 1965) %/% 5) * 5
+  end_year <- start_year + 4
+  return(paste0(start_year, "-", end_year))
+}
+
+# Ajouter une colonne pour les périodes de 5 ans
+team_summaries <- team_summaries %>%
+  mutate(period = ifelse(season >= 1965, group_years(season), NA))
+
+# Filtrer les données pour les périodes d'intérêt
+team_summaries_filtered <- team_summaries %>%
+  filter(season >= 1965)
+
+# Calculer les statistiques moyennes par période
+team_stats_by_period <- team_summaries_filtered %>%
+  group_by(period) %>%
+  summarise(
+    mean_points = mean(w + l, na.rm = TRUE),
+    mean_three_point_percent = mean(x3p_ar, na.rm = TRUE),
+    mean_rebounds = mean(orb_percent + opp_drb_percent, na.rm = TRUE)
+  )
+
+# Utiliser une palette de couleurs distinctes
+distinct_colors <- colorRampPalette(brewer.pal(12, "Set3"))(nrow(team_stats_by_period))
+
+# Diagramme en barres pour le pourcentage de tirs à trois points
+p2 <- ggplot(team_stats_by_period, aes(x = period, y = mean_three_point_percent, fill = period)) +
+  geom_bar(stat = "identity", width = 0.7, color = "black", size = 0.2) +
+  scale_fill_manual(values = distinct_colors, name = "Période") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 8, color = "black"),
+        axis.text.y = element_text(size = 8, color = "black"),
+        axis.title = element_text(size = 10, color = "black"),
+        legend.title = element_text(size = 9, face = "bold"),
+        legend.text = element_text(size = 8),
+        plot.title = element_text(size = 12, hjust = 0.5, face = "bold")) +
+  labs(title = "Comparaison du pourcentage de tirs à trois points (1965-2024)",
+       x = "Période",
+       y = "Pourcentage de tirs à trois points moyen")
+
+# Convertir en graphique interactif avec plotly
+p2_interactif <- ggplotly(p2, tooltip = c("x", "y"))
+
+# Encadrer la légende et changer le titre de la légende
+p2_interactif <- p2_interactif %>% 
+  layout(legend = list(
+    bgcolor = "white",
+    bordercolor = "black",
+    borderwidth = 1,
+    title = list(text = "Période")
+  ))
+
+# Afficher le graphique interactif
+p2_interactif
+
+
+```
+Dans ce graphique montrant l'évolution du pourcentage de tirs à trois points, nous pouvons constater une augmentation significative de ce pourcentage au fil des années. Cela s'explique par l'évolution des stratégies de jeu et des techniques de tir, ainsi que par l'importance croissante accordée aux tirs à trois points dans le basket moderne. 
+
+Les équipes ont de plus en plus recours à ce type de tir pour augmenter leur efficacité offensive et s'adapter aux nouvelles tendances du jeu. Ainsi, le basket d'aujourd'hui se caractérise par une utilisation plus fréquente et plus efficace des tirs à trois points par rapport à celui d'autrefois.
+
+En effet, nous pouvons observer que durant les années 1965-1970, le pourcentage de tirs à trois points était très faible, ce qui s'explique par le fait que cette règle n'était pas encore intégrée dans le jeu. Cependant, au fil des années, ce pourcentage a augmenté de manière significative, atteignant des niveaux beaucoup plus élevés dans les années récentes. Cette évolution témoigne de l'importance croissante des tirs à trois points dans le jeu moderne de la NBA.
+
+Par ailleurs, nous pouvons ajouter que durant les années 2020-2024, le pourcentage de tirs à trois points a atteint des niveaux record, ce qui reflète la tendance actuelle du jeu à privilégier les tirs extérieurs et à exploiter au maximum cette arme offensive cela peut s'expliquer à travers la présence de joueurs talentueyx dans ce domaine comme Stephen Curry, Klay Thompson ou encore James Harden qui ont révolutionné le jeu en étant des spécialistes du tir à trois points.
+
+En conclusion, le basket d'aujourd'hui se caractérise par une utilisation plus fréquente et plus efficace des tirs à trois points par rapport à celui d'autrefois, ce qui témoigne de l'évolution des stratégies de jeu et des techniques de tir dans la NBA moderne.
+
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(plotly)
+library(RColorBrewer)
+
+# Charger les données
+team_summaries <- read.csv("Team Summaries.csv")
+
+# Fonction pour regrouper les années par tranches de 5 ans, en commençant à partir de 1965
+group_years <- function(year) {
+  start_year <- 1965 + ((year - 1965) %/% 5) * 5
+  end_year <- start_year + 4
+  return(paste0(start_year, "-", end_year))
+}
+
+# Ajouter une colonne pour les périodes de 5 ans
+team_summaries <- team_summaries %>%
+  mutate(period = ifelse(season >= 1965, group_years(season), NA))
+
+# Filtrer les données pour les périodes d'intérêt, exclure la période 1965-1969
+team_summaries_filtered <- team_summaries %>%
+  filter(season >= 1970)
+
+# Calculer les statistiques moyennes par période
+team_stats_by_period <- team_summaries_filtered %>%
+  group_by(period) %>%
+  summarise(
+    mean_points = mean(w + l, na.rm = TRUE),
+    mean_three_point_percent = mean(x3p_ar, na.rm = TRUE),
+    mean_rebounds = mean(orb_percent + opp_drb_percent, na.rm = TRUE)
+  )
+
+# Utiliser une palette de couleurs distinctes
+distinct_colors <- colorRampPalette(brewer.pal(12, "Set3"))(nrow(team_stats_by_period))
+
+# Diagramme en barres pour les rebonds
+p3 <- ggplot(team_stats_by_period, aes(x = period, y = mean_rebounds, fill = period)) +
+  geom_bar(stat = "identity", width = 0.7, color = "black", size = 0.2) +
+  scale_fill_manual(values = distinct_colors, name = "Période") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 8, color = "black"),
+        axis.text.y = element_text(size = 8, color = "black"),
+        axis.title = element_text(size = 10, color = "black"),
+        legend.title = element_text(size = 9, face = "bold"),
+        legend.text = element_text(size = 8),
+        plot.title = element_text(size = 12, hjust = 0.5, face = "bold")) +
+  labs(title = "Comparaison des rebonds moyens (1970-2024)",
+       x = "Période",
+       y = "Rebonds moyens")
+
+# Convertir en graphique interactif avec plotly
+p3_interactif <- ggplotly(p3, tooltip = c("x", "y"))
+
+# Encadrer la légende et changer le titre de la légende
+p3_interactif <- p3_interactif %>% 
+  layout(legend = list(
+    bgcolor = "white",
+    bordercolor = "black",
+    borderwidth = 1,
+    title = list(text = "Période")
+  )) %>%
+  layout(title = list(
+    text = "<b>Comparaison des rebonds moyens (1970-2024)</b>",  # Titre en gras
+    x = 0.5  # Centrer le titre principal au milieu
+  ))
+
+# Afficher le graphique interactif
+p3_interactif
+
+
+```
+
+Dans ce graphique montrant l'évolution des rebonds moyens par match, nous pouvons constater une tendance générale à la baisse du nombre de rebonds au fil des années. Cela peut s'expliquer par plusieurs facteurs, tels que l'évolution des stratégies de jeu, l'augmentation de la vitesse du jeu et la diminution du nombre de rebonds offensifs.
+
+En effet, nous pouvons observer que le nombre de rebonds par match était plus élevé dans les années 1970-1980 avec une moyenne de 100 rebonds, ce qui s'explique par le jeu plus physique et plus défensif de cette époque. Les équipes accordaient une plus grande importance aux rebonds pour contrôler le jeu et limiter les possessions adverses avec des bons joueurs dans ce domaine.
+
+Par ailleurs, nous pouvons constater que le nombre de rebonds a diminué progressivement au fil des années, atteignant des niveaux plus bas dans les années récentes avec environ 99.6 rebonds en moyenne. Cette évolution peut être due à l'augmentation de la vitesse du jeu, à l'importance croissante des tirs à trois points et à la diminution du nombre de rebonds offensifs.
+
+En conclusion, le basket d'aujourd'hui se caractérise par une diminution du nombre de rebonds par match par rapport à celui d'autrefois, ce qui témoigne de l'évolution des stratégies de jeu et des techniques de jeu dans la NBA moderne. Les équipes accordent moins d'importance aux rebonds et privilégient d'autres aspects du jeu pour maximiser leur efficacité offensive et défensive.
+
+
+Pour conlure la question posée, nous pouvons dire que le basket d'aujourd'hui est plus offensif que celui d'autrefois, avec une augmentation significative du nombre de points marqués par match au fil des années à cause de l'évolution des règles du jeu, l'amélioration des techniques de jeu et l'augmentation de la qualité des joueurs. De plus, le basket d'aujourd'hui se caractérise par une utilisation plus fréquente et plus efficace des tirs à trois points par rapport à celui d'autrefois, ce qui témoigne de l'évolution des stratégies de jeu et des techniques de tir dans la NBA moderne. Enfin, le basket d'aujourd'hui se caractérise par une diminution du nombre de rebonds par match par rapport à celui d'autrefois, ce qui témoigne de l'évolution des stratégies de jeu et des techniques de jeu dans la NBA moderne. Les équipes accordent moins d'importance aux rebonds et privilégient d'autres aspects du jeu pour maximiser leur efficacité offensive et défensive.
+
 ### 3. Existe-t-il une corrélation entre la moyenne d'âge d'une équipe et son classement dans la saison régulière ?
 
 Dans cette partie nous allons nous intéresser à la question suivante : Existe-t-il une corrélation entre la moyenne d'âge d'une équipe et son classement dans la saison régulière ?
@@ -1034,7 +1285,7 @@ p <- ggplot(projet_2024, aes(x = reorder(team, attend_g), y = attend_g, fill = p
         plot.title = element_text(size = 10, hjust = 0.5, face = "bold"),
         legend.key = element_rect(fill = "white"),
         legend.background = element_rect(fill = "lightgrey", color = "black", size = 0.5)) +
-  labs(x = "Équipe", y = "Affluence moyenne") +
+  labs(x = "Équipe", y = "Affluence moyenne en nombre de spectateurs ") +
   ggtitle("Affluence moyenne par équipe pour l'année 2024", subtitle = "Équipes triées par affluence moyenne")
 
 # Convertir le graphique ggplot en un graphique interactif avec plotly
