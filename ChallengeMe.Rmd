@@ -865,6 +865,8 @@ library(dplyr)
 library(ggplot2)
 library(plotly)
 library(ggrepel)
+library(tidyr)
+library(RColorBrewer)
 ```
 
 ### 1. Est que le MVP est forcément qualifié au playoff ou gagnant de cette compétition ?
@@ -932,11 +934,7 @@ Ainsi, grâce à ces diagrammes, nous pouvons donc répondre à la question par 
 Dans cette partie, nous allons nous intéresser à la question suivante : Quelle est la différence entre le basket d'aujourd'hui et celui d'autrefois ? Pour répondre à cette question nous avons utilisé le fichier Team Summaries qui renferment plusieurs informations importantes pour répondre à cette question notamment les stats de jeu comme le nombres de tirs, de rebonds de trois points... Au cours de l'exploration de ce jeu de données, nous avons remarqué quelques données erronés dans certaines années notamment avant 1965 qui ont ainsi été mise de coté pour ne pas fausser les résultats. Nous avons aussi remarqué que les données sont assez complètes et détaillées et ne contiennet pas de valeurs manquantes. Nous avons décidé de nous focaliser de 1965 à 2024 pour répondre à notre question afin d'avoir un large spectre de comparaison pour voir l'évolution au courant de toute l'histoire de la NBA.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-library(readr)
-library(dplyr)
-library(ggplot2)
-library(plotly)
-library(RColorBrewer)
+
 
 # Charger les données
 team_summaries <- read.csv("Team Summaries.csv")
@@ -1013,12 +1011,6 @@ En conclusion, nous pouvons dire que le basket d'aujourd'hui est plus offensif q
 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-library(readr)
-library(dplyr)
-library(ggplot2)
-library(plotly)
-library(RColorBrewer)
-
 # Charger les données
 team_summaries <- read.csv("Team Summaries.csv")
 
@@ -1094,11 +1086,6 @@ En conclusion, le basket d'aujourd'hui se caractérise par une utilisation plus 
 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-library(readr)
-library(dplyr)
-library(ggplot2)
-library(plotly)
-library(RColorBrewer)
 
 # Charger les données
 team_summaries <- read.csv("Team Summaries.csv")
@@ -1456,3 +1443,99 @@ On remarque grâce à ce dernier graphe que les courbes sont pratiquement simila
 Sur ces derniers graphs, on voit tout d'abord que pour le nombres de points et pour le nombre de minute jouées par saison il y a un pic à 29 ans avec avant une montée progressive et ensuite une descente progressive et linéaire. Concernant les blocks donc une performance défensive, le pic est moins marqué mais on retrouve un pic autour de 29 ans également. Cependant on distingue une légère montée avant ce pic pour l'atteindre et ensuite une légère descente mais qui reste bien moins significative que pour les 2 graphiques précédent concernant le nombre de point par saison et les minutes jouées.
 
 Pour conclure, dans cette analyse sur les performances des joueurs de la NBA en fonction de leur âge, nous avons observé des tendances intéressantes. En se concentrant sur les années post-1980 et en mettant l'accent sur les attaquants, nous avons constaté que le pourcentage de réussite au tir semble relativement stable avec l'âge, avec une exception notable à 40 ans due à un faible échantillon de données. En examinant d'autres indicateurs tels que le nombre moyen de minutes jouées par saison et le nombre moyen de points totaux marqués par saison, nous avons identifié un pic autour de 29 ans, suivi d'une diminution progressive des performances. On peut donc dire que toutes les performances ne sont pas affectées par l'âge mais certaines le sont en fonction des postes (plus ou moins physique), en fonction de la performance étudiée qui requiert plusou moins de force physique, de vivacité qui sont des atouts que l'ont perd avec l'âge.  Pour avoir plus de précision sur la question, il faudrait étudier beaucoup plus de critères de performances et essayer de les correler avec les différents postes de jeu par exemple. Ces résultats suggèrent néanmoins l'importance de la gestion de l'effectif et des stratégies d'équipe en tenant compte de l'âge des joueurs dans certains cas.
+
+
+### 8. Est-ce que la NBA se tourne de plus en plus vers le spectacle ?
+
+
+Enfin, cette question va avoir pour objectif de définir si la NBA est de plus en plus spectaculaire ou non. Il existe de multiple indicateurs qui peuvent nous permettre de répondre à cette questions mais **nous allons étudier la distance de tir des joueurs.** Les tirs à longue distance sont spectaculaires à observer et produise un effet direct sur le ressenti du spectateur du match. Il faut savoir qu'au basket, un tir vaut 3 points lorsqu'il est marqué à plus (d'environ) 7 mètres du panier et il vaut 2 points lorsqu'il est marqué en dessous de cette distance. Les tirs à 1 point résultent d'une faute de l'adversaire et sont tirés à exactement 4,6 mètres du panier.
+
+Il faut cependant noter que la ligne des trois points a été introduite dans la NBA lors de la saison 1979-1980. Par conséquent, toutes les saisons avant cela n'auront naturellement  pas de tir à 3 points.
+
+Ainsi, pour résumer :
+
+* `3 points` : un tir **>= 7 mètres** du panier
+* `2 points` : un tir **< 7 mètres** du panier
+* `1 points` : un tir à **4,6 mètres** de distance, directement en face du panier et sans défenseurs
+
+
+```{r, echo=FALSE }
+TeamTotals <- read_csv('Team Totals.csv')
+
+eachSeasonPoints <- TeamTotals %>%
+  filter(lg == "NBA") %>%
+  group_by(season) %>%
+  summarise(
+    x3p = sum(x3p, na.rm = TRUE),
+    x2p = sum(x2p, na.rm = TRUE),
+    ft = sum(ft, na.rm = TRUE)
+  )
+
+# on Transforme le dataset pour pouvoir en faire un bar chart empilé
+eachSeasonPoints_long <- eachSeasonPoints %>%
+  pivot_longer(cols = c(x3p, x2p, ft), names_to = "typeOfPoint", values_to = "value")
+
+graph8_1 <- ggplot(eachSeasonPoints_long, aes(x = season, y = value, fill = typeOfPoint)) + 
+  geom_bar(position = "stack", stat = "identity") +
+  labs(title = "Total de panier à 3 points, 2 points et 1 points", 
+       x = "Saison", 
+       y = "Total des points",
+       fill = "Type de point") +
+  scale_fill_manual(values = c("x3p" = "#f9766c", "x2p" = "#619cff", "ft" = "#00bb38"),
+                    labels = c("x3p" = "3 Points", "x2p" = "2 Points", "ft" = "1 points")) +
+  theme_minimal()
+
+graph8_1
+
+graph8_2 <- ggplot(eachSeasonPoints, aes(x = season)) + 
+  geom_smooth(aes(y = x3p), color = "#f9766c", se = FALSE) +
+  geom_smooth(aes(y = x2p), color = "#619cff", se = FALSE) +
+  geom_smooth(aes(y = ft), color = "#00bb38", se = FALSE) +
+  labs(title = "Évolution de chaque type de panier dans le temps",
+       x = "Saison",
+       y = "Total des points",
+       color = "Type de point") +
+  theme_minimal()
+
+#graph8_2 <- ggplotly(graph8_2, tooltip = c("x", "y", "fill"))
+
+graph8_2
+```
+
+
+On constaste dans les deux premiers graphiques que les tirs à 3 points (plus de 7 mètres) prennent une place de plus en plus grande au fil des années. De plus **depuis la saison 1987-1988**, soit 8 ans après l'introduction du nouveau type de panier, les équipes jouent moins les paniers à 2 points et jouent plus les paniers à 3 points car ils sont stratégiquement plus intéressants. Ainsi, **La distance d'un panier marqué a donc un impact direct sur le style de jeu et la dimension spectaculaire du sport.**
+
+
+Nous pouvons donc ainsi nous demander si la NBA s'est plus tourné vers du spectacle uniquement avec l'arrivée de cette nouvelle règle, ou si cette évolution ne s'est pas arrêté. **Ainsi, nous allons maintenant étudier plus en détail l'évolution des paniers à 3 points. **
+
+```{r, echo=FALSE }
+decadeSeasonsPoint <- TeamTotals %>%
+  select(season, x3p) %>%
+  filter(season >= 1980) %>%
+  mutate(
+    decade_start = floor(season / 10) * 10,  
+    decade_end = pmin(decade_start + 9, max(season)),           
+    decade_label = paste(decade_start, decade_end, sep = "-") 
+  ) %>%
+  select(-c(decade_start, decade_end, season))
+
+graph8_3 <- ggplot(decadeSeasonsPoint, aes(x=decade_label, y=x3p)) + 
+  geom_boxplot(fill="slateblue", alpha=0.5, outlier.colour="red") +
+  labs(title = "Évolution du nombre total de panier à 3 points par décennie",
+       x = "Décenie",
+       y = "Nombre de panier")
+
+#graph8_3 <- ggplotly(graph8_3, tooltip = c("x", "y", "fill"))
+
+graph8_3
+
+```
+
+Depuis l'arrivée des paniers à 3 points en NBA (1980), on constate que le nombre médian de panier à 3 points est en hausse depuis les années 80. Durant la première décennie, nous constatons avoir beaucoup de valeur aberrantes, cela est dû au fait que la règle était nouvelle et que toutes les équipes ne se sont pas directement adapté à ce style de jeu. **L'évolution la plus importante du nombre médian est entre la première et seconde décennie : il est passé de 63 à 290 et s'est donc multiplié par 4,6.** Cela confirme donc ce que nous avons dit précédemment (que les équipes se sont mis à plus joué autour des paniers à 3 points après la saison de 1987-88).
+
+On constate aussi que la médiane de panier à 3 points entre l'avant-dernière et dernière boite à moustache augmente considérablement (x1.4) alors que nous ne sommes même pas à la moitié de la décennie actuelle. Cela signifie qu'à la fin de la décennie, les valeurs de cette boîte à moustache seront encore plus augmentées. Ainsi, nous pouvons répondre à la question que nous nous sommes posé par **"oui, la NBA se tourne de plus en plus vers le spectacle"**.
+
+
+
+
+
