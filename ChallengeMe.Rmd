@@ -1449,7 +1449,7 @@ Pour conclure, dans cette analyse sur les performances des joueurs de la NBA en 
 Concernant cette question, nous allons nous intéresser à l impact des fautes sur les matchs de NBA,donc sur la victoire probable d une équipe ou non, que ce soit les fautes commises ou les fautes provoquées. Pour commencer, une faute implique un non respect des règles du jeu en ayant un caractère antisportif, il en existe plusieurs types, les plus importantes sont fautes personnelles qui impliquent un contact personnel illégal avec un adversaire, les fautes techniques qui englobent toute les actions antisportives mais qui ne sont pas un contact entre deux joueurs dans le jeu, contestations par exemples et enfin les fautes flagrantes qui mettent en danger l'intégrité physique de l'adversaire. Poue cette question nous allons seulement nous intéresser aux fautes personnelles, plus courantes et celles qui impactent le plus le jeu.
 
 ```{r, echo=FALSE }
-data <- read.csv('Team Averages')
+data <- read.csv('Team Stats Per Game')
 # Filtrer les données pour l'année 2022
 data_2022 <- subset(data, season == 2022)
 # Séparer l'équipe League Average
