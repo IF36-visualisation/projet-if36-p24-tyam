@@ -1444,6 +1444,72 @@ Sur ces derniers graphs, on voit tout d'abord que pour le nombres de points et p
 
 Pour conclure, dans cette analyse sur les performances des joueurs de la NBA en fonction de leur âge, nous avons observé des tendances intéressantes. En se concentrant sur les années post-1980 et en mettant l'accent sur les attaquants, nous avons constaté que le pourcentage de réussite au tir semble relativement stable avec l'âge, avec une exception notable à 40 ans due à un faible échantillon de données. En examinant d'autres indicateurs tels que le nombre moyen de minutes jouées par saison et le nombre moyen de points totaux marqués par saison, nous avons identifié un pic autour de 29 ans, suivi d'une diminution progressive des performances. On peut donc dire que toutes les performances ne sont pas affectées par l'âge mais certaines le sont en fonction des postes (plus ou moins physique), en fonction de la performance étudiée qui requiert plusou moins de force physique, de vivacité qui sont des atouts que l'ont perd avec l'âge.  Pour avoir plus de précision sur la question, il faudrait étudier beaucoup plus de critères de performances et essayer de les correler avec les différents postes de jeu par exemple. Ces résultats suggèrent néanmoins l'importance de la gestion de l'effectif et des stratégies d'équipe en tenant compte de l'âge des joueurs dans certains cas.
 
+### 7. Est ce que les fautes ont un impact sur les performances de l’équipe ?
+
+Concernant cette question, nous allons nous intéresser à l impact des fautes sur les matchs de NBA,donc sur la victoire probable d une équipe ou non, que ce soit les fautes commises ou les fautes provoquées. Pour commencer, une faute implique un non respect des règles du jeu en ayant un caractère antisportif, il en existe plusieurs types, les plus importantes sont fautes personnelles qui impliquent un contact personnel illégal avec un adversaire, les fautes techniques qui englobent toute les actions antisportives mais qui ne sont pas un contact entre deux joueurs dans le jeu, contestations par exemples et enfin les fautes flagrantes qui mettent en danger l'intégrité physique de l'adversaire. Poue cette question nous allons seulement nous intéresser aux fautes personnelles, plus courantes et celles qui impactent le plus le jeu.
+
+```{r, echo=FALSE }
+data <- read.csv('Team Averages')
+# Filtrer les données pour l'année 2022
+data_2022 <- subset(data, season == 2022)
+# Séparer l'équipe League Average
+league_average <- subset(data_2022, team == "League Average")
+data_2022_no_avg <- subset(data_2022, team != "League Average")
+league_avg_pf_per_game <- league_average$pf_per_game
+
+p1 <- ggplot(data_2022_no_avg, aes(x = reorder(team, pf_per_game), y = pf_per_game, fill = factor(playoffs))) +
+  geom_bar(stat = "identity") +
+  geom_hline(yintercept = league_avg_pf_per_game, linetype = "dashed", color = "blue", size = 1, show.legend = TRUE) +
+  scale_fill_manual(values = c("red", "green"), 
+                    name = "Participation aux Playoffs", 
+                    labels = c("Non", "Oui")) +
+  labs(title = "Moyenne de fautes par match par équipe selon la participation aux playoffs (2022)",
+       x = "Équipe",
+       y = "Moyenne de fautes par match") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  geom_text(aes(x = Inf, y = league_avg_pf_per_game, label = paste("League Average:", round(league_avg_pf_per_game, 2))), 
+            color = "blue", hjust = 1.1, vjust = -0.5, size = 3)
+
+ggplotly(p1)
+```
+
+Pour commencer, au niveau du premier graphe, nous avons utilisé le fichier Teams Averages qui répertorie les moyennes par match des plus grandes catégories statistiques du basket. Nous avons décidé de nous concentrer sur une seule année pour pouvoir voir les différences entre toutes les équipes, nous nous sommes intéressés aux éléments pf_per_game, nombre de fautes personnelles par matchs pur chaque équipe, et à l'élément playoffs qui est un booléen ayant comme valeur TRUE si une équipe est qualifiée et FALSE sinon. Il s'agit donc d'un graphique à barres empilées dans lequel on a comparé la moyenne de fautes commises ( en ordonnée) par équipe ( en abcisse) selon la participation en playoffs ( vert ou rouge). De plus, la ligne horizontale en pointillé bleu représente la moyenne de fautes par match de toutes les équipes.
+Le graphique est aussi interactif grace à plotly et montre les détails des informations des équipes en survolant chaque barre.
+On remarque que les résultats sont très éparpillés,l'équipe qui a commis le plus de faute et l'équipe qui en a commis le moins ne sont pas qualifiés, cela indique une grande variabilité dans les fautes commises par les équipes, indépendamment de leur qualification aux playoffs.
+Celà peut s'expliquer par le fait que les fautes soient des faits de jeu parmi tant d'autres et n'influencent donc pas rééllement le cours du match, ce qui indique donc que les fautes personnelles ne sont pas un facteur déterminant pour la qualification en playoffs donc pour la victoire et la performance en général.
+Néanmoins, on peut remarquer une sorte de zone optimale de fautes personnelles, qui se situe entre 19 et 19,7 se rapprochant de la moyenne où les équipes peuvent jouer de manière suffisamment agressive sans trop pénaliser leur performance globale. On peut en conclure que pour pouvoir etre performant, il faudrait trouver un juste milieu entre l'agressivité et le fair-play.
+
+```{r, echo=FALSE }
+data_2019 <- subset(data, season == 2019)
+data_2019$ratio <- data_2019$ft_per_game / data_2019$pts_per_game
+
+p2 <- ggplot(data_2019, aes(x = ft_per_game, y = pts_per_game, color = factor(playoffs), 
+                            text = paste("Équipe: ", team, "<br>FT per Game: ", ft_per_game, 
+                                         "<br>Points per Game: ", pts_per_game, 
+                                         "<br>Ratio: ", round(ratio, 2)))) +
+  geom_point(size = 3) +
+  scale_color_manual(values = c("red", "green"), 
+                     name = "Participation aux Playoffs", 
+                     labels = c("Non", "Oui")) +
+  labs(title = "Pourcentage de lancers francs réussis par rapport aux points marqués par match (2019)",
+       x = "Lancers francs par match",
+       y = "Points marqués par match") +
+  theme_minimal()
+
+# Convertir ggplot en plotly pour ajouter des fonctionnalités d'interaction
+ggplotly(p2, tooltip = "text")
+```
+Concernant le deuxième graphe, nous allons nous intéresser à un type spécifique des fautes personnelles, qui sont les fautes sur tir qui sont donc les fautes effectués lorsqu'un joueur est en action de tirer, il obtient alors des lancers francs. Nous allons donc essayer de voir l'effet de la provocation de fautes, donc l'obtention de lancers sur la victoire et la qualification en playoffs.
+Ainsi, dans ce graphe, nous avons utilisé les données teams, points per game en ordonnées, FT ( free throw = lancer franc) per game en abcisse et la qualification ou non en playoffs en vert ou rouge.
+On remarque premièrement certaines équipes situées en haut a droite dans le graphe, et coloriés en vert, ce sont donc des équipes qui marquent le plus de points dont beaucoup de lancers francs, et dont le ratio est de 20% de points marqués sont des lancers francs. Ces équipes là sont de couleur verte donc sont bien qualifiés en playoffs ce qui montre leur très bon niveau de performance.
+Au contraire, les équipes situées en bas à gauche sont celles qui marquent le moins de points et le moins de lancers france avec un ratio de 15%. Elles sont coloriés en rouge, donc ne sont pas qualifiés en playoffs.
+Meme si on remarque qu'au milieu du graphique on a plusieurs points éparpillés, on ne peut donc pas nier que le fait de provoquer des fautes, d'etre malin est une manière pour obtenir des lancers francs, une manière facile d'inscrire des points et donc d'augmenter les chances de gagner des matchs. 
+
+En conclusion, l'analyse des fautes personnelles commises par les équipes montre une grande variabilité des fautes commises par les équipes, indépendamment de leur qualification aux playoffs,meme si on a remarqué qu'etre dans la moyenne était plutot favorable à la performance. De plus, on a pu démontrer que la provocation de fautes et l'obtention de lancers francs sont des stratégies clés pour augmenter les chances de succès.
+
+
+
 
 ### 8. Est-ce que la NBA se tourne de plus en plus vers le spectacle ?
 
