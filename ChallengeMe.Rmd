@@ -1543,7 +1543,7 @@ eachSeasonPoints_long <- eachSeasonPoints %>%
 
 graph8_1 <- ggplot(eachSeasonPoints_long, aes(x = season, y = value, fill = typeOfPoint)) + 
   geom_bar(position = "stack", stat = "identity") +
-  labs(title = "Total de panier à 3 points, 2 points et 1 points", 
+  labs(title = "Répartition des panier à 3 points, 2 points et 1 points dans le temps", 
        x = "Saison", 
        y = "Total des points",
        fill = "Type de point") +
