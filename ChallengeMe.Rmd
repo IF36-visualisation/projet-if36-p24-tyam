@@ -1587,7 +1587,7 @@ decadeSeasonsPoint <- TeamTotals %>%
 
 graph8_3 <- ggplot(decadeSeasonsPoint, aes(x=decade_label, y=x3p)) + 
   geom_boxplot(fill="slateblue", alpha=0.5, outlier.colour="red") +
-  labs(title = "Évolution du nombre total de panier à 3 points par décennie",
+  labs(title = "Évolution du nombre total de panier à 3 points des équipes, par décennie depuis 1980",
        x = "Décenie",
        y = "Nombre de panier")
 
