@@ -1337,6 +1337,7 @@ server <- function(input, output, session) {
 # Lancer l'application
 shinyApp(ui, server)
 ```
+![](images/Graphe 2010.PNG)
 Ainsi, pour pouvoir mieux visualiser ces données l, nous avons créé un shiny dashboard composé de deux pages, la première comptient le deuxième graphique mais avec une barre pourpouvoir choisir l'année souhaitée, on peut alors très facilement changer les années et comparer les graphes.
 La deuxième page contient des boites contenant des stats, qui calculent à chaque fois la moyenne d'age de la ligue, la moyenne d'age des équipes qualifiées en playoffs et la moyenne d'age de celles qui ne sont pas qualifiées dans des boites différentes, et qui changent selon l'année.
 L'utilisation de Shiny Dashboard et la navugation entre les différentes années nous permet de constater encore plus que meme si la tendance reste la meme la dispertion des données entre une année et une autre, impliquant donc qu'il ne faut pas se fier à l'age seulement pour évaluer les performances d'une équipe.
