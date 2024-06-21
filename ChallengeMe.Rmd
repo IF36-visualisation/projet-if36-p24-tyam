@@ -1580,6 +1580,11 @@ Depuis l'arrivée des paniers à 3 points en NBA (1980), on constate que le nomb
 On constate aussi que la médiane de panier à 3 points entre l'avant-dernière et dernière boite à moustache augmente considérablement (x1.4) alors que nous ne sommes même pas à la moitié de la décennie actuelle. Cela signifie qu'à la fin de la décennie, les valeurs de cette boîte à moustache seront encore plus augmentées. Ainsi, nous pouvons répondre à la question que nous nous sommes posé par **"oui, la NBA se tourne de plus en plus vers le spectacle"**.
 
 
+Conclusion :
+
+--> Youssef : La compétence que j'ai retenu durant ce projet est le fait de réaliser différents types de graphique sur R, me permettant ainsi de faire des visualisations claires et lisibles pour le grand public en alliant mes connaissances théoriques notamment sur les biais cognitifs et mes compétences techniques sur R en utilisant différentes librairies. Un aspect que je voulais vraiment aborder est l'utilisation du logiciel Power Bi qui très utilisé dans les entreprises ainsi c'est pour cette raison que j'aurais voulu quand l'aborde un peu plus en détail au vue de son importance et de sa popularité dans le monde du travail.
+
+
 
 
 
