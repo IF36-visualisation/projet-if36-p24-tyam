@@ -1585,6 +1585,29 @@ Conclusion :
 --> Youssef : La compétence que j'ai retenu durant ce projet est le fait de réaliser différents types de graphique sur R, me permettant ainsi de faire des visualisations claires et lisibles pour le grand public en alliant mes connaissances théoriques notamment sur les biais cognitifs et mes compétences techniques sur R en utilisant différentes librairies. Un aspect que je voulais vraiment aborder est l'utilisation du logiciel Power Bi qui très utilisé dans les entreprises ainsi c'est pour cette raison que j'aurais voulu quand l'aborde un peu plus en détail au vue de son importance et de sa popularité dans le monde du travail.
 
 
+Annexe : 
+
+Pour la réalisation de ce projet, nous nous sommes réparties les taches de la manière suivante : 
+
+- Tous les membres du groupe ont travaillé conjointement sur la rédaction de la proposition (Read.Me) et du powerpoint de la soutenance.
+- En ce qui concerne la partie exploration nous nous sommes répartis les questions de la manière suivante :
+
+	--> Youssef : 2. Quelle est la différence entre le basket d'aujourd'hui et celui d'autrefois ?
+		      4. Les performances d’une équipe influencent elles l’affluence des fans dans l’arène?
+
+	--> Antoine : 1. Est que le MVP est forcément qualifié au playoff ou gagnant de cette compétition ?
+                      8. Est-ce que la NBA se tourne de plus en plus vers le spectacle ?
+
+	--> Mohamed : 3. Existe-t-il une corrélation entre la moyenne d'âge d'une équipe et son classement dans la saison régulière ?
+		      7. Est ce que les fautes ont un impact sur les performances de l’équipe ?
+
+
+	--> Thomas : 6. Y a-t-il une corrélation entre les performances individuelles des joueurs clés et le succès de l'équipe
+		     5. A quel age les performances des joueurs commencent à décliner ?
+
+Ainsi chaque membre du groupe devait traiter 2 questions, pour chaque question il devait réaliser une étude complète avec une introduction de la question, la réalisation des graphes, l'interprétation des graphes et enfin une conclusion avec la réponse finale à la question.
+On disposait d'un serveur Discord, où on échangeait entre nous si jamais il y a avait un problème technique ou si quelqu'un avait besoin d'aide 
+
 
 
 
