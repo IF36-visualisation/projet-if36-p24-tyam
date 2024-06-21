@@ -1208,138 +1208,18 @@ Prenons par exemple les trois équipes ayant gagné le plus de matchs lors de la
 D'autre part, en prenant les trois équipes ayant gagné le moins de matchs lors de la saison 2023, il s'agit des Detroit Pistons(moyenne d'age 24.1),les San Antonio Spurs(moyenne d'age 23.9) et les Houston Rockets(moyenne d'age 22.1), on remarque de meme que ces trois équipes sont très jeunes et font partie du top 5 des équipes les plus jeunes de la ligue. On remarque alors la présence d'une dizaine d'équipes dans la partie basse gauche du graphe, qui se distinguent par laur manque de performances, d'ou le nombre de victoires faible qui coincide aussi avec leur jeunesse et leur manque d'expérience. On en déduit que le manque d'éxpérience et de vétérans dans une équipe, ainsi que la présence de jeunes joueurs en développement sont des facteurs qui expliquent le manque de performances des équipes en NBA.
 En s'intéréessant aux autres parties du graphe, on remarque quelques exceptions, comme des équipes jeunes mais performantes dans la partie haute gauche du tableau, comme les Memphis Grizzlies ou les Cleveland Cavaliers, qui se distinguent donc par des talents individuels hors normes et des joueurs qui se développent rapidement ( Ja Morant, Evan Mobley), ce qui les rend compétitives pouvant rivaliser avec les meilleures équipes. Ou alors des équipes agées mais qui ne performent pas présentes dans la partie basse droite du graphe, comme les Dallas Mavericks ou les Chicago Bulls, qui se distinguent soit par des individualités et des talents vieillissants donc qui baissent de performances, ou alors qui souffrent de problèmes de blessures durant cette saison en particulier.
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-# Charger les données
-projet <- read.csv("Team Summaries.csv")
-
-# Filtrer les données pour l'année 2023 uniquement
-projet_2010 <- subset(projet, season == 2010)
-
-# Sélectionner les variables pertinentes pour cette question là
-donneesp2 <- projet_2010[, c("age", "w","team","abbreviation","playoffs")]
-View(donneesp2)
-
-p2 <- ggplot(donneesp2, aes(x = age, y = w, color = playoffs,label = team)) +
-  geom_point() +
-  scale_color_manual(values = c("red", "green"), labels = c("Non", "Oui")) +
-  xlab("Âge moyen de l'équipe") +
-  ylab("Nombre de victoires") +
-  ggtitle("Relation entre l'âge moyen de l'équipe et le nombre de victoires selon la participation aux playoffs") +
-  geom_smooth(method = "lm", se = FALSE, color = "red") + # Ajouter une ligne de tendance
-  theme_minimal()
-
-# Ajouter une étiquette pour chaque point lorsqu'on clique dessus
-p2 <- p2 + geom_text_repel(aes(label = ifelse(abbreviation == "League Average", "", abbreviation)), point.padding = 0.5, show.legend = FALSE)
-
-# Convertir le graphique ggplot en un graphique interactif avec plotly
-p2 <- ggplotly(p2)
-
-# Afficher le graphique
-p2
-
-```
+![](./images/graphe2010.png)
 
 Le graphique ci-dessus illustre la relation entre l'âge moyen des équipes et leur nombre de victoires pour la saison 2010 de la ligue. Chaque point représente une équipe, colorée en rouge si elle n'a pas participé aux playoffs et en vert si elle a participé. Lorsque vous survolez un point, le nom de l'équipe s'affiche.
 On remarque tout d'abord comme pour la saison 2023, une tendance générale où les équipes avec un âge moyen plus élevé ont tendance à avoir un plus grand nombre de victoires, on remarque tout de meme une assez grande dispertion des données, plus importante que lors de la saison 2023.
 En portant notre interet à la partie haute gauche du graphe, on remarque que les équipes les plus agés sont bien performantes, mais en comaparaisant avec 2023, on remarque que les 3 équipes les plus performantes ne sont pas forcément parmi les plus agées, mais sont à la moyenne. En général,on remarque qu'il n'y a pas de schéma clair de répartition des équipes en fonction de leur âge moyen et de leur performance.
 En effet,avec l'observation des équipes qui ont participé aux playoffs (points verts) on remarque une répartition assez équilibrée entre les équipes jeunes et les équipes plus âgées, ce qui indique que l'âge moyen n'est pas le seul déterminant du succès en playoffs. Comme par exemple cette année là, l'équipe la plus vieille Dallas Mavericks, et la plus jeune, OKC Thundes sont toutes les deux en Playoffs.
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
 
-library(shiny)
-library(shinydashboard)
-
-# Charger les données une seule fois
-projet <- read.csv("Team Summaries.csv")
-
-ui <- dashboardPage(
-  skin = "green",
-  dashboardHeader(title = "Analyse dataset NBA"),
-  dashboardSidebar(
-    sidebarMenu(
-      menuItem("Graphiques", tabName = "graphiques", icon = icon("chart-column")),
-      menuItem("Stats", tabName = "stats", icon = icon("chart-bar"))
-    ),
-    sliderInput("year", "Année", min = 2010, max = 2023, value = 2010, step = 1)
-  ),
-  dashboardBody(
-    tabItems(
-      tabItem(tabName = "graphiques",
-              fluidRow(
-                box(
-                  title = "Relation entre l'âge moyen et le nombre de victoires", status = "primary", solidHeader = TRUE,
-                  width = 12,
-                  plotlyOutput("age_wins_plot")
-                )
-              )
-      ),
-      tabItem(tabName = "stats",
-              fluidRow(
-                infoBoxOutput("leagueAverageAge"),
-                infoBoxOutput("playoffTrueAvgAge"),
-                infoBoxOutput("playoffFalseAvgAge")
-              )
-      )
-    )
-  )
-)
-
-# Serveur
-server <- function(input, output, session) {
-  
-  # Filtrer les données en fonction de l'année sélectionnée
-  filtered_data <- reactive({
-    subset(projet, season == input$year)
-  })
-  
-  # Créer le graphique
-  output$age_wins_plot <- renderPlotly({
-    donneesp2 <- filtered_data()[, c("age", "w", "team", "abbreviation", "playoffs")]
-    
-    p2 <- ggplot(donneesp2, aes(x = age, y = w, color = playoffs, label = team)) +
-      geom_point() +
-      scale_color_manual(values = c("red", "green"), labels = c("Non", "Oui")) +
-      xlab("Âge moyen de l'équipe") +
-      ylab("Nombre de victoires") +
-      ggtitle("Relation entre l'âge moyen de l'équipe et le nombre de victoires selon la participation aux playoffs") +
-      geom_smooth(method = "lm", se = FALSE, color = "red") +
-      theme_minimal() +
-      geom_text_repel(aes(label = ifelse(abbreviation == "League Average", "", abbreviation)), point.padding = 0.5, show.legend = FALSE)
-    
-    ggplotly(p2)
-  })
-  
-  # Statistiques
-  output$leagueAverageAge <- renderInfoBox({
-    data <- filtered_data()
-    league_avg_age <- round(mean(data$age, na.rm = TRUE), 2)
-    infoBox(
-      "Âge moyen ", league_avg_age, icon = icon("hourglass-half"), color = "blue"
-    )
-  })
-  
-  output$playoffTrueAvgAge <- renderInfoBox({
-    data <- filtered_data()
-    true_playoffs_age <- round(mean(data$age[data$playoffs == TRUE], na.rm = TRUE), 2)
-    infoBox(
-      "Âge moyen équipes en playoffs", true_playoffs_age, icon = icon("trophy"), color = "green"
-    )
-  })
-  
-  output$playoffFalseAvgAge <- renderInfoBox({
-    data <- filtered_data()
-    false_playoffs_age <- round(mean(data$age[data$playoffs == FALSE], na.rm = TRUE), 2)
-    infoBox(
-      "Âge moyen équipes hors playoffs", false_playoffs_age, icon = icon("times-circle"), color = "red"
-    )
-  })
-}
-
-# Lancer l'application
-shinyApp(ui, server)
-```
-![](images/graphe2010.png)
-Ainsi, pour pouvoir mieux visualiser ces données l, nous avons créé un shiny dashboard composé de deux pages, la première comptient le deuxième graphique mais avec une barre pourpouvoir choisir l'année souhaitée, on peut alors très facilement changer les années et comparer les graphes.
-La deuxième page contient des boites contenant des stats, qui calculent à chaque fois la moyenne d'age de la ligue, la moyenne d'age des équipes qualifiées en playoffs et la moyenne d'age de celles qui ne sont pas qualifiées dans des boites différentes, et qui changent selon l'année.
+Ainsi, pour pouvoir mieux visualiser ces données , nous avons créé un shiny dashboard composé de deux pages, la première comptient le deuxième graphique mais avec une barre pourpouvoir choisir l'année souhaitée, on peut alors très facilement changer les années et comparer les graphes. On peut par exemple facilement comparer l'année 2010 avec l'année 2016: 
+![](./images/graphe2010.png)
+La deuxième page contient des boites contenant des stats, qui calculent à chaque fois la moyenne d'age de la ligue, la moyenne d'age des équipes qualifiées en playoffs et la moyenne d'age de celles qui ne sont pas qualifiées dans des boites différentes, et qui changent selon l'année. Voici les examples pour les années 2010 et 2016:
+![](./images/stats2010.png)
+![](./images/stats2016.png)
 L'utilisation de Shiny Dashboard et la navugation entre les différentes années nous permet de constater encore plus que meme si la tendance reste la meme la dispertion des données entre une année et une autre, impliquant donc qu'il ne faut pas se fier à l'age seulement pour évaluer les performances d'une équipe.
 
 Pour finir, on peut  conclure que globalement, les équipes plus âgées semblent avoir un avantage compétitif, suggérant que l'expérience et la maturité des joueurs jouent un rôle crucial dans le succès sur le parquet, désavantageant donc la jeunesse. Mais on a remarqué plusieurs "exceptions" à cette règle que soit à cause de talents individuels ou de blessures, certaines équipes jeunes performent et certaines équipes agées ne performent pas. Ainsi, bien que l'âge moyen des équipes puisse offrir des indications sur leur potentiel de performance, d'autres variables interviennent également, et chaque saison apporte son lot d'imprédictibilités, ce qui est l'essence même du sport à haut niveau.
