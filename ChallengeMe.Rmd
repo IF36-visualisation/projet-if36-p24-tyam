@@ -8,7 +8,7 @@ date: "UTT - Semestre P24"
 
 ## Table des matières
 
-> [I. Données](#section-1) <br> [II. Plan d'analyse](#section-2) <br> [III. Exploration](#section-3) <br>
+> [I. Données](#section-1) <br> [II. Plan d'analyse](#section-2) <br> [III. Exploration](#section-3) <br> [IV. Conclusion](#section-4) <br> [V. Annexe](#section-5) <br>
 
 # Introduction
 
@@ -1580,6 +1580,8 @@ Depuis l'arrivée des paniers à 3 points en NBA (1980), on constate que le nomb
 On constate aussi que la médiane de panier à 3 points entre l'avant-dernière et dernière boite à moustache augmente considérablement (x1.4) alors que nous ne sommes même pas à la moitié de la décennie actuelle. Cela signifie qu'à la fin de la décennie, les valeurs de cette boîte à moustache seront encore plus augmentées. Ainsi, nous pouvons répondre à la question que nous nous sommes posé par **"oui, la NBA se tourne de plus en plus vers le spectacle"**.
 
 
+<a id="section-4"></a>
+
 ## IV. Conclusion
 
 Pour conclure, cette analyse nous a permis de découvrir plus en détail le championnat de la NBA aux États-Unis et des différentes parties prenant poussant une équipe à être vainqueur du championnat. Nous avons analysé l'impacter de joueurs stars sur leurs équipes, comme par exemple l'impact du meilleur joueur de la saison (MVP) sur la qualification de son équipe. De plus, nous avons aussi pu en apprendre plus sur l'évolution du sport et de la compétition en général, en nous intéressons à l'évolution de la qualité de jeu proposé et du nombre de spectateurs par match.
@@ -1592,8 +1594,8 @@ Pour conclure ce projet, chaque membre de notre groupe va exprimer la compétenc
 * **`Thomas :`** Tout au long de ce projet, j'ai pu améliorer ma capacité à travailler en équipe, communiquer et se répartir les tâches. J'ai pu également comprendre et m'initier à la dataviz pour permettre d'expliquer certains résultats ou situations à l'aide de graphiques adaptés. Comme Youssef, j'aurai aimé pouvoir utiliser un peu plus powerBI qui m'a été demandé lors de mes recherches de stage notamment. 
 * **`Mohamed :`**  Pour ma part, cette UE et surtout le projet a été enrichissant au niveau technique en dataviz notamment grace à l'utilisation de certains logiciels comme R et Tableau, mais aussi au niveau des compétences humaines de travail en équipe.Le point à améliorer pour ma part serait de moins espacer les rendus du projet et de les coordonner avec les retours de nos camarades pour l'évaluation par les pairs.
 
-Cette UE a été pour moi l'occasion de découvrir une méthode différente de python me permettant de réaliser des graphiques. D'un autre côté, j'ai aussi apprécié la partie psychologie qui nous a  appris à réaliser des graphes à la fois impactant et racontant ce que l'on veut dire. J'aurais apprécié réaliser le tutoriel Codecademy avec des jalons et plus proche du temporellement du projet, pour pouvoir mettre plus rapidement en oeuvre les compétences acquises.
 
+<a id="section-5"></a>
 
 ## V. Annexe
 
